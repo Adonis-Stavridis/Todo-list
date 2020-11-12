@@ -25,6 +25,10 @@ class TaskController extends Task
   public function postTask(Request $request, Response $response): Response {
     $task = $this->getTaskInfo((int)$_POST['taskId']);
 
+    $_SESSION['users'] = $this->getAllUsers();
+    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by']);
+    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to']);
+
     return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task]);
   }
   # TASK
@@ -47,4 +51,13 @@ class TaskController extends Task
     return $response->withHeader('Location', $this->router->urlFor('home'));
   }
   # CREATE
+
+  private function getUsernameFromId(int $id): string {
+    foreach ($_SESSION['users'] as $user) {
+      if ((int)$user['id'] == $id) {
+        return $user['username'];
+      }
+    }
+    return '';
+  }
 }

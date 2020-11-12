@@ -1,6 +1,11 @@
 <div class="bg-dark p-4 mb-2 d-flex flex-column rounded">
   {% block taskDiv %}
-  <h1 class="my-auto">{{ taskInfo.title }}</h1>
+  <h1>{{ taskInfo.title }}</h1>
+  <p>Created by : {{ taskInfo.created_by }}</p>
+  <p>Assigned to : {{ taskInfo.assigned_to }}</p>
+  <p>Description : {{ taskInfo.description }}</p>
+  <p>Created at : {{ taskInfo.created_at }}</p>
+  <p>Due date : {{ taskInfo.due_date }}</p>
   {% endblock %}
 </div>
 

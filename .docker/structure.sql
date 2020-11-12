@@ -75,7 +75,10 @@ LOCK TABLES `todos` WRITE;
 
 INSERT INTO `todos` (`id`, `created_by`, `assigned_to`, `title`, `description`, `created_at`, `due_date`)
 VALUES
-	(1,1,NULL,'Développer le premier TP','Faire la présentation de l\'architecture MVC','2019-08-11 16:32:16','2019-09-09 16:32:20');
+	(1,1,NULL,'Développer le premier TP','Faire la présentation de l\'architecture MVC','2019-08-11 16:32:16','2019-09-09 16:32:20'),
+  (2,2,NULL,'Développer le deuxieme TP','Faire la présentation de PHP','2019-08-11 16:32:16','2019-09-09 16:32:20'),
+  (3,3,NULL,'Développer le troisieme TP','Faire la présentation de Slim','2019-08-11 16:32:16','2019-09-09 16:32:20'),
+  (4,1,NULL,'Développer le quatrieme TP','Faire la présentation de Twig','2019-08-11 16:32:16','2019-09-09 16:32:20');
 
 /*!40000 ALTER TABLE `todos` ENABLE KEYS */;
 UNLOCK TABLES;

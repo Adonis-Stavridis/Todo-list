@@ -25,7 +25,7 @@ return function (App $app) {
     $response = (new Response())->withStatus(404);
     $container = $app->getContainer();
     $_404Controller = new _404Controller($container);
-    return $_404Controller->render($request,$response);
+    return $_404Controller->get404($request,$response);
   };
   
   $errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);

@@ -20,7 +20,8 @@ return function () {
         $pdo = new PDO($dsn, $user, $pass, [ PDO::ATTR_PERSISTENT => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ]);
         return $pdo;
       } catch (PDOException $e) {
-        echo 'Connection failed : ' . $e->getMessage();
+        echo '<h!>Connection failed!</h1><p>'.$e->getMessage().'</p>';
+        die();
       }
     },
     'view' => function () : Twig {

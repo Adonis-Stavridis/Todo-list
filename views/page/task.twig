@@ -1,9 +1,6 @@
-{% extends "/page/home.twig" %}
-
-{% block taskPage %}
 <div class="bg-dark p-4 mb-2 d-flex flex-column rounded">
   {% block taskDiv %}
-  <h1 class="my-auto">Choose a task</h1>
+  <h1 class="my-auto">{{ taskInfo.title }}</h1>
   {% endblock %}
 </div>
 
@@ -12,4 +9,3 @@
   <h1 class="my-auto">Comments will show here</h1>
   {% endblock %}
 </div>
-{% endblock %}

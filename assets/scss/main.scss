@@ -44,3 +44,26 @@ body {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
+
+.list-color {
+  &:nth-child(4n+1) {
+    @extend .list-group-item-primary;
+  }
+  &:nth-child(4n+2) {
+    @extend .list-group-item-success;
+  }
+  &:nth-child(4n+3) {
+    @extend .list-group-item-warning;
+  }
+  &:nth-child(4n+4) {
+    @extend .list-group-item-danger;
+  }
+}
+
+.task-el {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

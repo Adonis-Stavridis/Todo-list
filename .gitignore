@@ -6,4 +6,5 @@
 # .env
 
 # Compiled files
-# /public/stylesheet
+/public/css
+/public/js

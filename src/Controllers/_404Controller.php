@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class _404Controller extends Model
 {
-  public function render(Request $request, Response $response): Response {
+  public function get404(Request $request, Response $response): Response {
     return $this->view->render($response, "/page/404.twig");
   }
 }

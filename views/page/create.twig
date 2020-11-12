@@ -1,36 +1,31 @@
-{% extends "/page/home.twig" %}
-
-{% block taskPage %}
 <div class="p-4 d-flex flex-column mh-100 overflow-auto">
   <h1 id="createTask">Create task</h1>
-  <form action="{{ url_for('create') }}" method="post" autocomplete="off">
+  <form action="/create" method="post" autocomplete="off">
     <div class="form-group">
       <label for="taskTitle">Title</label>
-      <input type="text" class="form-control" id="taskTitle" placeholder="Go to the Gym" required autofocus>
+      <input name="taskTitle" type="text" class="form-control" id="taskTitle" placeholder="Go to the Gym" required autofocus>
     </div>
     <div class="form-group">
       <label for="taskDecription">Description</label>
-      <textarea type="text" class="form-control" id="taskDecription" placeholder="Gotta work those legs for once" required></textarea>
+      <textarea name="taskDescription" type="text" class="form-control" id="taskDecription" placeholder="Gotta work those legs for once" required></textarea>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="taskAssignTo">Assign to</label>
-        <select id="taskAssignTo" class="form-control custom-select">
-          <option selected>{{ username }}</option>
+        <select name="taskAssignTo" id="taskAssignTo" class="form-control custom-select">
+          <option value="{{ userid }}" selected>{{ username }}</option>
           {% for user in users %}
           {% if username != user.username %}
-          <option>{{ user.username }}</option>
+          <option value="{{ user.id }}">{{ user.username }}</option>
           {% endif %}
           {% endfor %}
         </select>
       </div>
       <div class="form-group col-md-6">
         <label for="taskDueDate">Due date</label>
-        <input type="date" class="form-control" id="taskDueDate" required>
+        <input name="taskDueDate" type="date" class="form-control" id="taskDueDate" required>
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
   </form>
 </div>
-{% endblock %}
-

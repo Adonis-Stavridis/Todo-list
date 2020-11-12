@@ -4,24 +4,24 @@ declare(strict_types=1);
 namespace Todo\Models;
 
 class User extends Model {
-  protected function userLogin(string $username, string $password): bool {
-    $query = 'SELECT 1 FROM users WHERE username = ? AND password = ?';
+  protected function userLogin(string $username, string $password): int {
+    $query = 'SELECT id FROM users WHERE username = ? AND password = ?';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$username, $password]);
-    $res = $stmt->fetchAll();
+    $res = $stmt->fetch();
     
     if (empty($res)) {
-      return false;
+      return -1;
     }
 
-    return true;
+    return (int)$res['id'];
   }
 
   protected function userExists(string $username): bool {
     $query = 'SELECT 1 FROM users WHERE username = ?';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$username]);
-    $res = $stmt->fetchAll();
+    $res = $stmt->fetch();
     
     if (empty($res)) {
       return false;

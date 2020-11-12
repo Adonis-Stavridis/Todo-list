@@ -4,8 +4,8 @@
   "description": "A simple todo-list",
   "main": "./assets/js/index.js",
   "scripts": {
-    "build": "npm run sass",
-    "webpack": "webpack assets/js/index.js public/dist/bundle.js",
+    "build": "npm run sass && npm run webpack",
+    "webpack": "webpack",
     "sass": "sass assets/scss/main.scss public/css/main.css"
   },
   "repository": {
@@ -29,6 +29,7 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "webpack": "^5.4.0"
   },
   "devDependencies": {

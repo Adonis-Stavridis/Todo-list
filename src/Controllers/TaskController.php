@@ -9,19 +9,40 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class TaskController extends Task
 {
-  # CREATE
-  public function getCreate(Request $request, Response $response, array $args): Response {
-    if (!$_SESSION['username']) {
+  # HOME
+  public function getHome(Request $request, Response $response, array $args): Response {
+    if (!$_SESSION['user']) {
       return $response->withHeader('Location', $this->router->urlFor('login'));
     }
 
-    $users = $this->getAllUsers();
+    $_SESSION['tasks'] = $this->getAllTasks();
     
-    return $this->view->render($response, "/page/create.twig", ['username' => $_SESSION['username'], 'users' => $users]);
+    return $this->view->render($response, "/page/home.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks']]);
   }
+  # HOME
 
+  # TASK
+  public function postTask(Request $request, Response $response): Response {
+    $task = $this->getTaskInfo((int)$_POST['taskId']);
+
+    return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task]);
+  }
+  # TASK
+
+  # ADD
+  public function postAdd(Request $request, Response $response, array $args): Response {
+    $_SESSION['users'] = $this->getAllUsers();
+    
+    return $this->view->render($response, "/page/create.twig", ['userid' => $_SESSION['user']['id'], 'username' => $_SESSION['user']['username'], 'users' => $_SESSION['users']]);
+  }
+  # ADD
+
+  # CREATE
   public function postCreate(Request $request, Response $response): Response {
     $data = $request->getParsedBody();
+    $createdAt = date("Y-m-d H:i:s");
+
+    $this->addTask($_SESSION['user']['id'], (int)$data['taskAssignTo'], $data['taskTitle'], $data['taskDescription'], $createdAt, $data['taskDueDate'].' 23:59:59');
 
     return $response->withHeader('Location', $this->router->urlFor('home'));
   }

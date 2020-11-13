@@ -1,16 +1,35 @@
 <div class="bg-dark p-4 mb-2 d-flex flex-column rounded">
   {% block taskDiv %}
   <h1>{{ taskInfo.title }}</h1>
-  <p>Created by : {{ taskInfo.created_by }}</p>
-  <p>Assigned to : {{ taskInfo.assigned_to }}</p>
-  <p>Description : {{ taskInfo.description }}</p>
-  <p>Created at : {{ taskInfo.created_at }}</p>
-  <p>Due date : {{ taskInfo.due_date }}</p>
+  <div class="row">
+    <div class="col">
+      <p>Created by</p>
+      <p class="bg-secondary rounded px-2 py-1">{{ taskInfo.created_by }}</p>
+    </div>
+    <div class="col">
+      <p>Assigned to</p>
+      <p class="bg-secondary rounded px-2 py-1">{{ taskInfo.assigned_to }}</p>
+    </div>
+  </div>
+  <p>Description</p>
+  <p class="bg-secondary rounded px-2 py-1">{{ taskInfo.description }}</p>
+  <div class="row">
+    <div class="col">
+      <p>Created at</p>
+      <p class="bg-secondary rounded px-2 py-1">{{ taskInfo.created_at }}</p>
+    </div>
+    <div class="col">
+      <p>Due date</p>
+      <p class="bg-secondary rounded px-2 py-1">{{ taskInfo.due_date }}</p>
+    </div>
+  </div>
   {% endblock %}
 </div>
 
+{% if comments %}
 <div class="p-4 mb-2 d-flex flex-column">
   {% block commentDiv %}
-  <h1 class="my-auto">Comments will show here</h1>
+  <h1 class="my-auto"></h1>
   {% endblock %}
 </div>
+{% endif %}

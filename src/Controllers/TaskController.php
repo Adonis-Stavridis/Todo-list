@@ -29,6 +29,12 @@ class TaskController extends Task
     $task['created_by'] = $this->getUsernameFromId((int)$task['created_by']);
     $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to']);
 
+    foreach ($task as $key => $val) {
+      if ($val == '') {
+        $task[$key] = 'none';
+      }
+    }
+
     return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task]);
   }
   # TASK
@@ -53,6 +59,10 @@ class TaskController extends Task
   # CREATE
 
   private function getUsernameFromId(int $id): string {
+    if ($id == 0) {
+      return '';
+    }
+
     foreach ($_SESSION['users'] as $user) {
       if ((int)$user['id'] == $id) {
         return $user['username'];

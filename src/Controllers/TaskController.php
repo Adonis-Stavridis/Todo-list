@@ -23,27 +23,27 @@ class TaskController extends Task
 
   # TASK
   public function postTask(Request $request, Response $response): Response {
-    $task = $this->getTaskInfo((int)$_POST['taskId']);
+    $taskId = (int)$_POST['taskId'];
+    $task = $this->getTaskInfo($taskId);
 
-    $_SESSION['users'] = $this->getAllUsers();
-    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by']);
-    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to']);
-
-    foreach ($task as $key => $val) {
-      if ($val == '') {
-        $task[$key] = 'none';
-      }
+    $users = $this->getAllUsers();
+    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by'], $users);
+    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to'], $users);
+    
+    $comments = $this->getCommentsByTask($taskId);
+    foreach ($comments as $key => $value) {
+      $comments[$key]['created_by'] =  $this->getUsernameFromId((int)$comments[$key]['created_by'], $users);
     }
 
-    return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task]);
+    return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task, 'comments' => $comments]);
   }
   # TASK
 
   # ADD
   public function postAdd(Request $request, Response $response, array $args): Response {
-    $_SESSION['users'] = $this->getAllUsers();
+    $users = $this->getAllUsers();
     
-    return $this->view->render($response, "/page/create.twig", ['userid' => $_SESSION['user']['id'], 'username' => $_SESSION['user']['username'], 'users' => $_SESSION['users']]);
+    return $this->view->render($response, "/page/create.twig", ['userid' => $_SESSION['user']['id'], 'username' => $_SESSION['user']['username'], 'users' => $users]);
   }
   # ADD
 
@@ -58,12 +58,31 @@ class TaskController extends Task
   }
   # CREATE
 
-  private function getUsernameFromId(int $id): string {
+  # COMMENT
+  public function postComment(Request $request, Response $response, array $args): Response {
+    $data = $request->getParsedBody();
+    $taskId = (int)$data['taskId'];
+    $commentText = $data['taskComment'];
+    $createdAt = date("Y-m-d H:i:s");
+
+    $this->addCommentToTask($taskId, $_SESSION['user']['id'], $createdAt, $commentText);
+    
+    $comment = array(
+      'created_by' => $_SESSION['user']['username'],
+      'created_at' => $createdAt,
+      'comment' => $commentText
+    );
+    
+    return $response->withHeader('Location', $this->router->urlFor('home'));
+  }
+  # COMMENT
+
+  private function getUsernameFromId(int $id, array $users): string {
     if ($id == 0) {
       return '';
     }
 
-    foreach ($_SESSION['users'] as $user) {
+    foreach ($users as $user) {
       if ((int)$user['id'] == $id) {
         return $user['username'];
       }

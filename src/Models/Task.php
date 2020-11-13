@@ -36,4 +36,19 @@ class Task extends Model {
 
     return $res;
   }
+
+  protected function addCommentToTask(int $taskId, int $createdBy, string $createdAt, string $comment) {
+    $query = 'INSERT INTO comments (task_id, created_by, created_at, comment) VALUES ( ? , ? , ? , ? )';
+    $stmt = $this->db->prepare($query);
+    $stmt->execute([$taskId, $createdBy, $createdAt, $comment]);
+  }
+
+  protected function getCommentsByTask(int $id) {
+    $query = 'SELECT id, created_by, created_at, comment FROM comments WHERE task_id = ? ORDER BY created_at DESC';
+    $stmt = $this->db->prepare($query);
+    $stmt->execute([$id]);
+    $res = $stmt->fetchAll();
+
+    return $res;
+  }
 }

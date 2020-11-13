@@ -29,7 +29,7 @@ CREATE TABLE `comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `task_id` int(11) unsigned NOT NULL,
   `created_by` int(11) unsigned NOT NULL,
-  `created_at` datetime NOT NULL,
+  `created_at` date NOT NULL,
   `comment` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `task_id` (`task_id`),
@@ -43,8 +43,8 @@ LOCK TABLES `comments` WRITE;
 
 INSERT INTO `comments` (`id`, `task_id`, `created_by`, `created_at`, `comment`)
 VALUES
-	(1,1,2,'2019-08-11 16:33:15','Je pense qu\'il manque l\'architecture Héxagonale'),
-	(2,1,1,'2019-08-11 16:33:51','Ce sera dans le prochain cours');
+	(1,1,2,'2019-08-11','Je pense qu\'il manque l\'architecture Héxagonale'),
+	(2,1,1,'2019-08-14','Ce sera dans le prochain cours');
 
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -58,11 +58,11 @@ DROP TABLE IF EXISTS `todos`;
 CREATE TABLE `todos` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `created_by` int(11) unsigned NOT NULL,
-  `assigned_to` int(11) unsigned DEFAULT NULL,
-  `title` varchar(255) NOT NULL DEFAULT '',
+  `assigned_to` int(11) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `created_at` datetime NOT NULL,
-  `due_date` datetime DEFAULT NULL,
+  `created_at` date NOT NULL,
+  `due_date` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `created_by` (`created_by`),
   KEY `assigned_to` (`assigned_to`),
@@ -75,10 +75,10 @@ LOCK TABLES `todos` WRITE;
 
 INSERT INTO `todos` (`id`, `created_by`, `assigned_to`, `title`, `description`, `created_at`, `due_date`)
 VALUES
-	(1,1,NULL,'Développer le premier TP','Faire la présentation de l\'architecture MVC','2019-08-11 16:32:16','2019-09-09 16:32:20'),
-  (2,2,NULL,'Développer le deuxieme TP','Faire la présentation de PHP','2019-08-11 16:32:16','2019-09-09 16:32:20'),
-  (3,3,NULL,'Développer le troisieme TP','Faire la présentation de Slim','2019-08-11 16:32:16','2019-09-09 16:32:20'),
-  (4,1,NULL,'Développer le quatrieme TP','Faire la présentation de Twig','2019-08-11 16:32:16','2019-09-09 16:32:20');
+	(1,1,1,'Développer le premier TP','Faire la présentation de l\'architecture MVC','2019-08-11','2019-09-09'),
+  (2,2,2,'Développer le deuxieme TP','Faire la présentation de PHP','2019-08-11','2019-09-09'),
+  (3,3,3,'Développer le troisieme TP','Faire la présentation de Slim','2019-08-11','2019-09-09'),
+  (4,1,2,'Développer le quatrieme TP','Faire la présentation de Twig','2019-08-11','2019-09-09');
 
 /*!40000 ALTER TABLE `todos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -91,8 +91,8 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL DEFAULT '',
-  `password` varchar(255) NOT NULL DEFAULT '',
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -9,20 +9,25 @@ $(function () {
       'type': 'post',
       'data': {
         'taskId': this.id
-      },
-      'success': function (response) {
-        updateElement($('#taskPage'), response);
       }
+    }).done(function (response) {
+      updateElement($('#taskPage'), response);
     });
   });
 
   $('#addButton').on('click', function () {
     $.ajax({
       'url': 'add',
-      'type': 'post',
-      'success': function (response) {
-        updateElement($('#taskPage'), response);
-      }
+      'type': 'post'
+    }).done(function (response) {
+      updateElement($('#taskPage'), response);
+    });
+  });
+
+  $('#addComment').on('click', function () {
+    $.ajax({
+      'url': 'comment',
+      'type': 'post'
     });
   });
 

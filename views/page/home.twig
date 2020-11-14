@@ -18,9 +18,9 @@
           <input class="form-control overflow-auto round-border-left" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-info d-flex justify-content-center align-items-center round-border-right" type="submit"><img class="mini-icon" src="img/search.svg" alt="SEARCH"></button>
         </form>
-        <a href="{{ url_for('create') }}#create" class="btn btn-success d-flex justify-content-center align-items-center mb-2 ml-2">
+        <button class="btn btn-success d-flex justify-content-center align-items-center mb-2 ml-2" data-toggle="modal" data-target="#modalCreate">
           <img class="mini-icon" src="img/create.svg" alt="CREATE">
-        </a>
+        </button>
       </div>
 
       <div id="tasksList" class="list-group w-100 overflow-auto mb-2 list-color">
@@ -30,6 +30,49 @@
           {# <span class="badge badge-primary badge-pill">14</span> #}
         </a>
         {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalCreate" tabindex="-1" aria-labelledby="modalCreateLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCreateLabel">Create task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/create" method="post" autocomplete="off">
+            <div class="form-group">
+              <label for="taskTitle">Title</label>
+              <input name="taskTitle" type="text" class="form-control" id="taskTitle" placeholder="Go to the Gym" required autofocus>
+            </div>
+            <div class="form-group">
+              <label for="taskDecription">Description</label>
+              <textarea name="taskDescription" type="text" class="form-control" id="taskDecription" placeholder="Gotta work those legs for once" required></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="taskAssignTo">Assign to</label>
+                <select name="taskAssignTo" id="taskAssignTo" class="form-control custom-select">
+                  <option value="{{ userid }}" selected>{{ username }}</option>
+                  {% for user in users %}
+                  {% if username != user.username %}
+                  <option value="{{ user.id }}">{{ user.username }}</option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="taskDueDate">Due date</label>
+                <input name="taskDueDate" type="date" class="form-control" id="taskDueDate" required>
+              </div>
+            </div>
+            <button id="createButton" type="submit" class="btn btn-primary">Create</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>

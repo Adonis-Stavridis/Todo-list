@@ -15,11 +15,15 @@ class TaskController extends Task
       return $response->withHeader('Location', $this->router->urlFor('login'));
     }
 
+    if (!$_SESSION['users']) {
+      $_SESSION['users'] = $this->getAllUsers();
+    }
+
     if (!$_SESSION['tasks']) {
       $_SESSION['tasks'] = $this->getAllTasks();
     }
     
-    return $this->view->render($response, "/page/home.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks']]);
+    return $this->view->render($response, "/page/home.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);
   }
   # HOME
 
@@ -48,7 +52,7 @@ class TaskController extends Task
       $comments[$key]['created_by'] =  $this->getUsernameFromId((int)$comments[$key]['created_by'], $_SESSION['users']);
     }
 
-    return $this->view->render($response, "/page/task.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'],'taskInfo' => $task, 'comments' => $comments]);
+    return $this->view->render($response, "/page/task.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'],'taskInfo' => $task, 'comments' => $comments, 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);
   }
   # TASK
 
@@ -97,6 +101,8 @@ class TaskController extends Task
     $taskId = (int)$data['taskId'];
     $commentText = $data['taskComment'];
     $createdAt = date("Y-m-d H:i:s");
+
+    var_dump($data);
 
     $this->addCommentToTask($taskId, $_SESSION['user']['id'], $createdAt, $commentText);
     

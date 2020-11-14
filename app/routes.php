@@ -17,9 +17,7 @@ $app->get('/signup', AuthController::class.':getSignup')->setName('signup');
 $app->post('/signup', AuthController::class.':postSignup');
 
 $app->get('/task-{taskId:[1-9][0-9]*}', TaskController::class.':getTask')->setName('task');
-$app->post('/comment', TaskController::class.':postComment');
 
-$app->get('/search', TaskController::class.':getSearch');
-
-$app->get('/create', TaskController::class.':getCreate')->setName('create');
 $app->post('/create', TaskController::class.':postCreate');
+$app->post('/comment', TaskController::class.':postComment');
+$app->post('/search', TaskController::class.':postSearch');

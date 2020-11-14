@@ -76,7 +76,7 @@ class TaskController extends Task
       $_SESSION['tasks'] = $this->getAllTasks();
     }
 
-    return $this->view->render($response, "/page/create.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'users' => $_SESSION['users']]);
+    return $this->view->render($response, "/page/create.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);
   }
 
   public function postCreate(Request $request, Response $response): Response {
@@ -84,8 +84,10 @@ class TaskController extends Task
     $createdAt = date("Y-m-d H:i:s");
 
     $taskId = $this->addTask($_SESSION['user']['id'], (int)$data['taskAssignTo'], $data['taskTitle'], $data['taskDescription'], $createdAt, $data['taskDueDate'].' 23:59:59');
+    
+    $_SESSION['tasks'] = $this->getAllTasks();
 
-    return $response->withHeader('Location', $this->router->urlFor('task', [$taskId]));
+    return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $taskId]));
   }
   # CREATE
 

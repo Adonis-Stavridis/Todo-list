@@ -18,14 +18,14 @@
           <input class="form-control overflow-auto round-border-left" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-info d-flex justify-content-center align-items-center round-border-right" type="submit"><img class="mini-icon" src="/img/search.svg" alt="SEARCH"></button>
         </form>
-        <a href="{{ url_for('create') }}" class="btn btn-success d-flex justify-content-center align-items-center mb-2 ml-2">
+        <a href="{{ url_for('create') }}#create" class="btn btn-success d-flex justify-content-center align-items-center mb-2 ml-2">
           <img class="mini-icon" src="/img/create.svg" alt="CREATE">
         </a>
       </div>
 
       <div id="tasksList" class="list-group w-100 overflow-auto mb-2 list-color">
         {% for task in tasks %}
-        <a href="{{ url_for('task', {'taskId': task.id}) }}" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('task', {'taskId': task.id}) }}#task" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
           {{ task.title }}
           {# <span class="badge badge-primary badge-pill">14</span> #}
         </a>

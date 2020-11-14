@@ -11,16 +11,15 @@ $app->get('/', TaskController::class.':getHome')->setName('home');
 $app->get('/login', AuthController::class.':getLogin')->setName('login');
 $app->post('/login', AuthController::class.':postLogin');
 
-$app->get('/logout', AuthController::class.':logout');
+$app->get('/logout', AuthController::class.':logout')->setName('logout');
 
 $app->get('/signup', AuthController::class.':getSignup')->setName('signup');
 $app->post('/signup', AuthController::class.':postSignup');
 
-$app->get('/{taskId:[1-9][0-9]*}', TaskController::class.':getTask')->setName('task');
-$app->post('/task', TaskController::class.':postTask');
+$app->get('/task-{taskId:[1-9][0-9]*}', TaskController::class.':getTask')->setName('task');
 $app->post('/comment', TaskController::class.':postComment');
 
 $app->get('/search', TaskController::class.':getSearch');
 
-$app->post('/add', TaskController::class.':postAdd');
+$app->get('/create', TaskController::class.':getCreate')->setName('create');
 $app->post('/create', TaskController::class.':postCreate');

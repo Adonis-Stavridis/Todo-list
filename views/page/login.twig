@@ -25,7 +25,7 @@
           rel="noopener noreferrer"
           role="button"
         >
-          <img class="mini-icon" src="img/github.svg" alt="Gh-logo">
+          <img class="mini-icon" src="/img/github.svg" alt="Gh-logo">
           Source code
         </a>
       </div>
@@ -35,7 +35,7 @@
   <div class="col-sm-5">
     <div class="h-100 d-flex flex-column justify-content-center align-items-center">
     
-      <img class="img-icon mb-2" src="img/logo.svg" alt="TODO LIST">
+      <img class="img-icon mb-2" src="/img/logo.svg" alt="TODO LIST">
       <div class="card text-white bg-dark mb-3 div-w75">
         <div class="card-header">
           {% block formTitle %}Log In{% endblock %}
@@ -82,7 +82,7 @@
         <div class="card-body">
           {% block formFooter %}
           <span>New to Todo? 
-            <a href="/signup" class="text-primary">Create an account</a>
+            <a href="{{ url_for('signup') }}" class="text-primary">Create an account</a>
           </span>
           {% endblock %}
         </div>
@@ -95,7 +95,7 @@
 
 {% block notification %}
 <div class="alert alert-danger" role="alert">
-  <img class="mini-icon float-left mr-4" src="img/warning.svg" alt="Warning : ">
+  <img class="mini-icon float-left mr-4" src="/img/warning.svg" alt="Warning : ">
   Username and/or password incorrect!
 </div>
 {% endblock %}

@@ -50,24 +50,6 @@ class TaskController extends Task
 
     return $this->view->render($response, "/page/task.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'],'taskInfo' => $task, 'comments' => $comments]);
   }
-
-  public function postTask(Request $request, Response $response): Response {
-    $taskId = (int)$_POST['taskId'];
-    $task = $this->getTaskInfo($taskId);
-
-    if (!$_SESSION['users']) {
-      $_SESSION['users'] = $this->getAllUsers();
-    }
-    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by'], $_SESSION['users']);
-    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to'], $_SESSION['users']);
-    
-    $comments = $this->getCommentsByTask($taskId);
-    foreach ($comments as $key => $value) {
-      $comments[$key]['created_by'] =  $this->getUsernameFromId((int)$comments[$key]['created_by'], $_SESSION['users']);
-    }
-
-    return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task, 'comments' => $comments]);
-  }
   # TASK
 
   # ADD
@@ -81,13 +63,29 @@ class TaskController extends Task
   # ADD
 
   # CREATE
+  public function getCreate(Request $request, Response $response, array $args): Response {
+    if (!$_SESSION['user']) {
+      return $response->withHeader('Location', $this->router->urlFor('login'));
+    }
+
+    if (!$_SESSION['users']) {
+      $_SESSION['users'] = $this->getAllUsers();
+    }
+
+    if (!$_SESSION['tasks']) {
+      $_SESSION['tasks'] = $this->getAllTasks();
+    }
+
+    return $this->view->render($response, "/page/create.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'users' => $_SESSION['users']]);
+  }
+
   public function postCreate(Request $request, Response $response): Response {
     $data = $request->getParsedBody();
     $createdAt = date("Y-m-d H:i:s");
 
-    $this->addTask($_SESSION['user']['id'], (int)$data['taskAssignTo'], $data['taskTitle'], $data['taskDescription'], $createdAt, $data['taskDueDate'].' 23:59:59');
+    $taskId = $this->addTask($_SESSION['user']['id'], (int)$data['taskAssignTo'], $data['taskTitle'], $data['taskDescription'], $createdAt, $data['taskDueDate'].' 23:59:59');
 
-    return $response->withHeader('Location', $this->router->urlFor('home'));
+    return $response->withHeader('Location', $this->router->urlFor('task', [$taskId]));
   }
   # CREATE
 

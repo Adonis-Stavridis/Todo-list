@@ -100,9 +100,17 @@ class TaskController extends Task
     $data = $request->getParsedBody();
     $taskId = (int)$data['taskId'];
     $commentText = $data['taskComment'];
-    $createdAt = date("Y-m-d H:i:s");
+    $createdAt = date("Y-m-d");
 
     $this->addCommentToTask($taskId, $_SESSION['user']['id'], $createdAt, $commentText);
+    
+    $comment = array(
+      'created_by' => $_SESSION['user']['id'],
+      'created_at' => $createdAt,
+      'comment' => $commentText
+    );
+
+    $response = $this->view->render($response, "/template/comment.twig", ['comment' => $comment]);
     
     return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $taskId]));
   }

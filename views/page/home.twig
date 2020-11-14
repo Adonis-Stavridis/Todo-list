@@ -25,17 +25,15 @@
 
       <div id="tasksList" class="list-group w-100 overflow-auto mb-2 list-color">
         {% for task in tasks %}
-        <div id="{{ task.id }}" class="list-group-item list-group-item-action list-color task-el d-flex justify-content-between align-items-center">
+        <a href="{{ task.id }}" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
           {{ task.title }}
           {# <span class="badge badge-primary badge-pill">14</span> #}
-        </div>
+        </a>
         {% endfor %}
       </div>
     </div>
   </div>
   
-  <div id="taskPage" class="col-md-8 h-100 mh-100 mb-3 d-flex flex-column">
-    {% block taskPage %}{% endblock %}
-  </div>
+  {% block taskPage %}{% endblock %}
 </div>
 {% endblock %}

@@ -59,11 +59,3 @@ body {
     @extend .list-group-item-danger;
   }
 }
-
-.task-el {
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}

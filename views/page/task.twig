@@ -1,50 +1,58 @@
-<div class="bg-dark p-4 mb-2 d-flex flex-column rounded">
-  <h1>{{ taskInfo.title }}</h1>
-  <div class="row">
-    <div class="col">
-      <p>Created by</p>
-      <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.created_by }}</p>
-    </div>
-    <div class="col">
-      <p>Assigned to</p>
-      <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.assigned_to }}</p>
-    </div>
-  </div>
-  <p>Description</p>
-  <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.description }}</p>
-  <div class="row">
-    <div class="col">
-      <p>Created at</p>
-      <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.created_at }}</p>
-    </div>
-    <div class="col">
-      <p>Due date</p>
-      <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.due_date }}</p>
-    </div>
-  </div>
-</div>
+{% extends "page/home.twig" %}
 
-<div class="px-2 py-4 mb-2 card-columns overflow-auto">
-  <div id="addComment" class="card bg-dark border-light mh-100 d-inline-block">
-    <div class="card-header">Add comment</div>
-    <div class="card-body">
-      <form action="/comment" method="post" autocomplete="off">
-        <div class="form-group">
-          <input name="taskId" value="{{ taskInfo.id }}" type="hidden">
-          <textarea name="taskComment" type="text" class="form-control" id="taskComment" placeholder="This is a great idea!" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">
-          Add
-        </button>
-      </form>
+{% block title %}Task-{{ taskInfo.id }}{% endblock %}
+
+{% block taskPage %}
+<div id="taskPage" class="col-md-8 h-100 mh-100 mb-3 d-flex flex-column">
+  <div class="bg-dark p-4 mb-2 d-flex flex-column rounded">
+    <h1>{{ taskInfo.title }}</h1>
+    <div class="row">
+      <div class="col">
+        <p>Created by</p>
+        <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.created_by }}</p>
+      </div>
+      <div class="col">
+        <p>Assigned to</p>
+        <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.assigned_to }}</p>
+      </div>
+    </div>
+    <p>Description</p>
+    <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.description }}</p>
+    <div class="row">
+      <div class="col">
+        <p>Created at</p>
+        <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.created_at }}</p>
+      </div>
+      <div class="col">
+        <p>Due date</p>
+        <p class="bg-secondary rounded px-3 py-1">{{ taskInfo.due_date }}</p>
+      </div>
     </div>
   </div>
-  {% for comment in comments %}
-  <div class="card bg-dark d-inline-block">
-    <div class="card-header">{{ comment.created_by }}{{ " " }}<small class="text-muted">{{ comment.created_at }}</small></div>
-    <div class="card-body">
-      <p class="card-text">{{ comment.comment }}</p>
+
+  <div class="px-2 py-4 mb-2 card-columns overflow-auto">
+    <div id="addComment" class="card bg-dark border-light mh-100 d-inline-block">
+      <div class="card-header">Add comment</div>
+      <div class="card-body">
+        <form action="/comment" method="post" autocomplete="off">
+          <div class="form-group">
+            <input name="taskId" value="{{ taskInfo.id }}" type="hidden">
+            <textarea name="taskComment" type="text" class="form-control" id="taskComment" placeholder="This is a great idea!" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Add
+          </button>
+        </form>
+      </div>
     </div>
+    {% for comment in comments %}
+    <div class="card bg-dark d-inline-block">
+      <div class="card-header">{{ comment.created_by }}{{ " " }}<small class="text-muted">{{ comment.created_at }}</small></div>
+      <div class="card-body">
+        <p class="card-text">{{ comment.comment }}</p>
+      </div>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
+{% endblock %}

@@ -9941,12 +9941,4 @@ body {
   border-bottom-right-radius: 0.25rem;
 }
 
-.task-el {
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 /*# sourceMappingURL=main.css.map */

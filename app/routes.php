@@ -16,6 +16,7 @@ $app->get('/logout', AuthController::class.':logout');
 $app->get('/signup', AuthController::class.':getSignup')->setName('signup');
 $app->post('/signup', AuthController::class.':postSignup');
 
+$app->get('/{taskId:[1-9][0-9]*}', TaskController::class.':getTask')->setName('task');
 $app->post('/task', TaskController::class.':postTask');
 $app->post('/comment', TaskController::class.':postComment');
 

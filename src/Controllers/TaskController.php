@@ -15,24 +15,55 @@ class TaskController extends Task
       return $response->withHeader('Location', $this->router->urlFor('login'));
     }
 
-    $_SESSION['tasks'] = $this->getAllTasks();
+    if (!$_SESSION['tasks']) {
+      $_SESSION['tasks'] = $this->getAllTasks();
+    }
     
     return $this->view->render($response, "/page/home.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks']]);
   }
   # HOME
 
   # TASK
+  public function getTask(Request $request, Response $response, array $args) {
+    if (!$_SESSION['user']) {
+      return $response->withHeader('Location', $this->router->urlFor('login'));
+    }
+
+    $taskId = (int)$args['taskId'];
+    $task = $this->getTaskInfo($taskId);
+
+    if (!$_SESSION['users']) {
+      $_SESSION['users'] = $this->getAllUsers();
+    }
+
+    if (!$_SESSION['tasks']) {
+      $_SESSION['tasks'] = $this->getAllTasks();
+    }
+    
+    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by'], $_SESSION['users']);
+    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to'], $_SESSION['users']);
+    
+    $comments = $this->getCommentsByTask($taskId);
+    foreach ($comments as $key => $value) {
+      $comments[$key]['created_by'] =  $this->getUsernameFromId((int)$comments[$key]['created_by'], $_SESSION['users']);
+    }
+
+    return $this->view->render($response, "/page/task.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'],'taskInfo' => $task, 'comments' => $comments]);
+  }
+
   public function postTask(Request $request, Response $response): Response {
     $taskId = (int)$_POST['taskId'];
     $task = $this->getTaskInfo($taskId);
 
-    $users = $this->getAllUsers();
-    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by'], $users);
-    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to'], $users);
+    if (!$_SESSION['users']) {
+      $_SESSION['users'] = $this->getAllUsers();
+    }
+    $task['created_by'] = $this->getUsernameFromId((int)$task['created_by'], $_SESSION['users']);
+    $task['assigned_to'] = $this->getUsernameFromId((int)$task['assigned_to'], $_SESSION['users']);
     
     $comments = $this->getCommentsByTask($taskId);
     foreach ($comments as $key => $value) {
-      $comments[$key]['created_by'] =  $this->getUsernameFromId((int)$comments[$key]['created_by'], $users);
+      $comments[$key]['created_by'] =  $this->getUsernameFromId((int)$comments[$key]['created_by'], $_SESSION['users']);
     }
 
     return $this->view->render($response, "/page/task.twig", ['taskInfo' => $task, 'comments' => $comments]);
@@ -41,9 +72,11 @@ class TaskController extends Task
 
   # ADD
   public function postAdd(Request $request, Response $response, array $args): Response {
-    $users = $this->getAllUsers();
+    if (!$_SESSION['users']) {
+      $_SESSION['users'] = $this->getAllUsers();
+    }
     
-    return $this->view->render($response, "/page/create.twig", ['userid' => $_SESSION['user']['id'], 'username' => $_SESSION['user']['username'], 'users' => $users]);
+    return $this->view->render($response, "/page/create.twig", ['userid' => $_SESSION['user']['id'], 'username' => $_SESSION['user']['username'], 'users' => $_SESSION['users']]);
   }
   # ADD
 

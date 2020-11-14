@@ -102,8 +102,6 @@ class TaskController extends Task
     $commentText = $data['taskComment'];
     $createdAt = date("Y-m-d H:i:s");
 
-    var_dump($data);
-
     $this->addCommentToTask($taskId, $_SESSION['user']['id'], $createdAt, $commentText);
     
     return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $taskId]));

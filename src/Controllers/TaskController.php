@@ -100,13 +100,7 @@ class TaskController extends Task
 
     $this->addCommentToTask($taskId, $_SESSION['user']['id'], $createdAt, $commentText);
     
-    $comment = array(
-      'created_by' => $_SESSION['user']['username'],
-      'created_at' => $createdAt,
-      'comment' => $commentText
-    );
-    
-    return $response->withHeader('Location', $this->router->urlFor('home'));
+    return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $taskId]));
   }
   # COMMENT
 

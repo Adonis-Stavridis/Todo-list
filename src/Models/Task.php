@@ -48,7 +48,7 @@ class Task extends Model {
   }
 
   protected function getCommentsByTask(int $id): array {
-    $query = 'SELECT created_by, created_at, comment FROM comments WHERE task_id = ? ORDER BY id DESC';
+    $query = 'SELECT created_by, created_at, comment FROM comments WHERE task_id = ? ORDER BY id ASC';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$id]);
     $res = $stmt->fetchAll();

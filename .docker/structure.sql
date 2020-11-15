@@ -20,7 +20,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Affichage de la table comments
+# Display comments table
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `comments`;
@@ -41,16 +41,20 @@ CREATE TABLE `comments` (
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 
-INSERT INTO `comments` (`id`, `task_id`, `created_by`, `created_at`, `comment`)
+INSERT INTO `comments` (`task_id`, `created_by`, `created_at`, `comment`)
 VALUES
-	(1,1,2,'2019-08-11','Je pense qu\'il manque l\'architecture Héxagonale'),
-	(2,1,1,'2019-08-14','Ce sera dans le prochain cours');
+	(1,2,'2020-09-10','Study also for the exam!'),
+	(1,3,'2020-09-18','Yeah! I should do that too...'),
+  (2,3,'2020-10-27','It looks like an interesting framework.'),
+  (3,3,'2020-11-01','I think i am really getting the hang of this.'),
+  (4,2,'2020-11-04','This is actually really useful!'),
+  (4,3,'2020-11-04','Sure thing!');
 
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Affichage de la table todos
+# Display todos table
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `todos`;
@@ -73,18 +77,18 @@ CREATE TABLE `todos` (
 LOCK TABLES `todos` WRITE;
 /*!40000 ALTER TABLE `todos` DISABLE KEYS */;
 
-INSERT INTO `todos` (`id`, `created_by`, `assigned_to`, `title`, `description`, `created_at`, `due_date`)
+INSERT INTO `todos` (`created_by`, `assigned_to`, `title`, `description`, `created_at`, `due_date`)
 VALUES
-	(1,1,1,'Développer le premier TP','Faire la présentation de l\'architecture MVC','2019-08-11','2019-09-09'),
-  (2,2,2,'Développer le deuxieme TP','Faire la présentation de PHP','2019-08-11','2019-09-09'),
-  (3,3,3,'Développer le troisieme TP','Faire la présentation de Slim','2019-08-11','2019-09-09'),
-  (4,1,2,'Développer le quatrieme TP','Faire la présentation de Twig','2019-08-11','2019-09-09');
+	(2,2,'Learn PHP','Learn the Web Dev class content','2020-09-05','2020-10-25'),
+  (2,3,'Learn the Slim Framework','Read the Slim documentation','2020-10-25','2020-10-31'),
+  (3,3,'Learn Twig','Read the Twig documentation','2020-10-31','2020-11-03'),
+  (3,2,'Learn the MVC Architecture','Watch a tutorial about MVC, Slim in PHP','2020-11-03','2020-11-05');
 
 /*!40000 ALTER TABLE `todos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Affichage de la table users
+# Display user table
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `users`;

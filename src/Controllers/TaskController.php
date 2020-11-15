@@ -21,6 +21,10 @@ class TaskController extends Task
 
     if (!$_SESSION['tasks']) {
       $_SESSION['tasks'] = $this->getAllTasks();
+      foreach($_SESSION['tasks'] as $key => $value) {
+        $_SESSION['tasks'][$key]['created_by'] = $this->getUsernameFromId((int)$_SESSION['tasks'][$key]['created_by'], $_SESSION['users']);
+        $_SESSION['tasks'][$key]['assigned_to'] = $this->getUsernameFromId((int)$_SESSION['tasks'][$key]['assigned_to'], $_SESSION['users']);
+      }
     }
     
     return $this->view->render($response, "/page/home.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);

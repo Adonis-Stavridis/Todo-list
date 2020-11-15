@@ -24,19 +24,44 @@ $(function () {
   });
 
   function addComment(response) {
-    $(response).insertAfter('#addComment');
+    $(response).insertBefore('#insertBefore:hidden');
   }
 
   $('#searchButton').on('click', function () {
     var $value = $('#searchInput').val();
     if ($value) {
-      $('#tasksList > a:not(:contains("' + $value + '"))').removeClass('d-flex');
-      $('#tasksList > a:not(:contains("' + $value + '"))').addClass('d-none');
-      $('#tasksList > a:contains("' + $value + '")').removeClass('d-none');
-      $('#tasksList > a:contains("' + $value + '")').addClass('d-flex');
+      if ($value.startsWith('[c]')) {
+        filterByCreator($value.replace('[c]',''));
+      } else if ($value.startsWith('[a]')) {
+        filterByAssignee($value.replace('[a]',''));
+      } else {
+        filterByKeyword($value);
+      }
     } else {
       $('#tasksList > a').removeClass('d-none');
       $('#tasksList > a').addClass('d-flex');
     }
   });
+
+  function filterByCreator(val) {
+    console.log($('span.taskCreatedBy:not(:contains("' + val + '"))'));
+    $('span.taskCreatedBy:not(:contains("' + val + '"))').parent().removeClass('d-flex');
+    $('span.taskCreatedBy:not(:contains("' + val + '"))').parent().addClass('d-none');
+    $('span.taskCreatedBy:contains("' + val + '")').parent().removeClass('d-none');
+    $('span.taskCreatedBy:contains("' + val + '")').parent().addClass('d-flex');
+  }
+
+  function filterByAssignee(val) {
+    $('span.taskAssignedTo:not(:contains("' + val + '"))').parent().removeClass('d-flex');
+    $('span.taskAssignedTo:not(:contains("' + val + '"))').parent().addClass('d-none');
+    $('span.taskAssignedTo:contains("' + val + '")').parent().removeClass('d-none');
+    $('span.taskAssignedTo:contains("' + val + '")').parent().addClass('d-flex');
+  }
+
+  function filterByKeyword(val) {
+    $('#tasksList > a:not(:contains("' + val + '"))').removeClass('d-flex');
+    $('#tasksList > a:not(:contains("' + val + '"))').addClass('d-none');
+    $('#tasksList > a:contains("' + val + '")').removeClass('d-none');
+    $('#tasksList > a:contains("' + val + '")').addClass('d-flex');
+  }
 });

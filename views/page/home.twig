@@ -7,7 +7,9 @@
   <div class="col-md-4 h-100 mh-100 mb-3">
     <div class="bg-dark p-4 h-100 mh-100 d-flex flex-column align-items-center rounded">
       <div class="d-flex flex-row w-100 mb-4">
-        <h1 class="mx-auto mb-0 overflow-hidden">{{ username }}</h1>
+        <a href="{{ url_for('home') }}" class="mx-auto overflow-hidden text-decoration-none text-light">
+          <h1 class="mb-0">{{ username }}</h1>
+        </a>
         <a class="btn btn-danger d-flex justify-content-center align-items-center ml-2" href="{{ url_for('logout') }}">
           <img class="mini-icon" src="img/logout.svg" alt="LOGOUT">
         </a>
@@ -29,8 +31,8 @@
         {% for task in tasks %}
         <a href="{{ url_for('task', {'taskId': task.id}) }}#task" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
           {{ task.title }}
-          <input class="taskCreatedBy" value="{{ taskInfo.created_by }}" type="hidden">
-          <input class="taskAssignedTo" value="{{ taskInfo.assigned_to }}" type="hidden">
+          <span class="taskCreatedBy" hidden>{{ task.created_by }}</span>
+          <span class="taskAssignedTo" hidden>{{ task.assigned_to }}</span>
         </a>
         {% endfor %}
       </div>
@@ -80,6 +82,51 @@
     </div>
   </div>
   
-  {% block taskPage %}{% endblock %}
+  {% block taskPage %}
+  <div id="task" class="col-md-8 h-100 mh-100 mb-3 d-flex flex-column p-4">
+    <h1 class="mb-4">Welcome!</h1>
+    <p class="mb-4">Here's some information about this app!</p>
+    <p class="d-flex flex-row">
+      <button class="btn btn-danger d-flex justify-content-center align-items-center mx-2">
+        <img class="mini-icon" src="img/logout.svg" alt="LOGOUT">
+      </button>
+      to logout.
+    </p>
+    <p class="d-flex flex-row">
+      <button class="btn btn-success d-flex justify-content-center align-items-center mb-2 mx-2">
+        <img class="mini-icon" src="img/create.svg" alt="CREATE">
+      </button>
+      to create a new task, by filling all necessary information.
+    </p>
+    <p class="d-flex flex-row">
+      Filter your tasks by keyword with the following input field :
+      <div class="d-flex flex-row mb-2 overflow-hidden"> 
+        <input class="form-control overflow-auto round-border-left" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-info d-flex justify-content-center align-items-center round-border-right">
+          <img class="mini-icon" src="img/search.svg" alt="SEARCH">
+        </button>
+      </div>
+      <small>Use [c] to filter by creator, and [a] to filter by assignee.</small>
+    </p>
+    <p>
+      Click on a task to display more information :
+      <a class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center mt-2">
+        Task
+      </a>
+    </p>
+    <p>
+      Add comments to tasks by filling the following form :
+      <div class="card bg-dark border-light mh-100 d-inline-block">
+        <div class="card-header">Add comment</div>
+        <div class="card-body">
+          <textarea type="text" class="form-control mb-2" id="taskComment" placeholder="This is a great idea!"></textarea>
+          <button class="btn btn-primary">
+            Add
+          </button>
+        </div>
+      </div>
+    </p>
+  </div>
+  {% endblock %}
 </div>
 {% endblock %}

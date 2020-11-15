@@ -12,8 +12,12 @@ $(function () {
 
   $('#commentButton').on('click', function () {
     $.ajax({
-      'url': 'comment',
-      'type': 'post'
+      'url': '/comment',
+      'type': 'post',
+      'data': {
+        'taskId': $('#taskId').val(),
+        'taskComment': $('#taskComment').val()
+      }
     }).done(function (response) {
       addComment(response);
     });
@@ -21,6 +25,5 @@ $(function () {
 
   function addComment(response) {
     $(response).insertAfter('#addComment');
-    window.history.replaceState()
   }
 });

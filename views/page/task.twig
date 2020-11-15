@@ -34,15 +34,11 @@
     <div id="addComment" class="card bg-dark border-light mh-100 d-inline-block">
       <div class="card-header">Add comment</div>
       <div class="card-body">
-        <form action="/comment" method="post" autocomplete="off">
-          <div class="form-group">
-            <input name="taskId" value="{{ taskInfo.id }}" type="hidden">
-            <textarea name="taskComment" type="text" class="form-control" id="taskComment" placeholder="This is a great idea!" required></textarea>
-          </div>
-          <button id="commentButton" type="submit" class="btn btn-primary">
-            Add
-          </button>
-        </form>
+        <input id="taskId" name="taskId" value="{{ taskInfo.id }}" type="hidden">
+        <textarea name="taskComment" type="text" class="form-control mb-2" id="taskComment" placeholder="This is a great idea!" required></textarea>
+        <button id="commentButton" class="btn btn-primary">
+          Add
+        </button>
       </div>
     </div>
     {% for comment in comments %}

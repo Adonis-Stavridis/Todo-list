@@ -14,10 +14,12 @@
       </div>
 
       <div class="d-flex flex-row w-100 mb-2">
-        <form action="/search" class="d-flex flex-row mb-2 mx-auto overflow-hidden" method="post">
-          <input class="form-control overflow-auto round-border-left" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-info d-flex justify-content-center align-items-center round-border-right" type="submit"><img class="mini-icon" src="img/search.svg" alt="SEARCH"></button>
-        </form>
+        <div class="d-flex flex-row mb-2 w-100 overflow-hidden">
+          <input id="searchInput" class="form-control overflow-auto round-border-left" type="search" placeholder="Search" aria-label="Search">
+          <button id="searchButton" class="btn btn-info d-flex justify-content-center align-items-center round-border-right">
+            <img class="mini-icon" src="img/search.svg" alt="SEARCH">
+          </button>
+        </div>
         <button class="btn btn-success d-flex justify-content-center align-items-center mb-2 ml-2" data-toggle="modal" data-target="#modalCreate">
           <img class="mini-icon" src="img/create.svg" alt="CREATE">
         </button>
@@ -27,7 +29,8 @@
         {% for task in tasks %}
         <a href="{{ url_for('task', {'taskId': task.id}) }}#task" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
           {{ task.title }}
-          {# <span class="badge badge-primary badge-pill">14</span> #}
+          <input class="taskCreatedBy" value="{{ taskInfo.created_by }}" type="hidden">
+          <input class="taskAssignedTo" value="{{ taskInfo.assigned_to }}" type="hidden">
         </a>
         {% endfor %}
       </div>

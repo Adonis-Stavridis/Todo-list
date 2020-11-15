@@ -20,4 +20,3 @@ $app->get('/task-{taskId:[1-9][0-9]*}', TaskController::class.':getTask')->setNa
 
 $app->post('/create', TaskController::class.':postCreate');
 $app->post('/comment', TaskController::class.':postComment');
-$app->post('/search', TaskController::class.':postSearch');

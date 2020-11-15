@@ -56,33 +56,7 @@ class TaskController extends Task
   }
   # TASK
 
-  # ADD
-  public function postAdd(Request $request, Response $response, array $args): Response {
-    if (!$_SESSION['users']) {
-      $_SESSION['users'] = $this->getAllUsers();
-    }
-    
-    return $this->view->render($response, "/page/create.twig", ['userid' => $_SESSION['user']['id'], 'username' => $_SESSION['user']['username'], 'users' => $_SESSION['users']]);
-  }
-  # ADD
-
   # CREATE
-  public function getCreate(Request $request, Response $response, array $args): Response {
-    if (!$_SESSION['user']) {
-      return $response->withHeader('Location', $this->router->urlFor('login'));
-    }
-
-    if (!$_SESSION['users']) {
-      $_SESSION['users'] = $this->getAllUsers();
-    }
-
-    if (!$_SESSION['tasks']) {
-      $_SESSION['tasks'] = $this->getAllTasks();
-    }
-
-    return $this->view->render($response, "/page/create.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);
-  }
-
   public function postCreate(Request $request, Response $response): Response {
     $data = $request->getParsedBody();
     $createdAt = date("Y-m-d H:i:s");

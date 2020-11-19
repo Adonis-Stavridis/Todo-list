@@ -3,12 +3,24 @@ declare(strict_types=1);
 
 namespace Todo\Controllers;
 
+use DI\Container;
 use Todo\Models\User;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Routing\RouteParser;
+use Slim\Views\Twig;
 
 class AuthController extends User
 {
+  protected Twig $view;
+  protected RouteParser $router;
+
+  public function __construct(Container $container) {
+    parent::__construct($container);
+    $this->view = $container->get('view');
+    $this->router = $container->get('router');
+  }
+
   # LOGIN
   public function getLogin(Request $request, Response $response): Response {
     return $this->view->render($response, "/page/login.twig");

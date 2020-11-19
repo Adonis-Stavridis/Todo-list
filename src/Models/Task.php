@@ -9,6 +9,10 @@ class Task extends Model {
     $stmt = $this->db->prepare($query);
     $stmt->execute([$id]);
     $res = $stmt->fetch();
+    
+    if (!$res) {
+      $res = [];
+    }
 
     return $res;
   }

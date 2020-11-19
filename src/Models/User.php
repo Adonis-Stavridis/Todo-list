@@ -10,7 +10,7 @@ class User extends Model {
     $stmt->execute([$username, $password]);
     $res = $stmt->fetch();
     
-    if (empty($res)) {
+    if (!$res) {
       return -1;
     }
 
@@ -23,7 +23,7 @@ class User extends Model {
     $stmt->execute([$username]);
     $res = $stmt->fetch();
     
-    if (empty($res)) {
+    if (!$res) {
       return false;
     }
 

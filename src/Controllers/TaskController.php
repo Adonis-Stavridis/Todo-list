@@ -3,12 +3,24 @@ declare(strict_types=1);
 
 namespace Todo\Controllers;
 
+use DI\Container;
 use Todo\Models\Task;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Routing\RouteParser;
+use Slim\Views\Twig;
 
 class TaskController extends Task
 {
+  protected Twig $view;
+  protected RouteParser $router;
+
+  public function __construct(Container $container) {
+    parent::__construct($container);
+    $this->view = $container->get('view');
+    $this->router = $container->get('router');
+  }
+
   # HOME
   public function getHome(Request $request, Response $response, array $args): Response {
     if (!$_SESSION['user']) {
@@ -39,6 +51,10 @@ class TaskController extends Task
 
     $taskId = (int)$args['taskId'];
     $task = $this->getTaskInfo($taskId);
+
+    if (empty($task)) {
+      return $this->view->render($response, "/page/404.twig");
+    }
 
     if (!$_SESSION['users']) {
       $_SESSION['users'] = $this->getAllUsers();

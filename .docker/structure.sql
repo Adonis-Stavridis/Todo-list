@@ -104,6 +104,9 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
+/*username: root / password: root */;
+/*username: adonis / password: adonis */;
+/*username: mika / password: mika */;
 INSERT INTO `users` (`id`, `username`, `password`)
 VALUES
 	(1,'root','$2y$10$xKhvUPEEi/MXFbYIDZJOAu/8V9HyujSYxp9Vo9OpJz0RNuMIo4Ls6'),

@@ -106,9 +106,9 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `username`, `password`)
 VALUES
-	(1,'root','root'),
-	(2,'adonis','adonis'),
-  (3,'mika','mika');
+	(1,'root','$2y$10$xKhvUPEEi/MXFbYIDZJOAu/8V9HyujSYxp9Vo9OpJz0RNuMIo4Ls6'),
+	(2,'adonis','$2y$10$j8.U4sS4up4P8GCWyBa/sucbMtxST2iLJfSuzMak99sB0q8WLqbSm'),
+  (3,'mika','$2y$10$esNVoV7zIgfz8i.HW7aXgeu7wvwNVl58crLkES1J3Emd5pb2vvEnC');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

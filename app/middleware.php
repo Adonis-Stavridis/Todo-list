@@ -8,7 +8,7 @@ use Todo\Controllers\_404Controller;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\TwigMiddleware;
 
-return function (App $app) {
+return function (App $app): void {
   $settings = $app->getContainer()->get('settings');
   
   $errorMiddleware = $app->addErrorMiddleware(

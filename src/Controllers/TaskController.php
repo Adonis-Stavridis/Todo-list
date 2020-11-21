@@ -44,7 +44,7 @@ class TaskController extends Task
   # HOME
 
   # TASK
-  public function getTask(Request $request, Response $response, array $args) {
+  public function getTask(Request $request, Response $response, array $args): Response {
     if (!$_SESSION['user']) {
       return $response->withHeader('Location', $this->router->urlFor('login'));
     }

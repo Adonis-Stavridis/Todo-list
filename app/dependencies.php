@@ -1,10 +1,11 @@
 <?php
 declare(strict_types=1);
 
+use DI\Container;
 use DI\ContainerBuilder;
 use Slim\Views\Twig;
 
-return function () {
+return function (): Container {
   $containerBuilder = new ContainerBuilder();
 
   $containerBuilder->addDefinitions([

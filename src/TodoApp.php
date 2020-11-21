@@ -30,11 +30,11 @@ class TodoApp {
     $this->app = $app;
   }
 
-  public function get() {
+  public function get(): App {
     return $this->app;
   }
 
-  public function run() {
+  public function run(): void {
     $this->app->run();
   }
 }

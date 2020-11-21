@@ -5,12 +5,16 @@ namespace Todo\Models;
 
 class User extends Model {
   protected function userLogin(string $username, string $password): int {
-    $query = 'SELECT id FROM users WHERE username = ? AND password = ?';
+    $query = 'SELECT id, password FROM users WHERE username = ?';
     $stmt = $this->db->prepare($query);
-    $stmt->execute([$username, $password]);
+    $stmt->execute([$username]);
     $res = $stmt->fetch();
     
     if (!$res) {
+      return -1;
+    }
+
+    if (!password_verify($password, $res['password'])) {
       return -1;
     }
 
@@ -33,6 +37,6 @@ class User extends Model {
   protected function addUser(string $username, string $password): void {
     $query = 'INSERT INTO users (username, password) VALUES ( ? , ? )';
     $stmt = $this->db->prepare($query);
-    $stmt->execute([$username, $password]);
+    $stmt->execute([$username, password_hash($password, PASSWORD_BCRYPT)]);
   }
 }

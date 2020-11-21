@@ -9933,16 +9933,4 @@ body {
   right: 0;
 }
 
-.round-border-left {
-  border-radius: 0;
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-}
-
-.round-border-right {
-  border-radius: 0;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-
 /*# sourceMappingURL=main.css.map */

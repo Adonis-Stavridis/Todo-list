@@ -27,7 +27,7 @@ $(function () {
     $(response).insertBefore('#insertBefore:hidden');
   }
 
-  $('#searchButton').on('click', function () {
+  $('#searchInput').on('input', function () {
     var $value = $('#searchInput').val();
     if ($value) {
       if ($value.startsWith('[c]')) {
@@ -44,7 +44,6 @@ $(function () {
   });
 
   function filterByCreator(val) {
-    console.log($('span.taskCreatedBy:not(:contains("' + val + '"))'));
     $('span.taskCreatedBy:not(:contains("' + val + '"))').parent().removeClass('d-flex');
     $('span.taskCreatedBy:not(:contains("' + val + '"))').parent().addClass('d-none');
     $('span.taskCreatedBy:contains("' + val + '")').parent().removeClass('d-none');

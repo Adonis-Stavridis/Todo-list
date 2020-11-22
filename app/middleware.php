@@ -8,6 +8,15 @@ use Todo\Controllers\_404Controller;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\TwigMiddleware;
 
+/**
+ * Creates middleware to handle errors.
+ * 
+ * Handle proper display of erros and 404 response status.
+ * 
+ * @param App $app
+ *
+ * @return void
+ */
 return function (App $app): void {
   $settings = $app->getContainer()->get('settings');
   

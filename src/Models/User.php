@@ -4,6 +4,14 @@ declare(strict_types=1);
 namespace Todo\Models;
 
 class User extends Model {
+  /**
+   * Get user id if password is correct.
+   * 
+   * @param string $username
+   * @param string $password
+   * 
+   * @return int
+   */
   protected function userLogin(string $username, string $password): int {
     $query = 'SELECT id, password FROM users WHERE username = ?';
     $stmt = $this->db->prepare($query);
@@ -21,6 +29,13 @@ class User extends Model {
     return (int)$res['id'];
   }
 
+  /**
+   * Check if user exists.
+   * 
+   * @param string $username
+   * 
+   * @return bool
+   */
   protected function userExists(string $username): bool {
     $query = 'SELECT 1 FROM users WHERE username = ?';
     $stmt = $this->db->prepare($query);
@@ -34,6 +49,14 @@ class User extends Model {
     return true;
   }
 
+  /**
+   * Add user with hashed password.
+   * 
+   * @param string $username
+   * @param string $password
+   * 
+   * @return void
+   */
   protected function addUser(string $username, string $password): void {
     $query = 'INSERT INTO users (username, password) VALUES ( ? , ? )';
     $stmt = $this->db->prepare($query);

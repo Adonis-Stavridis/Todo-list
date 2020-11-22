@@ -12,7 +12,14 @@ use Slim\Views\Twig;
 
 class TaskController extends Task
 {
+  /**
+   * @var Twig $view
+   */
   protected Twig $view;
+
+  /**
+   * @var RouteParser $router
+   */
   protected RouteParser $router;
 
   public function __construct(Container $container) {
@@ -21,7 +28,19 @@ class TaskController extends Task
     $this->router = $container->get('router');
   }
 
-  # HOME
+  /**
+   * Render home page.
+   * 
+   * If $_SESSION variable for user is not set, redirects to login page. Caches
+   * users and tasks information inside $_SESSION variable, if not yet cached,
+   * and renders the page.
+   * 
+   * @param ServerRequestInterface $request
+   * @param ResponseInterface $response
+   * @param array $args
+   * 
+   * @return Response
+   */
   public function getHome(Request $request, Response $response, array $args): Response {
     if (!$_SESSION['user']) {
       return $response->withHeader('Location', $this->router->urlFor('login'));
@@ -41,9 +60,21 @@ class TaskController extends Task
     
     return $this->view->render($response, "/page/home.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'], 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);
   }
-  # HOME
 
-  # TASK
+  /**
+   * Render task information.
+   * 
+   * If $_SESSION variable for user is not set, redirects to login page. Calls
+   * model to get all task information. If task doesn't exist, renders 404 page.
+   * Caches users and tasks information inside $_SESSION variable, if not yet 
+   * cached, and renders the page with the task information.
+   * 
+   * @param ServerRequestInterface $request
+   * @param ResponseInterface $response
+   * @param array $args
+   * 
+   * @return Response
+   */
   public function getTask(Request $request, Response $response, array $args): Response {
     if (!$_SESSION['user']) {
       return $response->withHeader('Location', $this->router->urlFor('login'));
@@ -74,9 +105,18 @@ class TaskController extends Task
 
     return $this->view->render($response, "/page/task.twig", ['username' => $_SESSION['user']['username'], 'tasks' => $_SESSION['tasks'],'taskInfo' => $task, 'comments' => $comments, 'userid' => $_SESSION['user']['id'], 'users' => $_SESSION['users']]);
   }
-  # TASK
 
-  # CREATE
+  /**
+   * Handle task creation request.
+   * 
+   * Gets request data and calls Model to add task into database. Redirects to
+   * the newly created task page.
+   * 
+   * @param ServerRequestInterface $request
+   * @param ResponseInterface $response
+   * 
+   * @return Response
+   */
   public function postCreate(Request $request, Response $response): Response {
     $data = $request->getParsedBody();
     $createdAt = date("Y-m-d H:i:s");
@@ -87,10 +127,19 @@ class TaskController extends Task
 
     return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $taskId]));
   }
-  # CREATE
 
-  # COMMENT
-  public function postComment(Request $request, Response $response, array $args): Response {
+  /**
+   * Handle comment creation request.
+   * 
+   * Gets request data and calls Model to add comment into database. Renders
+   * comment view with newly added content.
+   * 
+   * @param ServerRequestInterface $request
+   * @param ResponseInterface $response
+   * 
+   * @return Response
+   */
+  public function postComment(Request $request, Response $response): Response {
     $data = $request->getParsedBody();
     $taskId = (int)$data['taskId'];
     $commentText = $data['taskComment'];
@@ -107,8 +156,15 @@ class TaskController extends Task
     
     return $this->view->render($response, "/template/comment.twig", ['comment' => $comment]);
   }
-  # COMMENT
 
+  /**
+   * Get username string from id.
+   * 
+   * @param int $id
+   * @param array $users
+   * 
+   * @return string
+   */
   private function getUsernameFromId(int $id, array $users): string {
     if ($id == 0) {
       return '';

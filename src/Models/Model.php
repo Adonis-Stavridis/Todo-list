@@ -7,6 +7,9 @@ use DI\Container;
 use PDO;
 
 class Model {
+  /**
+   * @var PDO $db
+   */
   protected PDO $db;
 
   public function __construct(Container $container) {

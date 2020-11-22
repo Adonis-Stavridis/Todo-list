@@ -4,8 +4,14 @@ declare(strict_types=1);
 use Todo\Controllers\AuthController;
 use Todo\Controllers\TaskController;
 
+/**
+ * Set a 'router' field inside the container.
+ */
 $container->set('router', \DI\value($app->getRouteCollector()->getRouteParser()));
 
+/**
+ * Create all routes for the app.
+ */
 $app->get('/', TaskController::class.':getHome')->setName('home');
 
 $app->get('/login', AuthController::class.':getLogin')->setName('login');

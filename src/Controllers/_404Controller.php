@@ -10,12 +10,20 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class _404Controller
 {
+  /**
+   * @var Twig $view
+   */
   protected Twig $view;
   
   public function __construct(Container $container) {
     $this->view = $container->get('view');
   }
   
+  /**
+   * Render response with status 404.
+   * 
+   * @return Response
+   */
   public function get404(Request $request, Response $response): Response {
     return $this->view->render($response, "/page/404.twig");
   }

@@ -5,6 +5,15 @@ use DI\Container;
 use DI\ContainerBuilder;
 use Slim\Views\Twig;
 
+/**
+ * Builds a container with all dependencies.
+ *
+ * Set a 'db' field inside the container to access a PDO instance to connect to
+ * a database. Sets a 'view' field to access Twig views. Returns the built 
+ * container.
+ *
+ * @return Container
+ */
 return function (): Container {
   $containerBuilder = new ContainerBuilder();
 

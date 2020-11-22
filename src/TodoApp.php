@@ -7,6 +7,9 @@ use Slim\App;
 use Slim\Factory\AppFactory;
 
 class TodoApp {
+  /**
+   * @var App $app
+   */
   private App $app;
 
   public function __construct() {
@@ -30,10 +33,20 @@ class TodoApp {
     $this->app = $app;
   }
 
+  /**
+   * Get App.
+   * 
+   * @return App
+   */
   public function get(): App {
     return $this->app;
   }
 
+  /**
+   * Run App.
+   * 
+   * @return void
+   */
   public function run(): void {
     $this->app->run();
   }

@@ -77,21 +77,23 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/todo.html">Todo</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/todo-models.html">Models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/tests.html">Tests</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Model
+    UserTest
 
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\PHPUnit\Framework\TestCase">TestCase</abbr>
+    </span>
     
     
     
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Models/Model.php"><a href="files/src-models-model.html"><abbr title="src/Models/Model.php">Model.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="test/UserTest.php"><a href="files/test-usertest.html"><abbr title="test/UserTest.php">UserTest.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">9</span>
 </aside>
@@ -111,15 +113,29 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Todo-Models-Model.html#property_db">$db</a>
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Tests-UserTest.html#property_usersTableSample">$usersTableSample</a>
     <span>
-                &nbsp;: <abbr title="\PDO">PDO</abbr>            </span>
+                &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Todo-Models-Model.html#method___construct">__construct()</a>
+    <a href="classes/Tests-UserTest.html#method_testAddUser">testAddUser()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Tests-UserTest.html#method_testUserExists">testUserExists()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Tests-UserTest.html#method_testUserLogin">testUserLogin()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
@@ -135,36 +151,35 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Todo-Models-Model.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Tests-UserTest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -protected
-                                                        "
+            -private
+            -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property_db">
-        $db
-        <a href="classes/Todo-Models-Model.html#property_db" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_usersTableSample">
+        $usersTableSample
+        <a href="classes/Tests-UserTest.html#property_usersTableSample" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Models/Model.php"><a href="files/src-models-model.html"><abbr title="src/Models/Model.php">Model.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="test/UserTest.php"><a href="files/test-usertest.html"><abbr title="test/UserTest.php">UserTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\PDO">PDO</abbr></span>
-    <span class="phpdocumentor-signature__name">$db</span>
-    </code>
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$usersTableSample</span>
+     = <span class="phpdocumentor-signature__default-value">[&#039;root&#039; =&gt; [&#039;root&#039;, 1]]</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
 
 </article>
@@ -173,7 +188,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Todo-Models-Model.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Tests-UserTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -181,33 +196,87 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/Todo-Models-Model.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testAddUser">
+        testAddUser()
+        <a href="classes/Tests-UserTest.html#method_testAddUser" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Models/Model.php"><a href="files/src-models-model.html"><abbr title="src/Models/Model.php">Model.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="test/UserTest.php"><a href="files/test-usertest.html"><abbr title="test/UserTest.php">UserTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">testAddUser</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$container</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
+    
+    
 
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testUserExists">
+        testUserExists()
+        <a href="classes/Tests-UserTest.html#method_testUserExists" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="test/UserTest.php"><a href="files/test-usertest.html"><abbr title="test/UserTest.php">UserTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">testUserExists</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testUserLogin">
+        testUserLogin()
+        <a href="classes/Tests-UserTest.html#method_testUserLogin" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="test/UserTest.php"><a href="files/test-usertest.html"><abbr title="test/UserTest.php">UserTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">14</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">testUserLogin</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -233,7 +302,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Todo-Models-Model.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Tests-UserTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

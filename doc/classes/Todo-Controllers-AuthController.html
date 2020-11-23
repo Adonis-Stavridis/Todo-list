@@ -56,6 +56,9 @@
                                             <li><a href="namespaces/todo-controllers.html"><abbr title="\Todo\Controllers">Controllers</abbr></a></li>
                                             <li><a href="namespaces/todo-models.html"><abbr title="\Todo\Models">Models</abbr></a></li>
                                     </ul>
+                            <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/tests.html"><abbr title="\Tests">Tests</abbr></a></h4>
+                <ul class="phpdocumentor-list">
+                                    </ul>
                         </section>
 
     
@@ -140,6 +143,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Todo-Models-User.html#method_addUser">addUser()</a>
+    <span>
+                        &nbsp;: int    </span>
+</dt>
+<dd>Add user with hashed password.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Todo-Controllers-AuthController.html#method_getLogin">getLogin()</a>
     <span>
                         &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
@@ -174,21 +184,14 @@
 </dt>
 <dd>Handle signup request.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Todo-Models-User.html#method_addUser">addUser()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd>Add user with hashed password.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Todo-Models-User.html#method_userExists">userExists()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd>Check if user exists.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Todo-Models-User.html#method_userLogin">userLogin()</a>
     <span>
                         &nbsp;: int    </span>
@@ -344,6 +347,59 @@
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addUser">
+        addUser()
+        <a href="classes/Todo-Models-User.html#method_addUser" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Models/User.php"><a href="files/src-models-user.html"><abbr title="src/Models/User.php">User.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Add user with hashed password.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">addUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$password</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -622,60 +678,7 @@ page on success, renders failure message otherwise.</p>
                     <article
         class="phpdocumentor-element
             -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_addUser">
-        addUser()
-        <a href="classes/Todo-Models-User.html#method_addUser" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Models/User.php"><a href="files/src-models-user.html"><abbr title="src/Models/User.php">User.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">60</span>
-</aside>
-
-        <p class="phpdocumentor-summary">Add user with hashed password.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                <span class="phpdocumentor-signature__name">addUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$username</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$password</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_userExists">
@@ -691,7 +694,7 @@ page on success, renders failure message otherwise.</p>
         <p class="phpdocumentor-summary">Check if user exists.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">userExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
         <section class="phpdocumentor-description"></section>
@@ -720,7 +723,7 @@ page on success, renders failure message otherwise.</p>
                     <article
         class="phpdocumentor-element
             -method
-            -protected
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_userLogin">
@@ -736,7 +739,7 @@ page on success, renders failure message otherwise.</p>
         <p class="phpdocumentor-summary">Get user id if password is correct.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">userLogin</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
         <section class="phpdocumentor-description"></section>

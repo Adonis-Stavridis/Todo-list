@@ -206,6 +206,81 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Todo-TodoApp.html#property_app"
         },                {
+            "fqsen": "\\Tests\\TaskTest",
+            "name": "TaskTest",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetTaskInfo\u0028\u0029",
+            "name": "testGetTaskInfo",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#method_testGetTaskInfo"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetAllTasks\u0028\u0029",
+            "name": "testGetAllTasks",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#method_testGetAllTasks"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestAddTask\u0028\u0029",
+            "name": "testAddTask",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#method_testAddTask"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetAllUsers\u0028\u0029",
+            "name": "testGetAllUsers",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#method_testGetAllUsers"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestAddCommentToTask\u0028\u0029",
+            "name": "testAddCommentToTask",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#method_testAddCommentToTask"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetCommentsByTask\u0028\u0029",
+            "name": "testGetCommentsByTask",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#method_testGetCommentsByTask"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003A\u0024todosTableSample",
+            "name": "todosTableSample",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#property_todosTableSample"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003A\u0024usersTableSample",
+            "name": "usersTableSample",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#property_usersTableSample"
+        },                {
+            "fqsen": "\\Tests\\TaskTest\u003A\u003A\u0024commentsTableSample",
+            "name": "commentsTableSample",
+            "summary": "",
+            "url": "classes/Tests-TaskTest.html#property_commentsTableSample"
+        },                {
+            "fqsen": "\\Tests\\UserTest",
+            "name": "UserTest",
+            "summary": "",
+            "url": "classes/Tests-UserTest.html"
+        },                {
+            "fqsen": "\\Tests\\UserTest\u003A\u003AtestUserLogin\u0028\u0029",
+            "name": "testUserLogin",
+            "summary": "",
+            "url": "classes/Tests-UserTest.html#method_testUserLogin"
+        },                {
+            "fqsen": "\\Tests\\UserTest\u003A\u003AtestUserExists\u0028\u0029",
+            "name": "testUserExists",
+            "summary": "",
+            "url": "classes/Tests-UserTest.html#method_testUserExists"
+        },                {
+            "fqsen": "\\Tests\\UserTest\u003A\u003AtestAddUser\u0028\u0029",
+            "name": "testAddUser",
+            "summary": "",
+            "url": "classes/Tests-UserTest.html#method_testAddUser"
+        },                {
+            "fqsen": "\\Tests\\UserTest\u003A\u003A\u0024usersTableSample",
+            "name": "usersTableSample",
+            "summary": "",
+            "url": "classes/Tests-UserTest.html#property_usersTableSample"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -225,5 +300,10 @@ Search.appendIndex(
             "name": "Todo",
             "summary": "",
             "url": "namespaces/todo.html"
+        },                {
+            "fqsen": "\\Tests",
+            "name": "Tests",
+            "summary": "",
+            "url": "namespaces/tests.html"
         }            ]
 );

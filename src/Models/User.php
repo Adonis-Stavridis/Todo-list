@@ -12,7 +12,7 @@ class User extends Model {
    * 
    * @return int
    */
-  protected function userLogin(string $username, string $password): int {
+  public function userLogin(string $username, string $password): int {
     $query = 'SELECT id, password FROM users WHERE username = ?';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$username]);
@@ -36,7 +36,7 @@ class User extends Model {
    * 
    * @return bool
    */
-  protected function userExists(string $username): bool {
+  public function userExists(string $username): bool {
     $query = 'SELECT 1 FROM users WHERE username = ?';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$username]);
@@ -55,11 +55,13 @@ class User extends Model {
    * @param string $username
    * @param string $password
    * 
-   * @return void
+   * @return int
    */
-  protected function addUser(string $username, string $password): void {
+  public function addUser(string $username, string $password): int {
     $query = 'INSERT INTO users (username, password) VALUES ( ? , ? )';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$username, password_hash($password, PASSWORD_BCRYPT)]);
+
+    return (int)$this->db->lastInsertId();
   }
 }

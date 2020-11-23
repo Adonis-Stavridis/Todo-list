@@ -11,7 +11,7 @@ class Task extends Model {
    * 
    * @return array
    */
-  protected function getTaskInfo(int $id): array {
+  public function getTaskInfo(int $id): array {
     $query = 'SELECT * FROM todos WHERE id = ?';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$id]);
@@ -29,7 +29,7 @@ class Task extends Model {
    * 
    * @return array
    */
-  protected function getAllTasks(): array {
+  public function getAllTasks(): array {
     $query = 'SELECT * FROM todos';
     $stmt = $this->db->prepare($query);
     $stmt->execute();
@@ -48,14 +48,14 @@ class Task extends Model {
    * @param string $createdAt
    * @param string $dueDate
    * 
-   * @return string
+   * @return int
    */
-  protected function addTask(int $createdBy, int $assignTo, string $title, string $description, string $createdAt, string $dueDate): string {
+  public function addTask(int $createdBy, int $assignTo, string $title, string $description, string $createdAt, string $dueDate): int {
     $query = 'INSERT INTO todos (created_by, assigned_to, title, description, created_at, due_date) VALUES ( ? , ? , ? , ? , ? , ? )';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$createdBy, $assignTo, $title, $description, $createdAt, $dueDate]);
     
-    return $this->db->lastInsertId();
+    return (int)$this->db->lastInsertId();
   }
 
   
@@ -64,7 +64,7 @@ class Task extends Model {
    * 
    * @return array
    */
-  protected function getAllUsers(): array {
+  public function getAllUsers(): array {
     $query = 'SELECT id,username FROM users';
     $stmt = $this->db->prepare($query);
     $stmt->execute();
@@ -81,14 +81,14 @@ class Task extends Model {
    * @param string $createdAt
    * @param string $comment
    * 
-   * @return string
+   * @return int
    */
-  protected function addCommentToTask(int $taskId, int $createdBy, string $createdAt, string $comment): string {
+  public function addCommentToTask(int $taskId, int $createdBy, string $createdAt, string $comment): int {
     $query = 'INSERT INTO comments (task_id, created_by, created_at, comment) VALUES ( ? , ? , ? , ? )';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$taskId, $createdBy, $createdAt, $comment]);
     
-    return $this->db->lastInsertId();
+    return (int)$this->db->lastInsertId();
   }
 
   /**
@@ -98,7 +98,7 @@ class Task extends Model {
    * 
    * @return array
    */
-  protected function getCommentsByTask(int $taskId): array {
+  public function getCommentsByTask(int $taskId): array {
     $query = 'SELECT created_by, created_at, comment FROM comments WHERE task_id = ? ORDER BY id ASC';
     $stmt = $this->db->prepare($query);
     $stmt->execute([$taskId]);

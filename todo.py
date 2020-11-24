@@ -3,6 +3,7 @@ import sys
 import signal
 import threading
 import webbrowser
+import time
 
 class Colors:
   HEADER = '\033[95m'
@@ -12,12 +13,17 @@ class Colors:
   ENDC = '\033[0m'
   BOLD = '\033[1m'
 
-# You can change your commands here to fit your environment
+# You can change the commands here to fit your environment
+# Add sudo in front of commands if needed
 class Commands:
   composerInstall = 'composer install'
   npmInstall = 'npm install'
-  dockerComposeUp = 'sudo docker-compose up --build'
+  dockerComposeUp = 'docker-compose up --build'
   dockerComposeDown = 'docker-compose down'
+
+class App:
+  host = 'localhost'
+  port = '8010'
 
 def main(argv):
   def signal_handler(signal, frame):
@@ -35,13 +41,15 @@ def main(argv):
     proc = subprocess.Popen(Commands.composerInstall, shell=True)
     proc.wait()
 
-    print('\n' + Colors.BOLD + Colors.OKCYAN + "Installing npm modules" + Colors.ENDC)
+    print('\n' + Colors.BOLD + Colors.OKCYAN + "Installing node modules" + Colors.ENDC)
     proc = subprocess.Popen(Commands.npmInstall, shell=True)
     proc.wait()
   
   if (not argv or argv[0] == '-launch'):
     print('\n' + Colors.BOLD + Colors.OKGREEN + "Launching docker-compose services" + Colors.ENDC)
     proc = subprocess.Popen(Commands.dockerComposeUp, shell=True)
+    time.sleep(5)
+    webbrowser.open(App.host + ':' + App.port, new=0, autoraise=True)
     proc.wait()
 
     forever = threading.Event()

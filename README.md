@@ -10,17 +10,32 @@ This is a simple Todo list application made with PHP.
 
 ## Installation
 
-Install the application by download or cloning this repository.
+Install the application by downloading or cloning this repository.
 
-Then you need to run the following commands:
+Then you need to run the following `todo.py` script to let it:
 
-- `composer install` to install all necessary dependencies.
-- `sudo docker-compose up --build` to run docker containers.
+- install composer dependencies
+- install node modules
+- launch docker services
+- launch application inside your browser
 
-You can then go to `http://localhost:8010/` in your browser to access the
-application.
+To run the script you can use the following command:
 
-## Documentation
+```bash
+python3 todo.py
+```
+
+You can pass some arguments to the script:
+
+- `-setup` to only install composer dependencies and node modules
+- `-launch` to only launch docker services and application
+- `-doc` to view the documentation
+
+When launching the application, your web browser should open a new window. If you
+see any error message, such as 'Unable to connect' or 'Connection failed!'
+refresh the page, until the docker is finished setting up.
+
+## Instructions
 
 Information on how to use the app is available on the home page of the
 application.
@@ -29,9 +44,6 @@ You can create a new account, or use the account with the following credentials:
 
 - username : `root`
 - password : `root`
-
-Documentation of the source code is available in the **doc** folder. You can
-open the **doc/index.html** inside your browser to view the documentation.
 
 ## Work distribution
 

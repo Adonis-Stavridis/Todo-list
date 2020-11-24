@@ -68,6 +68,8 @@ STAVRIDIS Adonis
 - Controllers
 - Ajax
 - Search/Filter feature
+- Tests
+- Python script
 
 In general the work was well distributed, we didn't hesitate to comment or
 rectify each others work.

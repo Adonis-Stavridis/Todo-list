@@ -7,14 +7,28 @@ use PHPUnit\Framework\TestCase;
 use Todo\Models\Task;
 
 class TaskTest extends TestCase {
-  private static $todosTableSample = [
+  /**
+   * @var $todosTableSample
+   */
+  private static array $todosTableSample = [
     1 => [2,2,'Learn PHP','Learn the Web Dev class content','2020-09-05','2020-10-25']
   ];
-  private static $usersTableSample = [[1,'root','root'], [2,'adonis','adonis']];
-  private static $commentsTableSample = [
+
+  /**
+   * @var $usersTableSample
+   */
+  private static array $usersTableSample = [[1,'root','root'], [2,'adonis','adonis']];
+
+  /**
+   * @var $commentsTableSample
+   */
+  private static array $commentsTableSample = [
     [1,1,2,'2020-09-10','Study also for the exam!']
   ];
 
+  /**
+   * Test getTaskInfo
+   */
   public function testGetTaskInfo() {
     $task = $this->createMock(Task::class);
 
@@ -32,6 +46,9 @@ class TaskTest extends TestCase {
     $this->assertEmpty($task->getTaskInfo(2));
   }
 
+  /**
+   * Test getAllTasks
+   */
   public function testGetAllTasks() {
     $task = $this->createMock(Task::class);
 
@@ -49,6 +66,9 @@ class TaskTest extends TestCase {
     $this->assertEquals($expected, $task->getAllTasks());
   }
 
+  /**
+   * Test addTask
+   */
   public function testAddTask() {
     $task = $this->createMock(Task::class);
 
@@ -64,6 +84,9 @@ class TaskTest extends TestCase {
     $this->assertEquals(2, $task->addTask(2,3,'Learn the Slim Framework','Read the Slim documentation','2020-10-25','2020-10-31'));
   }
 
+  /**
+   * Test getAllUsers
+   */
   public function testGetAllUsers() {
     $task = $this->createMock(Task::class);
 
@@ -94,6 +117,9 @@ class TaskTest extends TestCase {
     $this->assertEquals(2, $task->addCommentToTask(1,3,'2020-09-18','Yeah! I should do that too...'));
   }
 
+  /**
+   * Test getCommentsByTask
+   */
   public function testGetCommentsByTask() {
     $task = $this->createMock(Task::class);
 

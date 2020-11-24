@@ -7,10 +7,16 @@ use PHPUnit\Framework\TestCase;
 use Todo\Models\User;
 
 class UserTest extends TestCase {
-  private static $usersTableSample = [
+  /**
+   * @var $usersTableSample
+   */
+  private static array $usersTableSample = [
     'root' => ['root',1]
   ];
 
+  /**
+   * Test userLogin
+   */
   public function testUserLogin() {
     $user = $this->createMock(User::class);
 
@@ -30,6 +36,9 @@ class UserTest extends TestCase {
     $this->assertEquals(-1, $user->userLogin('fake','fake'));
   }
 
+  /**
+   * Test userExists
+   */
   public function testUserExists() {
     $user = $this->createMock(User::class);
 
@@ -43,6 +52,9 @@ class UserTest extends TestCase {
     $this->assertFalse($user->userExists('fake'));
   }
 
+  /**
+   * Test addUser
+   */
   public function testAddUser() {
     $user = $this->createMock(User::class);
 

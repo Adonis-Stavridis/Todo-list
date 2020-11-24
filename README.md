@@ -30,10 +30,13 @@ You can pass some arguments to the script:
 - `-setup` to only install composer dependencies and node modules
 - `-launch` to only launch docker services and application
 - `-doc` to view the documentation
+- `-test` to launch tests
 
-When launching the application, your web browser should open a new window. If you
-see any error message, such as 'Unable to connect' or 'Connection failed!'
+When launching the application, your web browser should open a new window. If
+you see any error message, such as 'Unable to connect' or 'Connection failed!'
 refresh the page, until the docker is finished setting up.
+
+Press `Ctrl + C` to terminate docker.
 
 ## Instructions
 

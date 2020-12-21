@@ -7,10 +7,10 @@
   <div class="col-md-4 h-100 mh-100 mb-3">
     <div class="bg-dark p-4 h-100 mh-100 d-flex flex-column align-items-center rounded">
       <div class="d-flex flex-row w-100 mb-4">
-        <a href="./home" class="mx-auto overflow-hidden text-decoration-none text-light">
+        <a href="{{ url_for('home') }}" class="mx-auto overflow-hidden text-decoration-none text-light">
           <h1 class="mb-0">{{ username }}</h1>
         </a>
-        <a class="btn btn-danger d-flex justify-content-center align-items-center ml-2" href="./logout">
+        <a href="{{ url_for('logout') }}" class="btn btn-danger d-flex justify-content-center align-items-center ml-2">
           <img class="mini-icon" src="img/logout.svg" alt="LOGOUT">
         </a>
       </div>
@@ -26,7 +26,7 @@
 
       <div id="tasksList" class="list-group w-100 overflow-auto mb-2 list-color">
         {% for task in tasks %}
-        <a href="./task-{{ task.id }}#task" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('task', {'taskId': task.id}) }}#task" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
           {{ task.title }}
           <span class="taskCreatedBy" hidden>{{ task.created_by }}</span>
           <span class="taskAssignedTo" hidden>{{ task.assigned_to }}</span>

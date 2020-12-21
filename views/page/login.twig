@@ -42,7 +42,7 @@
         </div>
         <div class="card-body">
           {% block form %}
-          <form action="./login" method="post" autocomplete="off">
+          <form action="{{ url_for('login') }}" method="post" autocomplete="off">
             <div class="form-group">
               <label for="usernameInput">Username</label>
               <input
@@ -82,7 +82,7 @@
         <div class="card-body">
           {% block formFooter %}
           <span>New to Todo? 
-            <a href="./signup" class="text-primary">Create an account</a>
+            <a href="{{ url_for('signup') }}" class="text-primary">Create an account</a>
           </span>
           {% endblock %}
         </div>

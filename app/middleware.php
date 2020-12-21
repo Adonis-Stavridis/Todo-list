@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 use Slim\App;
 use Psr\Http\Message\ServerRequestInterface;
-use Todo\Controllers\_404Controller;
 use Slim\Exception\HttpNotFoundException;
+use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Todo\Features\Render404Page\Render404PageController;
 
 /**
  * Creates middleware to handle errors.
@@ -17,21 +18,24 @@ use Slim\Views\TwigMiddleware;
  * @return void
  */
 return function (App $app): void {
+  $app->addRoutingMiddleware();
  
   $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
-  // $customErrorHandler = function (
-  //   ServerRequestInterface $request,
-  //   Throwable $exception,
-  //   bool $displayErrorDetails
-  // ) use ($app) {
-  //   $response = (new Response())->withStatus(404);
-  //   $container = $app->getContainer();
-  //   $_404Controller = new _404Controller();
-  //   return $_404Controller->get404($request,$response);
-  // };
+  $customErrorHandler = function (
+    ServerRequestInterface $request,
+    Throwable $exception,
+    bool $displayErrorDetails,
+    bool $logErrors,
+    bool $logErrorDetails
+  ) use ($app) {
+    $response = $app->getResponseFactory()->createResponse();
+    $view = $app->getContainer()->get(Twig::class);
+    $render404PageController = new Render404PageController($view);
+    return $render404PageController($request, $response);
+  };
   
-  // $errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);
+  $errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);
   
-  // $app->add(TwigMiddleware::createFromContainer($app));
+  $app->add(TwigMiddleware::createFromContainer($app, Twig::class));
 };

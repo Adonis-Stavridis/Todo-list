@@ -42,7 +42,7 @@
         </div>
         <div class="card-body">
           {% block form %}
-          <form action="{{ url_for('login') }}" method="post" autocomplete="off">
+          <form action="./login" method="post" autocomplete="off">
             <div class="form-group">
               <label for="usernameInput">Username</label>
               <input
@@ -82,7 +82,7 @@
         <div class="card-body">
           {% block formFooter %}
           <span>New to Todo? 
-            <a href="{{ url_for('signup') }}" class="text-primary">Create an account</a>
+            <a href="./signup" class="text-primary">Create an account</a>
           </span>
           {% endblock %}
         </div>
@@ -96,6 +96,6 @@
 {% block notification %}
 <div class="alert alert-danger" role="alert">
   <img class="mini-icon float-left mr-4" src="img/warning.svg" alt="Warning : ">
-  Username and/or password incorrect!
+  {{ message }}
 </div>
 {% endblock %}

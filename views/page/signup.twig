@@ -5,7 +5,7 @@
 {% block formTitle %}Sign Up{% endblock %}
 
 {% block form %}
-<form action="{{ url_for('signup') }}" method="post" autocomplete="off">
+<form action="./signup" method="post" autocomplete="off">
   <div class="form-group">
     <label for="usernameInput">Username</label>
     <input
@@ -49,13 +49,13 @@
 
 {% block formFooter %}
 <span>Already have an account? 
-  <a href="{{ url_for('login') }}" class="text-primary">Log In</a>
+  <a href="./login" class="text-primary">Log In</a>
 </span>
 {% endblock %}
 
 {% block notification %}
 <div class="alert alert-danger" role="alert">
   <img class="mini-icon float-left mr-4" src="img/warning.svg" alt="Warning : ">
-  {{ alertText }}
+  {{ message }}
 </div>
 {% endblock %}

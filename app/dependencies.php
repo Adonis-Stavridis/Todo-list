@@ -4,6 +4,10 @@ declare(strict_types=1);
 use DI\Container;
 use DI\ContainerBuilder;
 use Slim\Views\Twig;
+use Todo\Repositories\PDO\PDOUserRepository;
+use Todo\Repositories\UserRepository;
+
+use function DI\get;
 
 /**
  * Builds a container with all dependencies.
@@ -18,7 +22,7 @@ return function (): Container {
   $containerBuilder = new ContainerBuilder();
 
   $containerBuilder->addDefinitions([
-    'db' => function () : PDO {
+    PDO::class => function () : PDO {
       $host = $_ENV['DB_HOST'];
       $port = $_ENV['DB_PORT'];
       $name = $_ENV['DB_NAME'];
@@ -34,11 +38,12 @@ return function (): Container {
         die();
       }
     },
-    'view' => function () : Twig {
+    Twig::class => function () : Twig {
       $path = $_ENV['VIEWS_PATH'];
       $view = Twig::create(__DIR__ . $path, [ "cache" => false ]);
       return $view;
-    }
+    },
+    UserRepository::class => get(PDOUserRepository::class)
   ]);
 
   return $containerBuilder->build();

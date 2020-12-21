@@ -18,9 +18,6 @@ class TodoApp {
     $dependencies = require __DIR__ . '/../app/dependencies.php';
     $container = $dependencies();
 
-    $settings = require __DIR__ . '/../app/settings.php';
-    $settings($container);
-
     AppFactory::setContainer($container);
 
     $app = AppFactory::create();

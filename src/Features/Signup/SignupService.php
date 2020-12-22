@@ -17,8 +17,8 @@ class SignupService {
     $password = $request->getPassword();
     $passwordRepeat = $request->getPasswordRepeat();
 
-    $query = $this->repository->userExists($username);
-    if ($query) {
+    $boolean = $this->repository->userExists($username);
+    if ($boolean) {
       throw new UsernameAlreadyExistsException();
     }
 
@@ -26,8 +26,8 @@ class SignupService {
       throw new PasswordsDoNotMatchException();
     }
 
-    $query = $this->repository->addUser($username, $password);
-    if (!$query) {
+    $boolean = $this->repository->addUser($username, $password);
+    if (!$boolean) {
       throw new CouldNotSignupUserException();
     }
   }

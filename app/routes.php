@@ -2,13 +2,12 @@
 declare(strict_types=1);
 
 use Slim\Interfaces\RouteParserInterface;
-use Todo\Controllers\AuthController;
-use Todo\Controllers\TaskController;
 use Todo\Features\Login\LoginController;
 use Todo\Features\Logout\LogoutController;
 use Todo\Features\RenderHomePage\RenderHomePageController;
 use Todo\Features\RenderLoginPage\RenderLoginPageController;
 use Todo\Features\RenderSignupPage\RenderSignupPageController;
+use Todo\Features\RenderTaskPage\RenderTaskPageController;
 use Todo\Features\Signup\SignupController;
 
 use function DI\value;
@@ -34,7 +33,7 @@ $app->get('/logout', LogoutController::class)->setName('logout');
 $app->get('/signup', RenderSignupPageController::class)->setName('signup');
 $app->post('/signup', SignupController::class);
 
-$app->get('/task-{taskId:[1-9][0-9]*}', TaskController::class.':getTask')->setName('task');
+$app->get('/task-{taskId:[1-9][0-9]*}', RenderTaskPageController::class)->setName('task');
 
-$app->post('/create', TaskController::class.':postCreate');
-$app->post('/comment', TaskController::class.':postComment');
+// $app->post('/create', TaskController::class.':postCreate');
+// $app->post('/comment', TaskController::class.':postComment');

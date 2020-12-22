@@ -26,10 +26,7 @@ class LoginController {
       $businessRequest = LoginRequest::from($body);
       $businessResponse = $this->service->handle($businessRequest);
 
-      $_SESSION['user'] = array(
-        $businessResponse->getUserId(),
-        $businessResponse->getUsername()
-      );
+      $_SESSION['user'] = serialize($businessResponse->getUser());
 
       $response->withStatus(200);
       return $response->withHeader('Location', $this->router->urlFor('home'));

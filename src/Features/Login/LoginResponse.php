@@ -3,20 +3,16 @@ declare(strict_types=1);
 
 namespace Todo\Features\Login;
 
+use Todo\Models\User;
+
 class LoginResponse {
-  private int $userId;
-  private string $username;
+  private User $user;
 
-  public function __construct(int $userId, string $username) {
-    $this->userId = $userId;
-    $this->username = $username;
+  public function __construct(User $user) {
+    $this->user = $user;
   }
 
-  public function getUserId(): int {
-    return $this->userId;
-  }
-
-  public function getUsername(): string {
-    return $this->username;
+  public function getUser(): User {
+    return $this->user;
   }
 }

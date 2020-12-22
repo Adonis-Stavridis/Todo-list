@@ -16,11 +16,12 @@ class LoginService {
     $username = $request->getUsername();
     $password = $request->getPassword();
 
-    $query = $this->repository->getUser($username);
-    if (!$query || !password_verify($password, $query['password'])) {
+    $userArray = $this->repository->getUser($username);
+
+    if (!$userArray || !password_verify($password, $userArray['password'])) {
       throw new IncorrectUsernameOrPasswordException();
     }
 
-    return new LoginResponse((int)$query['id'],$username);
+    return new LoginResponse($userArray['user']);
   }
 }

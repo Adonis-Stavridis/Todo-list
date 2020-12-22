@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Todo\Repositories\PDO;
 
 use PDO;
+use Todo\Models\User;
 use Todo\Repositories\UserRepository;
 
 class PDOUserRepository implements UserRepository {
@@ -19,16 +20,25 @@ class PDOUserRepository implements UserRepository {
     $stmt->execute();
     $res = $stmt->fetchAll();
 
-    return $res;
+    $users = [];
+    foreach($res as $key) {
+      $tempUser = new User((int)$key['id'], $key['username']);
+      array_push($users, $tempUser);
+    }
+
+    return $users;
   }
 
-  public function getUser(string $username) {
+  public function getUser(string $username): array {
     $query = 'SELECT id, password FROM users WHERE username = ?';
     $stmt = $this->pdo->prepare($query);
     $stmt->execute([$username]);
     $res = $stmt->fetch();
 
-    return $res;
+    return array(
+      'user' => new User((int)$res['id'], $username),
+      'password' => $res['password']
+    );
   }
 
   public function userExists(string $username): bool {

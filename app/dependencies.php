@@ -4,7 +4,9 @@ declare(strict_types=1);
 use DI\Container;
 use DI\ContainerBuilder;
 use Slim\Views\Twig;
+use Todo\Repositories\PDO\PDOTaskRepository;
 use Todo\Repositories\PDO\PDOUserRepository;
+use Todo\Repositories\TaskRepository;
 use Todo\Repositories\UserRepository;
 
 use function DI\get;
@@ -43,7 +45,8 @@ return function (): Container {
       $view = Twig::create(__DIR__ . $path, [ "cache" => false ]);
       return $view;
     },
-    UserRepository::class => get(PDOUserRepository::class)
+    UserRepository::class => get(PDOUserRepository::class),
+    TaskRepository::class => get(PDOTaskRepository::class)
   ]);
 
   return $containerBuilder->build();

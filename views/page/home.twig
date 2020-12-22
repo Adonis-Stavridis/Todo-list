@@ -1,6 +1,6 @@
 {% extends "/template/main.twig" %}
 
-{% block title %}{{ username }}{% endblock %}
+{% block title %}{{ user.username }}{% endblock %}
 
 {% block page %}
 <div class="row m-0 w-100 h-100">
@@ -8,7 +8,7 @@
     <div class="bg-dark p-4 h-100 mh-100 d-flex flex-column align-items-center rounded">
       <div class="d-flex flex-row w-100 mb-4">
         <a href="{{ url_for('home') }}" class="mx-auto overflow-hidden text-decoration-none text-light">
-          <h1 class="mb-0">{{ username }}</h1>
+          <h1 class="mb-0">{{ user.username }}</h1>
         </a>
         <a href="{{ url_for('logout') }}" class="btn btn-danger d-flex justify-content-center align-items-center ml-2">
           <img class="mini-icon" src="img/logout.svg" alt="LOGOUT">
@@ -28,8 +28,8 @@
         {% for task in tasks %}
         <a href="{{ url_for('task', {'taskId': task.id}) }}#task" class="list-group-item list-group-item-action list-color d-flex justify-content-between align-items-center">
           {{ task.title }}
-          <span class="taskCreatedBy" hidden>{{ task.created_by }}</span>
-          <span class="taskAssignedTo" hidden>{{ task.assigned_to }}</span>
+          {# <span class="taskCreatedBy" hidden>{{ task.created_by }}</span>
+          <span class="taskAssignedTo" hidden>{{ task.assigned_to }}</span> #}
         </a>
         {% endfor %}
       </div>
@@ -59,10 +59,10 @@
               <div class="form-group col-md-6">
                 <label for="taskAssignTo">Assign to</label>
                 <select name="taskAssignTo" id="taskAssignTo" class="form-control custom-select">
-                  <option value="{{ userid }}" selected>{{ username }}</option>
-                  {% for user in users %}
-                  {% if username != user.username %}
-                  <option value="{{ user.id }}">{{ user.username }}</option>
+                  <option value="{{ user.userid }}" selected>{{ user.username }}</option>
+                  {% for tempUser in users %}
+                  {% if user.username != tempUser.username %}
+                  <option value="{{ tempUser.id }}">{{ tempUser.username }}</option>
                   {% endif %}
                   {% endfor %}
                 </select>

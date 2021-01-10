@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Todo\Repositories\PDO;
 
 use PDO;
+use Todo\Models\Comment;
 use Todo\Models\Task;
 use Todo\Repositories\TaskRepository;
 
@@ -17,11 +18,11 @@ class PDOTaskRepository implements TaskRepository
 		$this->pdo = $pdo;
 	}
 
-	public function getTask(int $id): Task
+	public function getTask(int $taskId): Task
 	{
-		$query = 'SELECT t.id, u1.username as created_by, u2.username as assigned_to, t.title, t.description, t.created_at, t.due_date FROM todos t JOIN users u1 on t.created_by = u1.id JOIN users u2 on t.assigned_to = u2.id where t.id = ?';
+		$query = 'SELECT t.id, u1.username AS created_by, u2.username AS assigned_to, t.title, t.description, t.created_at, t.due_date FROM todos t JOIN users u1 ON t.created_by = u1.id JOIN users u2 ON t.assigned_to = u2.id WHERE t.id = ?';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute([$id]);
+		$stmt->execute([$taskId]);
 		$res = $stmt->fetch();
 
 		return new Task((int)$res['id'], $res['created_by'], $res['assigned_to'], $res['title'], $res['description'], $res['created_at'], $res['due_date']);
@@ -53,7 +54,20 @@ class PDOTaskRepository implements TaskRepository
 		return $taskId ? (int)$taskId : -1;
 	}
 
-	// public function getTaskComments(string $username): array {}
+	public function getTaskComments(int $taskId): array
+	{
+		$query = 'SELECT u.username AS created_by, c.created_at, c.comment FROM comments c JOIN users u ON c.created_by = u.id WHERE c.task_id = ? ORDER BY c.id ASC';
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute([$taskId]);
+		$res = $stmt->fetchAll();
+
+		$comments = [];
+		foreach ($res as $value) {
+			array_push($comments, new Comment($value['created_by'], $value['created_at'], $value['comment']));
+		}
+
+		return $comments;
+	}
 
 	// public function addTaskComment(): bool {}
 }

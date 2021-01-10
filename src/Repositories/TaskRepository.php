@@ -8,9 +8,9 @@ use Todo\Models\Task;
 
 interface TaskRepository
 {
-	public function getTask(int $id): Task;
+	public function getTask(int $taskId): Task;
 	public function getAll(): array;
 	public function addTask(int $createdBy, int $assignedTo, string $title, string $description, string $createdAt, string $dueDate): int;
-	// public function getTaskComments(int $id): array;
+	public function getTaskComments(int $taskId): array;
 	// public function addTaskComment(): bool;
 }

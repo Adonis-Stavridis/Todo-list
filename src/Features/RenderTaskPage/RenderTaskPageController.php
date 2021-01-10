@@ -37,13 +37,15 @@ class RenderTaskPageController
 		$sessionTasks = $_SESSION['tasks'];
 
 		$task = $this->repository->getTask((int)$args['taskId']);
+		$comments = $this->repository->getTaskComments($task->getId());
 
 		$response->withStatus(200);
 		return $this->view->render($response, "/page/task.twig", [
 			'user' => $sessionUser,
 			'users' => $sessionUsers,
 			'tasks' => $sessionTasks,
-			'task' => $task
+			'task' => $task,
+			'comments' => $comments
 		]);
 	}
 }

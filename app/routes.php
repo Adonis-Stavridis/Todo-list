@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use Slim\Interfaces\RouteParserInterface;
+use Todo\Features\CreateTask\CreateTaskController;
 use Todo\Features\Login\LoginController;
 use Todo\Features\Logout\LogoutController;
 use Todo\Features\RenderHomePage\RenderHomePageController;
@@ -13,7 +14,7 @@ use Todo\Features\Signup\SignupController;
 use function DI\value;
 
 /**
- * Set a 'router' field inside the container.
+ * Set a RouteParserInterface::class field inside the container.
  */
 $container->set(
   RouteParserInterface::class,
@@ -35,5 +36,6 @@ $app->post('/signup', SignupController::class);
 
 $app->get('/task-{taskId:[1-9][0-9]*}', RenderTaskPageController::class)->setName('task');
 
-// $app->post('/create', TaskController::class.':postCreate');
+$app->post('/create', CreateTaskController::class);
+
 // $app->post('/comment', TaskController::class.':postComment');

@@ -24,7 +24,9 @@ class RenderTaskPageController {
     if (!$_SESSION['user']) {
       $response->withStatus(200);
       return $response->withHeader('Location', $this->router->urlFor('login'));
-    }
+		}
+
+		$_SESSION['tasks'] = $this->repository->getAll();
 
     $sessionUser = unserialize($_SESSION['user']);
     $sessionUsers = unserialize($_SESSION['users']);

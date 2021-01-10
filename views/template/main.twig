@@ -20,7 +20,12 @@
 
     {% if message %}
     <div class="position-absolute mt-4 mr-4 message">
-      {% block notification %}{% endblock %}
+      {% block notification %}
+			<div class="alert alert-danger" role="alert">
+				<img class="mini-icon float-left mr-4" src="img/warning.svg" alt="Warning : ">
+				{{ message }}
+			</div>
+			{% endblock %}
     </div>
     {% endif %}
 

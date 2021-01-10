@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Slim\App;
@@ -18,24 +19,24 @@ use Todo\Features\Render404Page\Render404PageController;
  * @return void
  */
 return function (App $app): void {
-  $app->addRoutingMiddleware();
- 
-  $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+	$app->addRoutingMiddleware();
 
-  $customErrorHandler = function (
-    ServerRequestInterface $request,
-    Throwable $exception,
-    bool $displayErrorDetails,
-    bool $logErrors,
-    bool $logErrorDetails
-  ) use ($app) {
-    $response = $app->getResponseFactory()->createResponse();
-    $view = $app->getContainer()->get(Twig::class);
-    $render404PageController = new Render404PageController($view);
-    return $render404PageController($request, $response);
-  };
-  
-  $errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);
-  
-  $app->add(TwigMiddleware::createFromContainer($app, Twig::class));
+	$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+
+	$customErrorHandler = function (
+		ServerRequestInterface $request,
+		Throwable $exception,
+		bool $displayErrorDetails,
+		bool $logErrors,
+		bool $logErrorDetails
+	) use ($app) {
+		$response = $app->getResponseFactory()->createResponse();
+		$view = $app->getContainer()->get(Twig::class);
+		$render404PageController = new Render404PageController($view);
+		return $render404PageController($request, $response);
+	};
+
+	$errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);
+
+	$app->add(TwigMiddleware::createFromContainer($app, Twig::class));
 };

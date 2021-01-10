@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Todo;
@@ -6,45 +7,49 @@ namespace Todo;
 use Slim\App;
 use Slim\Factory\AppFactory;
 
-class TodoApp {
-  /**
-   * @var App $app
-   */
-  private App $app;
+class TodoApp
+{
+	/**
+	 * @var App $app
+	 */
+	private App $app;
 
-  public function __construct() {
-    require __DIR__ . '/../app/env.php';
+	public function __construct()
+	{
+		require __DIR__ . '/../app/env.php';
 
-    $dependencies = require __DIR__ . '/../app/dependencies.php';
-    $container = $dependencies();
+		$dependencies = require __DIR__ . '/../app/dependencies.php';
+		$container = $dependencies();
 
-    AppFactory::setContainer($container);
+		AppFactory::setContainer($container);
 
-    $app = AppFactory::create();
+		$app = AppFactory::create();
 
-    $middleware = require __DIR__ . '/../app/middleware.php';
-    $middleware($app);
+		$middleware = require __DIR__ . '/../app/middleware.php';
+		$middleware($app);
 
-    require __DIR__ . '/../app/routes.php';
+		require __DIR__ . '/../app/routes.php';
 
-    $this->app = $app;
-  }
+		$this->app = $app;
+	}
 
-  /**
-   * Get App.
-   * 
-   * @return App
-   */
-  public function get(): App {
-    return $this->app;
-  }
+	/**
+	 * Get App.
+	 * 
+	 * @return App
+	 */
+	public function get(): App
+	{
+		return $this->app;
+	}
 
-  /**
-   * Run App.
-   * 
-   * @return void
-   */
-  public function run(): void {
-    $this->app->run();
-  }
+	/**
+	 * Run App.
+	 * 
+	 * @return void
+	 */
+	public function run(): void
+	{
+		$this->app->run();
+	}
 }

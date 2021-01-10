@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Slim\Interfaces\RouteParserInterface;
@@ -17,8 +18,8 @@ use function DI\value;
  * Set a RouteParserInterface::class field inside the container.
  */
 $container->set(
-  RouteParserInterface::class,
-  value($app->getRouteCollector()->getRouteParser())
+	RouteParserInterface::class,
+	value($app->getRouteCollector()->getRouteParser())
 );
 
 /**

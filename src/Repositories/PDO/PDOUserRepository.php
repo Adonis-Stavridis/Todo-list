@@ -26,8 +26,7 @@ class PDOUserRepository implements UserRepository
 
 		$users = [];
 		foreach ($res as $key) {
-			$tempUser = new User((int)$key['id'], $key['username']);
-			array_push($users, $tempUser);
+			$users[] = new User((int)$key['id'], $key['username']);
 		}
 
 		return $users;

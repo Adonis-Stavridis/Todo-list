@@ -66,7 +66,7 @@ class UserTest extends TestCase
 		$user->expects($this->once())->method('addUser')->will($this->returnCallback(
 			function (string $username, string $password) {
 				$newUserId = count(self::$usersTableSample) + 1;
-				array_push(self::$usersTableSample, $username);
+				self::$usersTableSample[] = $username;
 				self::$usersTableSample[$username] = [$password, $newUserId];
 				return $newUserId;
 			}

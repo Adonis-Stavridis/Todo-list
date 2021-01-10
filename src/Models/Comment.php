@@ -10,13 +10,13 @@ class Comment implements JsonSerializable
 {
 	private string $createdBy;
 	private string $createdAt;
-	private string $content;
+	private string $comment;
 
-	public function __construct(string $createdBy, string $createdAt, string $content)
+	public function __construct(string $createdBy, string $createdAt, string $comment)
 	{
 		$this->createdBy = $createdBy;
 		$this->createdAt = $createdAt;
-		$this->content = $content;
+		$this->comment = $comment;
 	}
 
 	public function getCreatedBy()
@@ -29,9 +29,9 @@ class Comment implements JsonSerializable
 		return $this->createdAt;
 	}
 
-	public function getContent()
+	public function getComment()
 	{
-		return $this->content;
+		return $this->comment;
 	}
 
 	public function jsonSerialize()

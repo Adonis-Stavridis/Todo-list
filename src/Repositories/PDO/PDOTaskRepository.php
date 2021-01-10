@@ -37,7 +37,7 @@ class PDOTaskRepository implements TaskRepository
 
 		$tasks = [];
 		foreach ($res as $key) {
-			array_push($tasks, array('id' => $key['id'], 'title' => $key['title']));
+			$tasks[] =  array('id' => $key['id'], 'title' => $key['title']);
 		}
 
 		return $tasks;
@@ -63,11 +63,18 @@ class PDOTaskRepository implements TaskRepository
 
 		$comments = [];
 		foreach ($res as $value) {
-			array_push($comments, new Comment($value['created_by'], $value['created_at'], $value['comment']));
+			$comments[] = new Comment($value['created_by'], $value['created_at'], $value['comment']);
 		}
 
 		return $comments;
 	}
 
-	// public function addTaskComment(): bool {}
+	public function addTaskComment(int $taskId, int $createdBy, string $createdAt, string $comment): bool
+	{
+		$query = 'INSERT INTO comments (created_by, creadted_at, comment) VALUES ( ? , ? , ? )';
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute($taskId, $createdBy, $createdAt, $comment);
+
+		return $this->pdo->lastInsertId() ? true : false;
+	}
 }

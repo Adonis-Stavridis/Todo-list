@@ -12,5 +12,5 @@ interface TaskRepository
 	public function getAll(): array;
 	public function addTask(int $createdBy, int $assignedTo, string $title, string $description, string $createdAt, string $dueDate): int;
 	public function getTaskComments(int $taskId): array;
-	// public function addTaskComment(): bool;
+	public function addTaskComment(int $taskId, int $createdBy, string $createdAt, string $comment): bool;
 }

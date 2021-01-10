@@ -60,7 +60,7 @@ class TaskTest extends TestCase
 			function () {
 				$res = [];
 				foreach (self::$todosTableSample as $key => $value) {
-					array_push($res, array_merge([$key], $value));
+					$res[] = array_merge([$key], $value);
 				}
 				return $res;
 			}
@@ -80,7 +80,7 @@ class TaskTest extends TestCase
 		$task->expects($this->once())->method('addTask')->will($this->returnCallback(
 			function (int $createdBy, int $assignTo, string $title, string $description, string $createdAt, string $dueDate) {
 				$newTaskId = max(array_keys(self::$todosTableSample)) + 1;
-				array_push(self::$todosTableSample, $newTaskId);
+				self::$todosTableSample[] = $newTaskId;
 				self::$todosTableSample[$newTaskId] = [2, 3, 'Learn the Slim Framework', 'Read the Slim documentation', '2020-10-25', '2020-10-31'];
 				return $newTaskId;
 			}
@@ -100,7 +100,7 @@ class TaskTest extends TestCase
 			function () {
 				$res = [];
 				foreach (self::$usersTableSample as $user) {
-					array_push($res, [$user[0], $user[1]]);
+					$res[] = [$user[0], $user[1]];
 				}
 				return $res;
 			}
@@ -116,7 +116,7 @@ class TaskTest extends TestCase
 		$task->expects($this->once())->method('addCommentToTask')->will($this->returnCallback(
 			function (int $taskId, int $createdBy, string $createdAt, string $comment) {
 				$newCommentId = count(self::$commentsTableSample) + 1;
-				array_push(self::$commentsTableSample, [$newCommentId, $taskId, $createdBy, $createdAt, $comment]);
+				self::$commentsTableSample[] = [$newCommentId, $taskId, $createdBy, $createdAt, $comment];
 				return $newCommentId;
 			}
 		));
@@ -136,7 +136,7 @@ class TaskTest extends TestCase
 				$res = [];
 				foreach (self::$commentsTableSample as $comment) {
 					if ($comment[1] == $taskId) {
-						array_push($res, [$comment[2], $comment[3], $comment[4]]);
+						$res[] = [$comment[2], $comment[3], $comment[4]];
 					}
 				}
 				return $res;

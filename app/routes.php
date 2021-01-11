@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Slim\Interfaces\RouteParserInterface;
+use Todo\Features\Comment\CommentController;
 use Todo\Features\CreateTask\CreateTaskController;
 use Todo\Features\Login\LoginController;
 use Todo\Features\Logout\LogoutController;
@@ -39,4 +40,4 @@ $app->get('/task-{taskId:[1-9][0-9]*}', RenderTaskPageController::class)->setNam
 
 $app->post('/create', CreateTaskController::class);
 
-// $app->post('/comment', TaskController::class.':postComment');
+$app->post('/comment', CommentController::class);

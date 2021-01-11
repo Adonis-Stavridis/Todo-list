@@ -21,8 +21,8 @@ class CreateTaskRequest
 		$this->assignTo = $assignTo;
 		$this->title = $title;
 		$this->description = $description;
-		$this->createdAt = date("Y-m-d H:i:s");
-		$this->dueDate = $dueDate . ' 23:59:59';
+		$this->createdAt = date("Y-m-d");
+		$this->dueDate = $dueDate;
 	}
 
 	public function getUserId()

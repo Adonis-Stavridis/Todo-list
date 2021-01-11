@@ -69,12 +69,19 @@ class PDOTaskRepository implements TaskRepository
 		return $comments;
 	}
 
-	public function addTaskComment(int $taskId, int $createdBy, string $createdAt, string $comment): bool
+	public function addTaskComment(int $taskId, int $createdBy, string $createdAt, string $comment): Comment
 	{
-		$query = 'INSERT INTO comments (created_by, creadted_at, comment) VALUES ( ? , ? , ? )';
+		$query = 'INSERT INTO comments (task_id, created_by, created_at, comment) VALUES ( ? , ? , ? , ? )';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute($taskId, $createdBy, $createdAt, $comment);
+		$stmt->execute([$taskId, $createdBy, $createdAt, $comment]);
 
-		return $this->pdo->lastInsertId() ? true : false;
+		$query = 'SELECT username FROM users WHERE id = ?';
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute([$createdBy]);
+		$res = $stmt->fetch();
+
+		$newComment = new Comment($res['username'], $createdAt, $comment);
+
+		return $newComment;
 	}
 }

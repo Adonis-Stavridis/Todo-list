@@ -16,9 +16,10 @@ $(function () {
       'type': 'post',
       'data': {
         'taskId': $('#taskId').val(),
-        'taskComment': $('#taskComment').val()
+        'comment': $('#taskComment').val()
       }
-    }).done(function (response) {
+		}).done(function (response) {
+			console.log(response);
       addComment(response);
     });
   });

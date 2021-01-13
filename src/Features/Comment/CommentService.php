@@ -18,12 +18,7 @@ class CommentService
 
 	public function handle(CommentRequest $request): CommentResponse
 	{
-		$taskId = $request->getTaskId();
-		$createdBy = $request->getCreatedBy();
-		$createdAt = $request->getCreatedAt();
-		$comment = $request->getComment();
-
-		$newComment = $this->repository->addTaskComment($taskId, $createdBy, $createdAt, $comment);
+		$newComment = $this->repository->addTaskComment($request);
 		if (!$newComment) {
 			throw new CouldNotCommentException();
 		}

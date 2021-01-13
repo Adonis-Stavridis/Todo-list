@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Todo\Repositories\PDO;
 
 use PDO;
+use Todo\Features\Signup\SignupRequest;
 use Todo\Models\User;
 use Todo\Repositories\UserRepository;
 
@@ -55,11 +56,14 @@ class PDOUserRepository implements UserRepository
 		return $res ? true : false;
 	}
 
-	public function addUser(string $username, string $password): bool
+	public function addUser(SignupRequest $signup): bool
 	{
 		$query = 'INSERT INTO users (username, password) VALUES ( ? , ? )';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute([$username, password_hash($password, PASSWORD_BCRYPT)]);
+		$stmt->execute([
+			$signup->getUsername(),
+			password_hash($signup->getPassword(), PASSWORD_BCRYPT)
+		]);
 
 		return $this->pdo->lastInsertId() ? true : false;
 	}

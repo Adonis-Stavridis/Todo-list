@@ -30,7 +30,7 @@ class SignupService
 			throw new PasswordsDoNotMatchException();
 		}
 
-		$boolean = $this->repository->addUser($username, $password);
+		$boolean = $this->repository->addUser($request);
 		if (!$boolean) {
 			throw new CouldNotSignupUserException();
 		}

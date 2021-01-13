@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Todo\Repositories\PDO;
 
 use PDO;
+use Todo\Features\Comment\CommentRequest;
+use Todo\Features\CreateTask\CreateTaskRequest;
 use Todo\Models\Comment;
 use Todo\Models\Task;
 use Todo\Repositories\TaskRepository;
@@ -43,11 +45,18 @@ class PDOTaskRepository implements TaskRepository
 		return $tasks;
 	}
 
-	public function addTask(int $createdBy, int $assignedTo, string $title, string $description, string $createdAt, string $dueDate): int
+	public function addTask(CreateTaskRequest $task): int
 	{
 		$query = 'INSERT INTO todos (created_by, assigned_to, title, description, created_at, due_date) VALUES ( ? , ? , ? , ? , ? , ? )';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute([$createdBy, $assignedTo, $title, $description, $createdAt, $dueDate]);
+		$stmt->execute([
+			$task->getCreatedBy(),
+			$task->getAssignTo(),
+			$task->getTitle(),
+			$task->getDescription(),
+			$task->getCreatedAt(),
+			$task->getDueDate()
+		]);
 
 		$taskId	= $this->pdo->lastInsertId();
 
@@ -69,18 +78,23 @@ class PDOTaskRepository implements TaskRepository
 		return $comments;
 	}
 
-	public function addTaskComment(int $taskId, int $createdBy, string $createdAt, string $comment): Comment
+	public function addTaskComment(CommentRequest $comment): Comment
 	{
 		$query = 'INSERT INTO comments (task_id, created_by, created_at, comment) VALUES ( ? , ? , ? , ? )';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute([$taskId, $createdBy, $createdAt, $comment]);
+		$stmt->execute([
+			$comment->getTaskId(),
+			$comment->getCreatedBy(),
+			$comment->getCreatedAt(),
+			$comment->getComment()
+		]);
 
 		$query = 'SELECT username FROM users WHERE id = ?';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute([$createdBy]);
+		$stmt->execute([$comment->getCreatedBy()]);
 		$res = $stmt->fetch();
 
-		$newComment = new Comment($res['username'], $createdAt, $comment);
+		$newComment = new Comment($res['username'], $comment->getCreatedAt(), $comment->getComment());
 
 		return $newComment;
 	}

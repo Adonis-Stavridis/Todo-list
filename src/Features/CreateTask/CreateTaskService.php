@@ -17,14 +17,7 @@ class CreateTaskService
 
 	public function handle(CreateTaskRequest $request): CreateTaskResponse
 	{
-		$createdBy = $request->getUserId();
-		$assignedTo = $request->getAssignTo();
-		$title = $request->getTitle();
-		$description = $request->getDescription();
-		$createdAt = $request->getCreatedAt();
-		$dueDate = $request->getDueDate();
-
-		$taskId = $this->repository->addTask($createdBy, $assignedTo, $title, $description, $createdAt, $dueDate);
+		$taskId = $this->repository->addTask($request);
 		if ($taskId == -1) {
 			throw new CouldNotCreateTaskException();
 		}

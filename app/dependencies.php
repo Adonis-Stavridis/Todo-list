@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 use DI\Container;
 use DI\ContainerBuilder;
+use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use Slim\Views\Twig;
-use Todo\Repositories\PDO\PDOTaskRepository;
-use Todo\Repositories\PDO\PDOUserRepository;
+use Todo\Repositories\Api\ApiTaskRepository;
+use Todo\Repositories\Api\ApiUserRepository;
 use Todo\Repositories\TaskRepository;
 use Todo\Repositories\UserRepository;
-
-use function DI\get;
 
 /**
  * Builds a container with all dependencies.
@@ -46,8 +46,22 @@ return function (): Container {
 			$view = Twig::create(__DIR__ . $path, ["cache" => false]);
 			return $view;
 		},
-		UserRepository::class => get(PDOUserRepository::class),
-		TaskRepository::class => get(PDOTaskRepository::class)
+		UserRepository::class => function (): UserRepository {
+			return new ApiUserRepository(
+				Psr18ClientDiscovery::find(),
+				Psr17FactoryDiscovery::findRequestFactory(),
+				Psr17FactoryDiscovery::findStreamFactory(),
+				$_ENV['API_URL']
+			);
+		},
+		TaskRepository::class => function (): TaskRepository {
+			return new ApiTaskRepository(
+				Psr18ClientDiscovery::find(),
+				Psr17FactoryDiscovery::findRequestFactory(),
+				Psr17FactoryDiscovery::findStreamFactory(),
+				$_ENV['API_URL']
+			);
+		}
 	]);
 
 	return $containerBuilder->build();

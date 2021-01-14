@@ -12,7 +12,8 @@
     "ext-PDO": "*",
     "ext-json": "*",
     "php-http/discovery": "^1.13",
-    "psr/http-client": "^1.0"
+    "psr/http-client": "^1.0",
+    "guzzlehttp/guzzle": "^7.2"
   },
   "authors": [
     {

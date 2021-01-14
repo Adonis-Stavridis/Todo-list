@@ -1,6 +1,18 @@
 version: "3"
 
 services:
+  # Main server
+  domain:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: todoDomain
+    ports:
+      - 8010:80
+    volumes:
+      - .:/srv/app
+    depends_on:
+      - mysql
   # Web server
   web:
     build:
@@ -8,11 +20,11 @@ services:
       dockerfile: .docker/Dockerfile
     container_name: todoWeb
     ports:
-      - 8010:80
+      - 8011:80
     volumes:
       - .:/srv/app
     depends_on:
-      - mysql
+      - domain
   # Database server
   mysql:
     image: mysql:5.7

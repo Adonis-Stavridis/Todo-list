@@ -18,6 +18,19 @@ class PDOUserRepository implements UserRepository
 		$this->pdo = $pdo;
 	}
 
+	public function getUser(string $username): array
+	{
+		$query = 'SELECT id, password FROM users WHERE username = ?';
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute([$username]);
+		$res = $stmt->fetch();
+
+		return array(
+			'user' => new User((int)$res['id'], $username),
+			'password' => $res['password']
+		);
+	}
+
 	public function getAll(): array
 	{
 		$query = 'SELECT id,username FROM users';
@@ -31,19 +44,6 @@ class PDOUserRepository implements UserRepository
 		}
 
 		return $users;
-	}
-
-	public function getUser(string $username): array
-	{
-		$query = 'SELECT id, password FROM users WHERE username = ?';
-		$stmt = $this->pdo->prepare($query);
-		$stmt->execute([$username]);
-		$res = $stmt->fetch();
-
-		return array(
-			'user' => new User((int)$res['id'], $username),
-			'password' => $res['password']
-		);
 	}
 
 	public function userExists(string $username): bool

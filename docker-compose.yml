@@ -37,4 +37,4 @@ services:
     ports:
       - 8012:3306
     volumes:
-      - .docker/:/docker-entrypoint-initdb.d
+      - ./Domain/.docker/:/docker-entrypoint-initdb.d

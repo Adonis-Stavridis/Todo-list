@@ -30,10 +30,8 @@ return function (App $app): void {
 		bool $logErrors,
 		bool $logErrorDetails
 	) use ($app) {
-		$response = $app->getResponseFactory()->createResponse();
-		$view = $app->getContainer()->get(Twig::class);
-		$render404PageController = new Render404PageController($view);
-		return $render404PageController($request, $response);
+		$response = $app->getResponseFactory()->createResponse(404);
+		return $response;
 	};
 
 	$errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);

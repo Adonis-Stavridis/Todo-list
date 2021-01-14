@@ -10,7 +10,7 @@ services:
     ports:
       - 8010:80
     volumes:
-      - .:/srv/domain
+      - ./Domain:/srv/domain
     depends_on:
       - mysql
   # Web server
@@ -22,7 +22,7 @@ services:
     ports:
       - 8011:80
     volumes:
-      - .:/srv/web
+      - ./Web:/srv/web
     depends_on:
       - domain
   # Database server
@@ -35,6 +35,6 @@ services:
       MYSQL_USER: todos-user
       MYSQL_PASSWORD: todos-pwd
     ports:
-      - 8011:3306
+      - 8012:3306
     volumes:
       - .docker/:/docker-entrypoint-initdb.d

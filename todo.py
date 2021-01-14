@@ -24,7 +24,7 @@ class Commands:
 
 class App:
   host = 'localhost'
-  port = '8010'
+  port = '8011'
 
 def main(argv):
   def signal_handler(signal, frame):

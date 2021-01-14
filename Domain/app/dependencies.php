@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 use DI\Container;
 use DI\ContainerBuilder;
-use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Discovery\Psr18ClientDiscovery;
-use TodoWeb\Repositories\Api\ApiTaskRepository;
-use TodoWeb\Repositories\Api\ApiUserRepository;
-use TodoWeb\Repositories\TaskRepository;
-use TodoWeb\Repositories\UserRepository;
+use TodoDomain\Repositories\TaskRepository;
+use TodoDomain\Repositories\UserRepository;
 
 use function DI\get;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TodoWeb\Repositories\PDO;
+namespace TodoDomain\Repositories\PDO;
 
 use PDO;
 use TodoWeb\Features\Comment\CommentRequest;

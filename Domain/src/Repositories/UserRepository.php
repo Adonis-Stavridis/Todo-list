@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TodoWeb\Repositories;
+namespace TodoDomain\Repositories;
 
 use TodoWeb\Features\Signup\SignupRequest;
 

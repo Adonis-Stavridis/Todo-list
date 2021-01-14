@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace TodoWeb\Features\Comment;
 
-use TodoWeb\Models\Comment;
 use TodoWeb\Repositories\TaskRepository;
 
 class CommentService

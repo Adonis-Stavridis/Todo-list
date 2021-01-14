@@ -5,9 +5,6 @@ declare(strict_types=1);
 use Slim\App;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotFoundException;
-use Slim\Views\Twig;
-use Slim\Views\TwigMiddleware;
-use TodoWeb\Features\Render404Page\Render404PageController;
 
 /**
  * Creates middleware to handle errors.
@@ -35,6 +32,4 @@ return function (App $app): void {
 	};
 
 	$errorMiddleware->setErrorHandler(HttpNotFoundException::class, $customErrorHandler);
-
-	$app->add(TwigMiddleware::createFromContainer($app, Twig::class));
 };

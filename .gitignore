@@ -1,6 +1,6 @@
 # Dependencies
-vendor/
-node_modules/
+vendor
+node_modules
 
 # Phpdoc cache
-.phpdoc/
+.phpdoc

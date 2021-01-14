@@ -27,8 +27,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"TodoWeb\\": "Web/src",
-			"TodoDomain\\": "Domain/src"
+			"TodoWeb\\": "src"
 		}
 	},
 	"autoload-dev": {

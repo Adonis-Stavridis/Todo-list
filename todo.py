@@ -16,8 +16,8 @@ class Colors:
 # You can change the commands here to fit your environment
 # Add sudo in front of commands if needed
 class Commands:
-  composerInstall = 'composer install'
-  npmInstall = 'npm install'
+  composerInstall = 'cd Web/ && composer install && composer dump-autoload'
+  npmInstall = 'cd Web/ && npm install'
   dockerComposeUp = 'docker-compose up --build'
   dockerComposeDown = 'docker-compose down'
   phpUnitTest = './vendor/bin/phpunit ./test'

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run sass && npm run webpack",
     "webpack": "webpack",
-    "sass": "sass assets/scss/main.scss public/css/main.css"
+    "sass": "sass Web/assets/scss/main.scss Web/public/css/main.css"
   },
   "repository": {
     "type": "git",

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Todo\Repositories\PDO;
+namespace TodoWeb\Repositories\PDO;
 
 use PDO;
-use Todo\Features\Comment\CommentRequest;
-use Todo\Features\CreateTask\CreateTaskRequest;
-use Todo\Models\Comment;
-use Todo\Models\Task;
-use Todo\Repositories\TaskRepository;
+use TodoWeb\Features\Comment\CommentRequest;
+use TodoWeb\Features\CreateTask\CreateTaskRequest;
+use TodoWeb\Models\Comment;
+use TodoWeb\Models\Task;
+use TodoWeb\Repositories\TaskRepository;
 
 class PDOTaskRepository implements TaskRepository
 {

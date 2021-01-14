@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Todo;
+namespace TodoWeb;
 
 use Slim\App;
 use Slim\Factory\AppFactory;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\Comment;
+namespace TodoWeb\Features\Comment;
 
 use Exception;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\Login;
+namespace TodoWeb\Features\Login;
 
-use Todo\Repositories\UserRepository;
+use TodoWeb\Repositories\UserRepository;
 
 class LoginService
 {

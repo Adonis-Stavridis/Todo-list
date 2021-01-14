@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\Comment;
+namespace TodoWeb\Features\Comment;
 
-use Todo\Models\Comment;
-use Todo\Repositories\TaskRepository;
+use TodoWeb\Models\Comment;
+use TodoWeb\Repositories\TaskRepository;
 
 class CommentService
 {

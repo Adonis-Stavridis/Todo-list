@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\RenderLoginPage;
+namespace TodoWeb\Features\RenderLoginPage;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

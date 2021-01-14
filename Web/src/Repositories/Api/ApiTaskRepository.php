@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Todo\Repositories\Api;
+namespace TodoWeb\Repositories\Api;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use Todo\Features\Comment\CommentRequest;
-use Todo\Features\CreateTask\CreateTaskRequest;
-use Todo\Models\Comment;
-use Todo\Models\Task;
-use Todo\Repositories\TaskRepository;
+use TodoWeb\Features\Comment\CommentRequest;
+use TodoWeb\Features\CreateTask\CreateTaskRequest;
+use TodoWeb\Models\Comment;
+use TodoWeb\Models\Task;
+use TodoWeb\Repositories\TaskRepository;
 
 class ApiTaskRepository implements TaskRepository
 {

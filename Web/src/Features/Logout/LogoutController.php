@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\Logout;
+namespace TodoWeb\Features\Logout;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

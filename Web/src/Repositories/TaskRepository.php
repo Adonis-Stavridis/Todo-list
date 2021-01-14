@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Todo\Repositories;
+namespace TodoWeb\Repositories;
 
-use Todo\Features\Comment\CommentRequest;
-use Todo\Features\CreateTask\CreateTaskRequest;
-use Todo\Models\Comment;
-use Todo\Models\Task;
+use TodoWeb\Features\Comment\CommentRequest;
+use TodoWeb\Features\CreateTask\CreateTaskRequest;
+use TodoWeb\Models\Comment;
+use TodoWeb\Models\Task;
 
 interface TaskRepository
 {

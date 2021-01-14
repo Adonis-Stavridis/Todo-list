@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\RenderTaskPage;
+namespace TodoWeb\Features\RenderTaskPage;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Views\Twig;
-use Todo\Repositories\TaskRepository;
+use TodoWeb\Repositories\TaskRepository;
 
 class RenderTaskPageController
 {

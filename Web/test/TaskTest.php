@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Todo\Models\Task;
+use TodoWeb\Models\Task;
 
 class TaskTest extends TestCase
 {

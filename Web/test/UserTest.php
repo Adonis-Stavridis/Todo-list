@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Todo\Models\User;
+use TodoWeb\Models\User;
 
 class UserTest extends TestCase
 {

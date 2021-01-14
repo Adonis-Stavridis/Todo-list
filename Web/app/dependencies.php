@@ -7,10 +7,10 @@ use DI\ContainerBuilder;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use Slim\Views\Twig;
-use Todo\Repositories\Api\ApiTaskRepository;
-use Todo\Repositories\Api\ApiUserRepository;
-use Todo\Repositories\TaskRepository;
-use Todo\Repositories\UserRepository;
+use TodoWeb\Repositories\Api\ApiTaskRepository;
+use TodoWeb\Repositories\Api\ApiUserRepository;
+use TodoWeb\Repositories\TaskRepository;
+use TodoWeb\Repositories\UserRepository;
 
 /**
  * Builds a container with all dependencies.

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\CreateTask;
+namespace TodoWeb\Features\CreateTask;
 
-use Todo\Repositories\TaskRepository;
+use TodoWeb\Repositories\TaskRepository;
 
 class CreateTaskService
 {

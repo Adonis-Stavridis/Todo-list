@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\Comment;
+namespace TodoWeb\Features\Comment;
 
-use Todo\Models\Comment;
+use TodoWeb\Models\Comment;
 
 class CommentResponse
 {

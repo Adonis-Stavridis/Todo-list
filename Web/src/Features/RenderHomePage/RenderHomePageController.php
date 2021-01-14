@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\RenderHomePage;
+namespace TodoWeb\Features\RenderHomePage;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Views\Twig;
-use Todo\Repositories\TaskRepository;
-use Todo\Repositories\UserRepository;
+use TodoWeb\Repositories\TaskRepository;
+use TodoWeb\Repositories\UserRepository;
 
 class RenderHomePageController
 {

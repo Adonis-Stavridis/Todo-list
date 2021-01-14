@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Todo\Repositories\Api;
+namespace TodoWeb\Repositories\Api;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use Todo\Features\Signup\SignupRequest;
-use Todo\Models\User;
-use Todo\Repositories\UserRepository;
+use TodoWeb\Features\Signup\SignupRequest;
+use TodoWeb\Models\User;
+use TodoWeb\Repositories\UserRepository;
 
 class ApiUserRepository implements UserRepository
 {

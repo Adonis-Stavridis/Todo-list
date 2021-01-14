@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
-use Todo\Features\Render404Page\Render404PageController;
+use TodoWeb\Features\Render404Page\Render404PageController;
 
 /**
  * Creates middleware to handle errors.

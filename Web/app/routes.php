@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 use Slim\Interfaces\RouteParserInterface;
-use Todo\Features\Comment\CommentController;
-use Todo\Features\CreateTask\CreateTaskController;
-use Todo\Features\Login\LoginController;
-use Todo\Features\Logout\LogoutController;
-use Todo\Features\RenderHomePage\RenderHomePageController;
-use Todo\Features\RenderLoginPage\RenderLoginPageController;
-use Todo\Features\RenderSignupPage\RenderSignupPageController;
-use Todo\Features\RenderTaskPage\RenderTaskPageController;
-use Todo\Features\Signup\SignupController;
+use TodoWeb\Features\Comment\CommentController;
+use TodoWeb\Features\CreateTask\CreateTaskController;
+use TodoWeb\Features\Login\LoginController;
+use TodoWeb\Features\Logout\LogoutController;
+use TodoWeb\Features\RenderHomePage\RenderHomePageController;
+use TodoWeb\Features\RenderLoginPage\RenderLoginPageController;
+use TodoWeb\Features\RenderSignupPage\RenderSignupPageController;
+use TodoWeb\Features\RenderTaskPage\RenderTaskPageController;
+use TodoWeb\Features\Signup\SignupController;
 
 use function DI\value;
 

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Todo\Repositories\PDO;
+namespace TodoWeb\Repositories\PDO;
 
 use PDO;
-use Todo\Features\Signup\SignupRequest;
-use Todo\Models\User;
-use Todo\Repositories\UserRepository;
+use TodoWeb\Features\Signup\SignupRequest;
+use TodoWeb\Models\User;
+use TodoWeb\Repositories\UserRepository;
 
 class PDOUserRepository implements UserRepository
 {

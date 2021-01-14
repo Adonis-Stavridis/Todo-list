@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Todo\Models;
+namespace TodoWeb\Models;
 
 use JsonSerializable;
 

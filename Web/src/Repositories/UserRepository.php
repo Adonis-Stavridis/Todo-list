@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Todo\Repositories;
+namespace TodoWeb\Repositories;
 
-use Todo\Features\Signup\SignupRequest;
+use TodoWeb\Features\Signup\SignupRequest;
 
 interface UserRepository
 {

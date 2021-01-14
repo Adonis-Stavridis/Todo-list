@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Todo\Features\Signup;
+namespace TodoWeb\Features\Signup;
 
 use Exception;
 

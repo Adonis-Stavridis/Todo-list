@@ -1,7 +1,7 @@
 FROM php:7.4-apache
 
 # Update system
-RUN apt-get update && apt-get install git -y
+RUN apt-get update && apt-get install git curl -y
 
 # Install composer
 ENV COMPOSER_HOME "/home/www-data/.composer"

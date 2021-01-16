@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace TodoDomain\Endpoints\GetAllUsers;
+namespace TodoDomain\Endpoints\CreateUser;
 
 use TodoDomain\Repositories\UserRepository;
 
-class GetAllUsersService
+class CreateUserService
 {
 	private UserRepository $repository;
 
@@ -15,13 +15,11 @@ class GetAllUsersService
 		$this->repository = $repository;
 	}
 
-	public function handle(): array
+	public function handle(CreateUserRequest $user): void
 	{
-		$users = $this->repository->getAll();
-		if (empty($users)) {
-			throw new NoUsersException();
+		$flag = $this->repository->addUser($user);
+		if (!$flag) {
+			throw new CouldNotCreateUserException();
 		}
-
-		return $users;
 	}
 }

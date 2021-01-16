@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace TodoDomain\Endpoints\GetAllUsers;
+namespace TodoDomain\Endpoints\CreateUser;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class GetAllUsersController
+class CreateUserController
 {
-	private GetAllUsersService $service;
+	private CreateUserService $service;
 
-	public function __construct(GetAllUsersService $service)
+	public function __construct(CreateUserService $service)
 	{
 		$this->service = $service;
 	}
@@ -20,9 +20,11 @@ class GetAllUsersController
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		try {
-			$users = $this->service->handle();
-			$jsonResponse = json_encode($users);
-			$response->getBody()->write($jsonResponse);
+			$body = json_decode($request->getParsedBody());
+			$businessRequest = CreateUserRequest::from($body);
+			$this->service->handle($businessRequest);
+
+			$response->withStatus(200);
 			return $response;
 		} catch (Exception $exception) {
 			$response->withStatus($exception->getCode());

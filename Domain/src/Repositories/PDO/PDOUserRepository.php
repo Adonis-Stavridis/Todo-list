@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace TodoWeb\Repositories\PDO;
+namespace TodoDomain\Repositories\PDO;
 
 use PDO;
-use TodoWeb\Features\Signup\SignupRequest;
-use TodoWeb\Models\User;
-use TodoWeb\Repositories\UserRepository;
+use TodoDomain\Endpoints\CreateUser\CreateUserRequest;
+use TodoDomain\Models\User;
+use TodoDomain\Repositories\UserRepository;
 
 class PDOUserRepository implements UserRepository
 {
@@ -40,7 +40,7 @@ class PDOUserRepository implements UserRepository
 
 		$users = [];
 		foreach ($res as $key) {
-			$users[] = new User((int)$key['id'], $key['username']);
+			$users[] = (new User((int)$key['id'], $key['username']))->jsonSerialize();
 		}
 
 		return $users;
@@ -56,13 +56,13 @@ class PDOUserRepository implements UserRepository
 		return $res ? true : false;
 	}
 
-	public function addUser(SignupRequest $signup): bool
+	public function addUser(CreateUserRequest $user): bool
 	{
 		$query = 'INSERT INTO users (username, password) VALUES ( ? , ? )';
 		$stmt = $this->pdo->prepare($query);
 		$stmt->execute([
-			$signup->getUsername(),
-			password_hash($signup->getPassword(), PASSWORD_BCRYPT)
+			$user->getUsername(),
+			password_hash($user->getPassword(), PASSWORD_BCRYPT)
 		]);
 
 		return $this->pdo->lastInsertId() ? true : false;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TodoWeb\Features\Login;
 
+use TodoWeb\Models\User;
 use TodoWeb\Repositories\UserRepository;
 
 class LoginService
@@ -17,15 +18,11 @@ class LoginService
 
 	public function handle(LoginRequest $request): LoginResponse
 	{
-		$username = $request->getUsername();
-		$password = $request->getPassword();
-
-		$userArray = $this->repository->getUser($username);
-
-		if (!$userArray || !password_verify($password, $userArray['password'])) {
+		$user = $this->repository->getUser($request);
+		if (!$user) {
 			throw new IncorrectUsernameOrPasswordException();
 		}
 
-		return new LoginResponse($userArray['user']);
+		return new LoginResponse($user);
 	}
 }

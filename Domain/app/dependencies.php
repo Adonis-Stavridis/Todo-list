@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use DI\Container;
 use DI\ContainerBuilder;
+use TodoDomain\Repositories\PDO\PDOTaskRepository;
+use TodoDomain\Repositories\PDO\PDOUserRepository;
 use TodoDomain\Repositories\TaskRepository;
 use TodoDomain\Repositories\UserRepository;
 

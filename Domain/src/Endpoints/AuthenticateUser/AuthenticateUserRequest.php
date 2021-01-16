@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace TodoWeb\Features\Login;
+namespace TodoDomain\Endpoints\AuthenticateUser;
 
-use JsonSerializable;
 use stdClass;
 
-class LoginRequest implements JsonSerializable
+class AuthenticateUserRequest
 {
 	private string $username;
 	private string $password;
@@ -31,10 +30,5 @@ class LoginRequest implements JsonSerializable
 	public static function from(stdClass $json)
 	{
 		return new self($json->username, $json->password);
-	}
-
-	public function jsonSerialize()
-	{
-		return get_object_vars($this);
 	}
 }

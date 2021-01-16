@@ -8,6 +8,7 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use TodoWeb\Features\Login\LoginRequest;
 use TodoWeb\Features\Signup\SignupRequest;
 use TodoWeb\Models\User;
 use TodoWeb\Repositories\UserRepository;
@@ -27,22 +28,21 @@ class ApiUserRepository implements UserRepository
 		$this->apiEndpoint = $apiEndpoint;
 	}
 
-	public function getUser(string $username): array
+	public function getUser(LoginRequest $request): ?User
 	{
-		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/users/' . $username);
+
+		$apiRequest = $this->requestFactory->createRequest('POST', $this->apiEndpoint . '/users/' . $request->getUsername());
+		$apiRequest->getBody()->write(json_encode($request->jsonSerialize()));
 
 		$apiResponse = $this->httpClient->sendRequest($apiRequest);
 
 		if ($apiResponse->getStatusCode() !== 200) {
-			return [];
+			return null;
 		}
 
 		$jsonResponse = json_decode($apiResponse->getBody()->__toString());
 
-		return array(
-			'user' => new User((int)$jsonResponse->userId, $jsonResponse->username),
-			'password' => $jsonResponse->password
-		);
+		return User::from($jsonResponse);
 	}
 
 	public function getAll(): array
@@ -58,7 +58,7 @@ class ApiUserRepository implements UserRepository
 		$jsonResponse = json_decode($apiResponse->getBody()->__toString());
 
 		$users = [];
-		foreach ($jsonResponse->users as $key) {
+		foreach ($jsonResponse as $key) {
 			$users[] = new User((int)$key->userId, $key->username);
 		}
 
@@ -83,8 +83,14 @@ class ApiUserRepository implements UserRepository
 
 	public function userExists(string $username): bool
 	{
-		$user = $this->getUser($username);
+		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/users/' . $username);
 
-		return empty($user) ? false : true;
+		$apiResponse = $this->httpClient->sendRequest($apiRequest);
+
+		if ($apiResponse->getStatusCode() !== 200) {
+			return false;
+		}
+
+		return true;
 	}
 }

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace TodoWeb\Models;
+namespace TodoDomain\Models;
 
-use stdClass;
+use JsonSerializable;
 
-class User
+class User implements JsonSerializable
 {
 	private int $id;
 	private string $username;
@@ -27,8 +27,8 @@ class User
 		return $this->username;
 	}
 
-	public static function from(stdClass $json)
+	public function jsonSerialize()
 	{
-		return new self($json->id, $json->username);
+		return get_object_vars($this);
 	}
 }

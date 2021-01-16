@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
+use TodoDomain\Endpoints\AuthenticateUser\AuthenticateUserController;
+use TodoDomain\Endpoints\GetAllUsers\GetAllUsersController;
 use TodoDomain\Endpoints\Information\InformationController;
-use TodoDomain\GetAllUsers\GetAllUsersController;
 
 /**
  * Create all routes for the app.
@@ -11,9 +12,10 @@ use TodoDomain\GetAllUsers\GetAllUsersController;
 $app->get('/', InformationController::class);
 
 $app->get('/users', GetAllUsersController::class);
-// $app->post('/users', CreateUserController::class);
+$app->post('/users', CreateUserController::class);
 
-// $app->get('/users/{username:[a-zA-Z0-9]*}', GetAllUsersController::class);
+$app->get('/users/{username:[a-zA-Z0-9]*}', ExistsUserController::class);
+$app->post('/users/{username:[a-zA-Z0-9]*}', AuthenticateUserController::class);
 
 // $app->get('/logout', LogoutController::class)->setName('logout');
 

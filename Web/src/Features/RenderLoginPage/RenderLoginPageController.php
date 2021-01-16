@@ -19,7 +19,6 @@ class RenderLoginPageController
 
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
-		$response->withStatus(200);
-		return $this->view->render($response, "/page/login.twig");
+		return $this->view->render($response, "/page/login.twig")->withStatus(200);
 	}
 }

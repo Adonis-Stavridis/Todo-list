@@ -30,20 +30,18 @@ class CommentController
 			$businessRequest = CommentRequest::from($body);
 			$businessResponse = $this->service->handle($businessRequest);
 
-			$response->withStatus(200);
-			return $this->view->render($response, "/template/comment.twig", ['comment' => $businessResponse->getComment()]);
+			return $this->view->render($response, "/template/comment.twig", ['comment' => $businessResponse->getComment()])->withStatus(200);
 		} catch (Exception $exception) {
 			$sessionUser = unserialize($_SESSION['user']);
 			$sessionUsers = unserialize($_SESSION['users']);
 			$sessionTasks = $_SESSION['tasks'];
 
-			$response->withStatus($exception->getCode());
 			return $this->view->render($response, "/page/home.twig", [
 				'user' => $sessionUser,
 				'users' => $sessionUsers,
 				'tasks' => $sessionTasks,
 				'message' => $exception->getMessage()
-			]);
+			])->withStatus($exception->getCode());
 		}
 	}
 }

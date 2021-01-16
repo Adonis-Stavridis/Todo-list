@@ -29,8 +29,7 @@ class RenderHomePageController
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		if (!$_SESSION['user']) {
-			$response->withStatus(200);
-			return $response->withHeader('Location', $this->router->urlFor('login'));
+			return $response->withHeader('Location', $this->router->urlFor('login'))->withStatus(200);
 		}
 
 		if (!$_SESSION['users']) {
@@ -45,11 +44,10 @@ class RenderHomePageController
 		$sessionUsers = unserialize($_SESSION['users']);
 		$sessionTasks = $_SESSION['tasks'];
 
-		$response->withStatus(200);
 		return $this->view->render($response, "/page/home.twig", [
 			'user' => $sessionUser,
 			'users' => $sessionUsers,
 			'tasks' => $sessionTasks
-		]);
+		])->withStatus(200);
 	}
 }

@@ -20,7 +20,6 @@ class LogoutController
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		session_unset();
-		$response->withStatus(200);
-		return $response->withHeader('Location', $this->router->urlFor('login'));
+		return $response->withHeader('Location', $this->router->urlFor('login'))->withStatus(200);
 	}
 }

@@ -19,7 +19,6 @@ class Render404PageController
 
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
-		$response->withStatus(404);
-		return $this->view->render($response, "/page/404.twig");
+		return $this->view->render($response, "/page/404.twig")->withStatus(404);
 	}
 }

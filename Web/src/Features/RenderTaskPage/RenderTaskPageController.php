@@ -26,8 +26,7 @@ class RenderTaskPageController
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{
 		if (!$_SESSION['user']) {
-			$response->withStatus(200);
-			return $response->withHeader('Location', $this->router->urlFor('login'));
+			return $response->withHeader('Location', $this->router->urlFor('login'))->withStatus(200);
 		}
 
 		$_SESSION['tasks'] = $this->repository->getAll();
@@ -39,13 +38,12 @@ class RenderTaskPageController
 		$task = $this->repository->getTask((int)$args['taskId']);
 		$comments = $this->repository->getTaskComments($task->getId());
 
-		$response->withStatus(200);
 		return $this->view->render($response, "/page/task.twig", [
 			'user' => $sessionUser,
 			'users' => $sessionUsers,
 			'tasks' => $sessionTasks,
 			'task' => $task,
 			'comments' => $comments
-		]);
+		])->withStatus(200);
 	}
 }

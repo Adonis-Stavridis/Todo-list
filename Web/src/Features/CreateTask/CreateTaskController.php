@@ -30,20 +30,18 @@ class CreateTaskController
 			$businessRequest = CreateTaskRequest::from($body);
 			$businessResponse = $this->service->handle($businessRequest);
 
-			$response->withStatus(200);
-			return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $businessResponse->getTaskId()]));
+			return $response->withHeader('Location', $this->router->urlFor('task', ['taskId' => $businessResponse->getTaskId()]))->withStatus(200);
 		} catch (Exception $exception) {
 			$sessionUser = unserialize($_SESSION['user']);
 			$sessionUsers = unserialize($_SESSION['users']);
 			$sessionTasks = $_SESSION['tasks'];
 
-			$response->withStatus($exception->getCode());
 			return $this->view->render($response, "/page/home.twig", [
 				'user' => $sessionUser,
 				'users' => $sessionUsers,
 				'tasks' => $sessionTasks,
 				'message' => $exception->getMessage()
-			]);
+			])->withStatus($exception->getCode());
 		}
 	}
 }

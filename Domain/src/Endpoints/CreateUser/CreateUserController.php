@@ -24,12 +24,10 @@ class CreateUserController
 			$businessRequest = CreateUserRequest::from($body);
 			$this->service->handle($businessRequest);
 
-			$response->withStatus(200);
-			return $response;
+			return $response->withStatus(200);
 		} catch (Exception $exception) {
-			$response->withStatus($exception->getCode());
 			$response->getBody()->write($exception->getMessage());
-			return $response;
+			return $response->withStatus($exception->getCode());
 		}
 	}
 }

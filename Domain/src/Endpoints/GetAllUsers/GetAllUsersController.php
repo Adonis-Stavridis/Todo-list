@@ -25,9 +25,8 @@ class GetAllUsersController
 			$response->getBody()->write($jsonResponse);
 			return $response;
 		} catch (Exception $exception) {
-			$response->withStatus($exception->getCode());
 			$response->getBody()->write($exception->getMessage());
-			return $response;
+			return $response->withStatus($exception->getCode());
 		}
 	}
 }

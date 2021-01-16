@@ -19,7 +19,6 @@ class RenderSignupPageController
 
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
-		$response->withStatus(200);
-		return $this->view->render($response, "/page/signup.twig");
+		return $this->view->render($response, "/page/signup.twig")->withStatus(200);
 	}
 }

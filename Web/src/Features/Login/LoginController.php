@@ -32,11 +32,9 @@ class LoginController
 
 			$_SESSION['user'] = serialize($businessResponse->getUser());
 
-			$response->withStatus(200);
-			return $response->withHeader('Location', $this->router->urlFor('home'));
+			return $response->withHeader('Location', $this->router->urlFor('home'))->withStatus(200);
 		} catch (Exception $exception) {
-			$response->withStatus($exception->getCode());
-			return $this->view->render($response, "/page/login.twig", ['message' => $exception->getMessage()]);
+			return $this->view->render($response, "/page/login.twig", ['message' => $exception->getMessage()])->withStatus($exception->getCode());
 		}
 	}
 }

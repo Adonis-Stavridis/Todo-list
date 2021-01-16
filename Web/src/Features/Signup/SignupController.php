@@ -30,11 +30,9 @@ class SignupController
 			$businessRequest = SignupRequest::from($body);
 			$this->service->handle($businessRequest);
 
-			$response->withStatus(200);
-			return $response->withHeader('Location', $this->router->urlFor('login'));
+			return $response->withHeader('Location', $this->router->urlFor('login'))->withStatus(200);
 		} catch (Exception $exception) {
-			$response->withStatus($exception->getCode());
-			return $this->view->render($response, "/page/signup.twig", ['message' => $exception->getMessage()]);
+			return $this->view->render($response, "/page/signup.twig", ['message' => $exception->getMessage()])->withStatus($exception->getCode());
 		}
 	}
 }

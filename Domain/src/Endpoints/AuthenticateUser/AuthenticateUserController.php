@@ -20,17 +20,16 @@ class AuthenticateUserController
 	public function __invoke(RequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		try {
-			$body = json_decode($request->getBody()->__toString());
+			parse_str($request->getUri()->getQuery(), $query);
+			$body = json_decode(json_encode($query));
 			$businessRequest = AuthenticateUserRequest::from($body);
 			$businessResponse = $this->service->handle($businessRequest);
 
-			$response->withStatus(200);
 			$response->getBody()->write(json_encode($businessResponse->getUser()->jsonSerialize()));
-			return $response;
+			return $response->withStatus(200);
 		} catch (Exception $exception) {
-			$response->withStatus($exception->getCode());
 			$response->getBody()->write($exception->getMessage());
-			return $response;
+			return $response->withStatus($exception->getCode());
 		}
 	}
 }

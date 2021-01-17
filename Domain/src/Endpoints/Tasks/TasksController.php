@@ -10,13 +10,31 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class TasksController
 {
+	/**
+	 * @var TasksService $service
+	 */
 	private TasksService $service;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param TasksService $service
+	 * 
+	 * @return static
+	 */
 	public function __construct(TasksService $service)
 	{
 		$this->service = $service;
 	}
 
+	/**
+	 * Invoke function handle request and send response
+	 * 
+	 * @param ServerRequestInterface $request
+	 * @param ResponseInterface $response
+	 * 
+	 * @return ResponseInterface
+	 */
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		try {

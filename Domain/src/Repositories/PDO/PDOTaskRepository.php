@@ -5,19 +5,32 @@ declare(strict_types=1);
 namespace TodoDomain\Repositories\PDO;
 
 use PDO;
-use TodoDomain\Models\Comment;
-use TodoDomain\Models\Task;
 use TodoDomain\Repositories\TaskRepository;
 
 class PDOTaskRepository implements TaskRepository
 {
+	/**
+	 * @var PDO $pdo
+	 */
 	private PDO $pdo;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param PDO $pdo
+	 * 
+	 * @return static
+	 */
 	public function __construct(PDO $pdo)
 	{
 		$this->pdo = $pdo;
 	}
 
+	/**
+	 * Get all tasks
+	 * 
+	 * @return array
+	 */
 	public function getAll(): array
 	{
 		$query = 'SELECT t.id, u1.username AS created_by, u2.username AS assigned_to, t.title FROM todos t JOIN users u1 ON t.created_by = u1.id JOIN users u2 ON t.assigned_to = u2.id ORDER BY t.id ASC';

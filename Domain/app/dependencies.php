@@ -12,8 +12,8 @@ use function DI\get;
 /**
  * Builds a container with all dependencies.
  *
- * Set a 'db' field inside the container to access a PDO instance to connect to
- * a database. Sets a 'view' field to access Twig views. Returns the built 
+ * Set a 'PDO' field inside the container to access a PDO instance to connect to
+ * a database. Sets all repositories. Returns the built 
  * container.
  *
  * @return Container

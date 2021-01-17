@@ -9,6 +9,14 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class InformationController
 {
+	/**
+	 * Invoke function handle request and send response
+	 * 
+	 * @param ServerRequestInterface $request
+	 * @param ResponseInterface $response
+	 * 
+	 * @return ResponseInterface
+	 */
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		$information = array(

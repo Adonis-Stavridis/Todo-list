@@ -14,6 +14,11 @@ class TodoApp
 	 */
 	private App $app;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @return static
+	 */
 	public function __construct()
 	{
 		require __DIR__ . '/../app/env.php';
@@ -34,7 +39,7 @@ class TodoApp
 	}
 
 	/**
-	 * Get App.
+	 * App getter
 	 * 
 	 * @return App
 	 */
@@ -44,7 +49,7 @@ class TodoApp
 	}
 
 	/**
-	 * Run App.
+	 * Run App
 	 * 
 	 * @return void
 	 */

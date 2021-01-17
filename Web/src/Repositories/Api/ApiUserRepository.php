@@ -28,7 +28,7 @@ class ApiUserRepository implements UserRepository
 		$this->apiEndpoint = $apiEndpoint;
 	}
 
-	public function getUser(LoginRequest $request): ?User
+	public function getUser(LoginRequest $request): ?array
 	{
 
 		$apiRequest = $this->requestFactory->createRequest('POST', $this->apiEndpoint . '/users/' . $request->getUsername());
@@ -42,7 +42,7 @@ class ApiUserRepository implements UserRepository
 
 		$jsonResponse = json_decode($apiResponse->getBody()->__toString());
 
-		return User::from($jsonResponse);
+		return $jsonResponse;
 	}
 
 	public function getAll(): array

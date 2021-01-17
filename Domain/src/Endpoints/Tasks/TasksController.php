@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace TodoDomain\Endpoints\GetAllUsers;
+namespace TodoDomain\Endpoints\Tasks;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class GetAllUsersController
+class TasksController
 {
-	private GetAllUsersService $service;
+	private TasksService $service;
 
-	public function __construct(GetAllUsersService $service)
+	public function __construct(TasksService $service)
 	{
 		$this->service = $service;
 	}

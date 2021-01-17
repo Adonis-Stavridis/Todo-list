@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 use DI\Container;
 use DI\ContainerBuilder;
+use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use Slim\Views\Twig;
+use TodoWeb\Repositories\Api\ApiTaskRepository;
+use TodoWeb\Repositories\ApiRepository;
 use TodoWeb\Repositories\PDO\PDOTaskRepository;
 use TodoWeb\Repositories\PDO\PDOUserRepository;
 use TodoWeb\Repositories\TaskRepository;
@@ -47,7 +51,15 @@ return function (): Container {
 			return $view;
 		},
 		UserRepository::class => get(PDOUserRepository::class),
-		TaskRepository::class => get(PDOTaskRepository::class)
+		TaskRepository::class => get(PDOTaskRepository::class),
+		ApiRepository::class => function (): ApiRepository {
+			return new ApiTaskRepository(
+				Psr18ClientDiscovery::find(),
+				Psr17FactoryDiscovery::findRequestFactory(),
+				Psr17FactoryDiscovery::findStreamFactory(),
+				$_ENV['API_URL']
+			);
+		}
 	]);
 
 	return $containerBuilder->build();

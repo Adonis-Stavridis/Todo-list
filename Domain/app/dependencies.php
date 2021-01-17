@@ -5,9 +5,7 @@ declare(strict_types=1);
 use DI\Container;
 use DI\ContainerBuilder;
 use TodoDomain\Repositories\PDO\PDOTaskRepository;
-use TodoDomain\Repositories\PDO\PDOUserRepository;
 use TodoDomain\Repositories\TaskRepository;
-use TodoDomain\Repositories\UserRepository;
 
 use function DI\get;
 
@@ -40,7 +38,6 @@ return function (): Container {
 				die();
 			}
 		},
-		UserRepository::class => get(PDOUserRepository::class),
 		TaskRepository::class => get(PDOTaskRepository::class)
 	]);
 

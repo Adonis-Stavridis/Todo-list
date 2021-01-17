@@ -8,17 +8,20 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Views\Twig;
+use TodoWeb\Repositories\ApiRepository;
 use TodoWeb\Repositories\TaskRepository;
 
 class RenderTaskPageController
 {
 	private TaskRepository $repository;
+	private ApiRepository $apiRepository;
 	private Twig $view;
 	private RouteParserInterface $router;
 
-	public function __construct(TaskRepository $repository, Twig $view, RouteParserInterface $router)
+	public function __construct(TaskRepository $repository, ApiRepository $apiRepository, Twig $view, RouteParserInterface $router)
 	{
 		$this->repository = $repository;
+		$this->apiRepository = $apiRepository;
 		$this->view = $view;
 		$this->router = $router;
 	}
@@ -29,7 +32,7 @@ class RenderTaskPageController
 			return $response->withHeader('Location', $this->router->urlFor('login'))->withStatus(200);
 		}
 
-		$_SESSION['tasks'] = $this->repository->getAll();
+		$_SESSION['tasks'] = $this->apiRepository->getAll();
 
 		$sessionUser = unserialize($_SESSION['user']);
 		$sessionUsers = unserialize($_SESSION['users']);

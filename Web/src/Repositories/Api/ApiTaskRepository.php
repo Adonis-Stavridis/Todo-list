@@ -11,9 +11,9 @@ use TodoWeb\Features\Comment\CommentRequest;
 use TodoWeb\Features\CreateTask\CreateTaskRequest;
 use TodoWeb\Models\Comment;
 use TodoWeb\Models\Task;
-use TodoWeb\Repositories\TaskRepository;
+use TodoWeb\Repositories\ApiRepository;
 
-class ApiTaskRepository implements TaskRepository
+class ApiTaskRepository implements ApiRepository
 {
 	private ClientInterface $httpClient;
 	private RequestFactoryInterface $requestFactory;
@@ -64,15 +64,12 @@ class ApiTaskRepository implements TaskRepository
 		$jsonResponse = json_decode($apiResponse->getBody()->__toString());
 
 		$tasks = [];
-		foreach ($jsonResponse->tasks as $key) {
-			$tasks[] = new Task(
-				$key->taskId,
-				$key->createdBy,
-				$key->assignedTo,
-				$key->title,
-				$key->description,
-				$key->createdAt,
-				$key->dueDate
+		foreach ($jsonResponse as $key) {
+			$tasks[] = array(
+				'id' => $key->id,
+				'createdBy' => $key->createdBy,
+				'assignedTo' => $key->assignedTo,
+				'title' => $key->title
 			);
 		}
 

@@ -198,12 +198,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Comment-CommentController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-Comment-CommentController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentController\u003A\u003A\u0024service",
@@ -228,32 +228,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Comment-CommentRequest.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003AgetTaskId\u0028\u0029",
             "name": "getTaskId",
-            "summary": "",
+            "summary": "TaskId\u0020getter",
             "url": "classes/TodoWeb-Features-Comment-CommentRequest.html#method_getTaskId"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003AgetCreatedBy\u0028\u0029",
             "name": "getCreatedBy",
-            "summary": "",
+            "summary": "CreatedBy\u0020getter",
             "url": "classes/TodoWeb-Features-Comment-CommentRequest.html#method_getCreatedBy"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003AgetCreatedAt\u0028\u0029",
             "name": "getCreatedAt",
-            "summary": "",
+            "summary": "CreatedAt\u0020getter",
             "url": "classes/TodoWeb-Features-Comment-CommentRequest.html#method_getCreatedAt"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003AgetComment\u0028\u0029",
             "name": "getComment",
-            "summary": "",
+            "summary": "Comment\u0020getter",
             "url": "classes/TodoWeb-Features-Comment-CommentRequest.html#method_getComment"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003Afrom\u0028\u0029",
             "name": "from",
-            "summary": "",
+            "summary": "Call\u0020constructor\u0020with\u0020stdClass",
             "url": "classes/TodoWeb-Features-Comment-CommentRequest.html#method_from"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentRequest\u003A\u003A\u0024taskId",
@@ -283,12 +283,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentResponse\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Comment-CommentResponse.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentResponse\u003A\u003AgetComment\u0028\u0029",
             "name": "getComment",
-            "summary": "",
+            "summary": "Comment\u0020getter",
             "url": "classes/TodoWeb-Features-Comment-CommentResponse.html#method_getComment"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentResponse\u003A\u003A\u0024comment",
@@ -303,12 +303,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Comment-CommentService.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentService\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
-            "summary": "",
+            "summary": "Service\u0020handler",
             "url": "classes/TodoWeb-Features-Comment-CommentService.html#method_handle"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CommentService\u003A\u003A\u0024repository",
@@ -323,7 +323,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Comment\\CouldNotCommentException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Comment-CouldNotCommentException.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CouldNotCreateTaskException",
@@ -333,7 +333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CouldNotCreateTaskException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-CreateTask-CouldNotCreateTaskException.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskController",
@@ -343,12 +343,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskController\u003A\u003A\u0024service",
@@ -373,42 +373,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003AgetCreatedBy\u0028\u0029",
             "name": "getCreatedBy",
-            "summary": "",
+            "summary": "CreatedBy\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_getCreatedBy"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003AgetAssignTo\u0028\u0029",
             "name": "getAssignTo",
-            "summary": "",
+            "summary": "AssignTo\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_getAssignTo"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003AgetTitle\u0028\u0029",
             "name": "getTitle",
-            "summary": "",
+            "summary": "Title\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_getTitle"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003AgetDescription\u0028\u0029",
             "name": "getDescription",
-            "summary": "",
+            "summary": "Description\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_getDescription"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003AgetCreatedAt\u0028\u0029",
             "name": "getCreatedAt",
-            "summary": "",
+            "summary": "CreatedAt\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_getCreatedAt"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003AgetDueDate\u0028\u0029",
             "name": "getDueDate",
-            "summary": "",
+            "summary": "DueDate\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_getDueDate"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003Afrom\u0028\u0029",
             "name": "from",
-            "summary": "",
+            "summary": "Call\u0020constructor\u0020with\u0020stdClass",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html#method_from"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskRequest\u003A\u003A\u0024createdBy",
@@ -448,12 +448,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskResponse\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskResponse.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskResponse\u003A\u003AgetTaskId\u0028\u0029",
             "name": "getTaskId",
-            "summary": "",
+            "summary": "TaskId\u0020getter",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskResponse.html#method_getTaskId"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskResponse\u003A\u003A\u0024taskId",
@@ -468,12 +468,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskService.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskService\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
-            "summary": "",
+            "summary": "Service\u0020handler",
             "url": "classes/TodoWeb-Features-CreateTask-CreateTaskService.html#method_handle"
         },                {
             "fqsen": "\\TodoWeb\\Features\\CreateTask\\CreateTaskService\u003A\u003A\u0024repository",
@@ -488,7 +488,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\IncorrectUsernameOrPasswordException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Login-IncorrectUsernameOrPasswordException.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginController",
@@ -498,12 +498,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Login-LoginController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-Login-LoginController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginController\u003A\u003A\u0024service",
@@ -528,27 +528,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginRequest\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Login-LoginRequest.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginRequest\u003A\u003AgetUsername\u0028\u0029",
             "name": "getUsername",
-            "summary": "",
+            "summary": "Username\u0020getter",
             "url": "classes/TodoWeb-Features-Login-LoginRequest.html#method_getUsername"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginRequest\u003A\u003AgetPassword\u0028\u0029",
             "name": "getPassword",
-            "summary": "",
+            "summary": "Password\u0020getter",
             "url": "classes/TodoWeb-Features-Login-LoginRequest.html#method_getPassword"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginRequest\u003A\u003Afrom\u0028\u0029",
             "name": "from",
-            "summary": "",
+            "summary": "Call\u0020constructor\u0020with\u0020stdClass",
             "url": "classes/TodoWeb-Features-Login-LoginRequest.html#method_from"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginRequest\u003A\u003AjsonSerialize\u0028\u0029",
             "name": "jsonSerialize",
-            "summary": "",
+            "summary": "Json\u0020serialize\u0020function",
             "url": "classes/TodoWeb-Features-Login-LoginRequest.html#method_jsonSerialize"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginRequest\u003A\u003A\u0024username",
@@ -568,12 +568,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginResponse\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Login-LoginResponse.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginResponse\u003A\u003AgetUser\u0028\u0029",
             "name": "getUser",
-            "summary": "",
+            "summary": "User\u0020getter",
             "url": "classes/TodoWeb-Features-Login-LoginResponse.html#method_getUser"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginResponse\u003A\u003A\u0024user",
@@ -588,12 +588,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Login-LoginService.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginService\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
-            "summary": "",
+            "summary": "Service\u0020handler",
             "url": "classes/TodoWeb-Features-Login-LoginService.html#method_handle"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Login\\LoginService\u003A\u003A\u0024repository",
@@ -608,12 +608,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Logout\\LogoutController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Logout-LogoutController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Logout\\LogoutController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-Logout-LogoutController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Logout\\LogoutController\u003A\u003A\u0024router",
@@ -628,12 +628,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Render404Page\\Render404PageController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Render404Page-Render404PageController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Render404Page\\Render404PageController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-Render404Page-Render404PageController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Render404Page\\Render404PageController\u003A\u003A\u0024view",
@@ -648,12 +648,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderHomePage\\RenderHomePageController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-RenderHomePage-RenderHomePageController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderHomePage\\RenderHomePageController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-RenderHomePage-RenderHomePageController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderHomePage\\RenderHomePageController\u003A\u003A\u0024userRepository",
@@ -683,12 +683,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderLoginPage\\RenderLoginPageController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-RenderLoginPage-RenderLoginPageController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderLoginPage\\RenderLoginPageController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-RenderLoginPage-RenderLoginPageController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderLoginPage\\RenderLoginPageController\u003A\u003A\u0024view",
@@ -703,12 +703,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderSignupPage\\RenderSignupPageController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-RenderSignupPage-RenderSignupPageController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderSignupPage\\RenderSignupPageController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-RenderSignupPage-RenderSignupPageController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderSignupPage\\RenderSignupPageController\u003A\u003A\u0024view",
@@ -723,12 +723,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderTaskPage\\RenderTaskPageController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-RenderTaskPage-RenderTaskPageController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderTaskPage\\RenderTaskPageController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-RenderTaskPage-RenderTaskPageController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\RenderTaskPage\\RenderTaskPageController\u003A\u003A\u0024repository",
@@ -758,7 +758,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\CouldNotSignupUserException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Signup-CouldNotSignupUserException.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\PasswordsDoNotMatchException",
@@ -768,7 +768,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\PasswordsDoNotMatchException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Signup-PasswordsDoNotMatchException.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupController",
@@ -778,12 +778,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Signup-SignupController.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupController\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "",
+            "summary": "Invoke\u0020function\u0020handle\u0020request\u0020and\u0020send\u0020response",
             "url": "classes/TodoWeb-Features-Signup-SignupController.html#method___invoke"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupController\u003A\u003A\u0024service",
@@ -808,27 +808,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupRequest\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Signup-SignupRequest.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupRequest\u003A\u003AgetUsername\u0028\u0029",
             "name": "getUsername",
-            "summary": "",
+            "summary": "Username\u0020getter",
             "url": "classes/TodoWeb-Features-Signup-SignupRequest.html#method_getUsername"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupRequest\u003A\u003AgetPassword\u0028\u0029",
             "name": "getPassword",
-            "summary": "",
+            "summary": "Password\u0020getter",
             "url": "classes/TodoWeb-Features-Signup-SignupRequest.html#method_getPassword"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupRequest\u003A\u003AgetPasswordRepeat\u0028\u0029",
             "name": "getPasswordRepeat",
-            "summary": "",
+            "summary": "PasswordRepeat\u0020getter",
             "url": "classes/TodoWeb-Features-Signup-SignupRequest.html#method_getPasswordRepeat"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupRequest\u003A\u003Afrom\u0028\u0029",
             "name": "from",
-            "summary": "",
+            "summary": "Call\u0020constructor\u0020with\u0020stdClass",
             "url": "classes/TodoWeb-Features-Signup-SignupRequest.html#method_from"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupRequest\u003A\u003A\u0024username",
@@ -853,12 +853,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Signup-SignupService.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupService\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
-            "summary": "",
+            "summary": "Service\u0020handler",
             "url": "classes/TodoWeb-Features-Signup-SignupService.html#method_handle"
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\SignupService\u003A\u003A\u0024repository",
@@ -873,7 +873,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Features\\Signup\\UsernameAlreadyExistsException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Features-Signup-UsernameAlreadyExistsException.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Comment",
@@ -883,28 +883,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Models\\Comment\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Models-Comment.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Comment\u003A\u003AgetCreatedBy\u0028\u0029",
             "name": "getCreatedBy",
-            "summary": "",
+            "summary": "CreatedBy\u0020getter",
             "url": "classes/TodoWeb-Models-Comment.html#method_getCreatedBy"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Comment\u003A\u003AgetCreatedAt\u0028\u0029",
             "name": "getCreatedAt",
-            "summary": "",
+            "summary": "CreatedAt\u0020getter",
             "url": "classes/TodoWeb-Models-Comment.html#method_getCreatedAt"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Comment\u003A\u003AgetComment\u0028\u0029",
             "name": "getComment",
-            "summary": "",
+            "summary": "Comment\u0020getter",
             "url": "classes/TodoWeb-Models-Comment.html#method_getComment"
-        },                {
-            "fqsen": "\\TodoWeb\\Models\\Comment\u003A\u003AjsonSerialize\u0028\u0029",
-            "name": "jsonSerialize",
-            "summary": "",
-            "url": "classes/TodoWeb-Models-Comment.html#method_jsonSerialize"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Comment\u003A\u003A\u0024createdBy",
             "name": "createdBy",
@@ -928,42 +923,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Models-Task.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Id\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getId"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetCreatedBy\u0028\u0029",
             "name": "getCreatedBy",
-            "summary": "",
+            "summary": "CreatedBy\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getCreatedBy"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetAssignedTo\u0028\u0029",
             "name": "getAssignedTo",
-            "summary": "",
+            "summary": "AssignedTo\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getAssignedTo"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetTitle\u0028\u0029",
             "name": "getTitle",
-            "summary": "",
+            "summary": "Title\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getTitle"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetDescription\u0028\u0029",
             "name": "getDescription",
-            "summary": "",
+            "summary": "Description\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getDescription"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetCreatedAt\u0028\u0029",
             "name": "getCreatedAt",
-            "summary": "",
+            "summary": "CreatedAt\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getCreatedAt"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003AgetDueDate\u0028\u0029",
             "name": "getDueDate",
-            "summary": "",
+            "summary": "DueDate\u0020getter",
             "url": "classes/TodoWeb-Models-Task.html#method_getDueDate"
         },                {
             "fqsen": "\\TodoWeb\\Models\\Task\u003A\u003A\u0024id",
@@ -1008,23 +1003,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Models\\User\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Models-User.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Models\\User\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Id\u0020getter",
             "url": "classes/TodoWeb-Models-User.html#method_getId"
         },                {
             "fqsen": "\\TodoWeb\\Models\\User\u003A\u003AgetUsername\u0028\u0029",
             "name": "getUsername",
-            "summary": "",
+            "summary": "Username\u0020getter",
             "url": "classes/TodoWeb-Models-User.html#method_getUsername"
-        },                {
-            "fqsen": "\\TodoWeb\\Models\\User\u003A\u003Afrom\u0028\u0029",
-            "name": "from",
-            "summary": "",
-            "url": "classes/TodoWeb-Models-User.html#method_from"
         },                {
             "fqsen": "\\TodoWeb\\Models\\User\u003A\u003A\u0024id",
             "name": "id",
@@ -1043,32 +1033,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Repositories-Api-ApiTaskRepository.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003AgetTask\u0028\u0029",
             "name": "getTask",
-            "summary": "",
+            "summary": "Get\u0020a\u0020task",
             "url": "classes/TodoWeb-Repositories-Api-ApiTaskRepository.html#method_getTask"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003AgetAll\u0028\u0029",
             "name": "getAll",
-            "summary": "",
+            "summary": "Get\u0020all\u0020tasks",
             "url": "classes/TodoWeb-Repositories-Api-ApiTaskRepository.html#method_getAll"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003AaddTask\u0028\u0029",
             "name": "addTask",
-            "summary": "",
+            "summary": "Add\u0020a\u0020task",
             "url": "classes/TodoWeb-Repositories-Api-ApiTaskRepository.html#method_addTask"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003AgetTaskComments\u0028\u0029",
             "name": "getTaskComments",
-            "summary": "",
+            "summary": "Get\u0020task\u0020comments",
             "url": "classes/TodoWeb-Repositories-Api-ApiTaskRepository.html#method_getTaskComments"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003AaddTaskComment\u0028\u0029",
             "name": "addTaskComment",
-            "summary": "",
+            "summary": "Add\u0020comment\u0020to\u0020task",
             "url": "classes/TodoWeb-Repositories-Api-ApiTaskRepository.html#method_addTaskComment"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiTaskRepository\u003A\u003A\u0024httpClient",
@@ -1098,28 +1088,28 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Repositories-Api-ApiUserRepository.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003AgetUser\u0028\u0029",
             "name": "getUser",
-            "summary": "",
+            "summary": "Get\u0020user",
             "url": "classes/TodoWeb-Repositories-Api-ApiUserRepository.html#method_getUser"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003AgetAll\u0028\u0029",
             "name": "getAll",
-            "summary": "",
+            "summary": "Get\u0020all\u0020users",
             "url": "classes/TodoWeb-Repositories-Api-ApiUserRepository.html#method_getAll"
-        },                {
-            "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003AaddUser\u0028\u0029",
-            "name": "addUser",
-            "summary": "",
-            "url": "classes/TodoWeb-Repositories-Api-ApiUserRepository.html#method_addUser"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003AuserExists\u0028\u0029",
             "name": "userExists",
-            "summary": "",
+            "summary": "Check\u0020if\u0020user\u0020exists",
             "url": "classes/TodoWeb-Repositories-Api-ApiUserRepository.html#method_userExists"
+        },                {
+            "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003AaddUser\u0028\u0029",
+            "name": "addUser",
+            "summary": "Add\u0020user",
+            "url": "classes/TodoWeb-Repositories-Api-ApiUserRepository.html#method_addUser"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\Api\\ApiUserRepository\u003A\u003A\u0024httpClient",
             "name": "httpClient",
@@ -1178,32 +1168,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003AgetTask\u0028\u0029",
             "name": "getTask",
-            "summary": "",
+            "summary": "Get\u0020a\u0020task",
             "url": "classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_getTask"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003AgetAll\u0028\u0029",
             "name": "getAll",
-            "summary": "",
+            "summary": "Get\u0020all\u0020tasks",
             "url": "classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_getAll"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003AaddTask\u0028\u0029",
             "name": "addTask",
-            "summary": "",
+            "summary": "Add\u0020a\u0020task",
             "url": "classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_addTask"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003AgetTaskComments\u0028\u0029",
             "name": "getTaskComments",
-            "summary": "",
+            "summary": "Get\u0020task\u0020comments",
             "url": "classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_getTaskComments"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003AaddTaskComment\u0028\u0029",
             "name": "addTaskComment",
-            "summary": "",
+            "summary": "Add\u0020comment\u0020to\u0020task",
             "url": "classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_addTaskComment"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOTaskRepository\u003A\u003A\u0024pdo",
@@ -1218,27 +1208,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOUserRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020function",
             "url": "classes/TodoWeb-Repositories-PDO-PDOUserRepository.html#method___construct"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOUserRepository\u003A\u003AgetUser\u0028\u0029",
             "name": "getUser",
-            "summary": "",
+            "summary": "Get\u0020user",
             "url": "classes/TodoWeb-Repositories-PDO-PDOUserRepository.html#method_getUser"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOUserRepository\u003A\u003AgetAll\u0028\u0029",
             "name": "getAll",
-            "summary": "",
+            "summary": "Get\u0020all\u0020users",
             "url": "classes/TodoWeb-Repositories-PDO-PDOUserRepository.html#method_getAll"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOUserRepository\u003A\u003AuserExists\u0028\u0029",
             "name": "userExists",
-            "summary": "",
+            "summary": "Check\u0020if\u0020user\u0020exists",
             "url": "classes/TodoWeb-Repositories-PDO-PDOUserRepository.html#method_userExists"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOUserRepository\u003A\u003AaddUser\u0028\u0029",
             "name": "addUser",
-            "summary": "",
+            "summary": "Add\u0020user",
             "url": "classes/TodoWeb-Repositories-PDO-PDOUserRepository.html#method_addUser"
         },                {
             "fqsen": "\\TodoWeb\\Repositories\\PDO\\PDOUserRepository\u003A\u003A\u0024pdo",
@@ -1325,81 +1315,6 @@ Search.appendIndex(
             "name": "app",
             "summary": "",
             "url": "classes/TodoWeb-TodoApp.html#property_app"
-        },                {
-            "fqsen": "\\Tests\\TaskTest",
-            "name": "TaskTest",
-            "summary": "",
-            "url": "classes/Tests-TaskTest.html"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetTaskInfo\u0028\u0029",
-            "name": "testGetTaskInfo",
-            "summary": "Test\u0020getTaskInfo",
-            "url": "classes/Tests-TaskTest.html#method_testGetTaskInfo"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetAllTasks\u0028\u0029",
-            "name": "testGetAllTasks",
-            "summary": "Test\u0020getAllTasks",
-            "url": "classes/Tests-TaskTest.html#method_testGetAllTasks"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestAddTask\u0028\u0029",
-            "name": "testAddTask",
-            "summary": "Test\u0020addTask",
-            "url": "classes/Tests-TaskTest.html#method_testAddTask"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetAllUsers\u0028\u0029",
-            "name": "testGetAllUsers",
-            "summary": "Test\u0020getAllUsers",
-            "url": "classes/Tests-TaskTest.html#method_testGetAllUsers"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestAddCommentToTask\u0028\u0029",
-            "name": "testAddCommentToTask",
-            "summary": "",
-            "url": "classes/Tests-TaskTest.html#method_testAddCommentToTask"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003AtestGetCommentsByTask\u0028\u0029",
-            "name": "testGetCommentsByTask",
-            "summary": "Test\u0020getCommentsByTask",
-            "url": "classes/Tests-TaskTest.html#method_testGetCommentsByTask"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003A\u0024todosTableSample",
-            "name": "todosTableSample",
-            "summary": "",
-            "url": "classes/Tests-TaskTest.html#property_todosTableSample"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003A\u0024usersTableSample",
-            "name": "usersTableSample",
-            "summary": "",
-            "url": "classes/Tests-TaskTest.html#property_usersTableSample"
-        },                {
-            "fqsen": "\\Tests\\TaskTest\u003A\u003A\u0024commentsTableSample",
-            "name": "commentsTableSample",
-            "summary": "",
-            "url": "classes/Tests-TaskTest.html#property_commentsTableSample"
-        },                {
-            "fqsen": "\\Tests\\UserTest",
-            "name": "UserTest",
-            "summary": "",
-            "url": "classes/Tests-UserTest.html"
-        },                {
-            "fqsen": "\\Tests\\UserTest\u003A\u003AtestUserLogin\u0028\u0029",
-            "name": "testUserLogin",
-            "summary": "Test\u0020userLogin",
-            "url": "classes/Tests-UserTest.html#method_testUserLogin"
-        },                {
-            "fqsen": "\\Tests\\UserTest\u003A\u003AtestUserExists\u0028\u0029",
-            "name": "testUserExists",
-            "summary": "Test\u0020userExists",
-            "url": "classes/Tests-UserTest.html#method_testUserExists"
-        },                {
-            "fqsen": "\\Tests\\UserTest\u003A\u003AtestAddUser\u0028\u0029",
-            "name": "testAddUser",
-            "summary": "Test\u0020addUser",
-            "url": "classes/Tests-UserTest.html#method_testAddUser"
-        },                {
-            "fqsen": "\\Tests\\UserTest\u003A\u003A\u0024usersTableSample",
-            "name": "usersTableSample",
-            "summary": "",
-            "url": "classes/Tests-UserTest.html#property_usersTableSample"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -1520,10 +1435,5 @@ Search.appendIndex(
             "name": "TodoWeb",
             "summary": "",
             "url": "namespaces/todoweb.html"
-        },                {
-            "fqsen": "\\Tests",
-            "name": "Tests",
-            "summary": "",
-            "url": "namespaces/tests.html"
         }            ]
 );

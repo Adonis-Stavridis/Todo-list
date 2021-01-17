@@ -8,13 +8,30 @@ use TodoWeb\Repositories\UserRepository;
 
 class SignupService
 {
+	/**
+	 * @var UserRepository $repository
+	 */
 	private UserRepository $repository;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param UserRepository $repository
+	 * 
+	 * @return static
+	 */
 	public function __construct(UserRepository $repository)
 	{
 		$this->repository = $repository;
 	}
 
+	/**
+	 * Service handler
+	 * 
+	 * @param SignupRequest $request
+	 * 
+	 * @return SignupResponse
+	 */
 	public function handle(SignupRequest $request): void
 	{
 		$username = $request->getUsername();

@@ -8,13 +8,48 @@ use stdClass;
 
 class CreateTaskRequest
 {
+	/**
+	 * @var int $createdBy
+	 */
 	private int $createdBy;
+
+	/**
+	 * @var int $assignTo
+	 */
 	private int $assignTo;
+
+	/**
+	 * @var string $title
+	 */
 	private string $title;
+
+	/**
+	 * @var string $description
+	 */
 	private string $description;
+
+	/**
+	 * @var string $createdAt
+	 */
 	private string $createdAt;
+
+	/**
+	 * @var string $dueDate
+	 */
 	private string $dueDate;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @var int $createdBy
+	 * @var int $assignTo
+	 * @var string $title
+	 * @var string $description
+	 * @var string $createdAt
+	 * @var string $dueDate
+	 * 
+	 * @return static
+	 */
 	public function __construct(int $assignTo, string $title, string $description, string $dueDate)
 	{
 		$this->createdBy = unserialize($_SESSION['user'])->getId();
@@ -25,36 +60,73 @@ class CreateTaskRequest
 		$this->dueDate = $dueDate;
 	}
 
-	public function getCreatedBy()
+	/**
+	 * CreatedBy getter
+	 * 
+	 * @return int
+	 */
+	public function getCreatedBy(): int
 	{
 		return $this->createdBy;
 	}
 
-	public function getAssignTo()
+	/**
+	 * AssignTo getter
+	 * 
+	 * @return int
+	 */
+	public function getAssignTo(): int
 	{
 		return $this->assignTo;
 	}
 
-	public function getTitle()
+	/**
+	 * Title getter
+	 * 
+	 * @return string
+	 */
+	public function getTitle(): string
 	{
 		return $this->title;
 	}
 
-	public function getDescription()
+	/**
+	 * Description getter
+	 * 
+	 * @return string
+	 */
+	public function getDescription(): string
 	{
 		return $this->description;
 	}
 
-	public function getCreatedAt()
+	/**
+	 * CreatedAt getter
+	 * 
+	 * @return string
+	 */
+	public function getCreatedAt(): string
 	{
 		return $this->createdAt;
 	}
 
-	public function getDueDate()
+	/**
+	 * DueDate getter
+	 * 
+	 * @return string
+	 */
+	public function getDueDate(): string
 	{
 		return $this->dueDate;
 	}
 
+	/**
+	 * Call constructor with stdClass
+	 * 
+	 * @param stdClass $json
+	 * 
+	 * @return static
+	 */
 	public static function from(stdClass $json)
 	{
 		return new self((int)$json->taskAssignTo, $json->taskTitle, $json->taskDescription, $json->taskDueDate);

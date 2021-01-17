@@ -13,11 +13,36 @@ use TodoWeb\Repositories\UserRepository;
 
 class RenderHomePageController
 {
+	/**
+	 * @var UserRepository $userRepository
+	 */
 	private UserRepository $userRepository;
+
+	/**
+	 * @var ApiRepository $apiRepository
+	 */
 	private ApiRepository $apiRepository;
+
+	/**
+	 * @var Twig $view
+	 */
 	private Twig $view;
+
+	/**
+	 * @var RouteParserInterface $router
+	 */
 	private RouteParserInterface $router;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param UserRepository $userRepository
+	 * @param ApiRepository $apiRepository
+	 * @param Twig $view
+	 * @param RouteParserInterface $router
+	 * 
+	 * @return static
+	 */
 	public function __construct(UserRepository $userRepository, ApiRepository $apiRepository, Twig $view, RouteParserInterface $router)
 	{
 		$this->userRepository = $userRepository;
@@ -26,6 +51,14 @@ class RenderHomePageController
 		$this->router = $router;
 	}
 
+	/**
+	 * Invoke function handle request and send response
+	 * 
+	 * @param ServerRequestInterface $request
+	 * @param ResponseInterface $response
+	 * 
+	 * @return ResponseInterface
+	 */
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		if (!$_SESSION['user']) {

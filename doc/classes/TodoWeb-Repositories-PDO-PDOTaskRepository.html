@@ -63,9 +63,6 @@
                                             <li><a href="namespaces/todoweb-models.html"><abbr title="\TodoWeb\Models">Models</abbr></a></li>
                                             <li><a href="namespaces/todoweb-repositories.html"><abbr title="\TodoWeb\Repositories">Repositories</abbr></a></li>
                                     </ul>
-                            <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/tests.html"><abbr title="\Tests">Tests</abbr></a></h4>
-                <ul class="phpdocumentor-list">
-                                    </ul>
                         </section>
 
     
@@ -143,44 +140,44 @@
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method___construct">__construct()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: static    </span>
 </dt>
-<dd></dd>
+<dd>Constructor function</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_addTask">addTask()</a>
     <span>
                         &nbsp;: int    </span>
 </dt>
-<dd></dd>
+<dd>Add a task</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_addTaskComment">addTaskComment()</a>
     <span>
                         &nbsp;: <a href="classes/TodoWeb-Models-Comment.html"><abbr title="\TodoWeb\Models\Comment">Comment</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Add comment to task</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_getAll">getAll()</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Get all tasks</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_getTask">getTask()</a>
     <span>
                         &nbsp;: <a href="classes/TodoWeb-Models-Task.html"><abbr title="\TodoWeb\Models\Task">Task</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Get a task</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/TodoWeb-Repositories-PDO-PDOTaskRepository.html#method_getTaskComments">getTaskComments()</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Get task comments</dd>
 
         </dl>
 
@@ -210,7 +207,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 </aside>
 
     
@@ -220,7 +217,8 @@
     <span class="phpdocumentor-signature__name">$pdo</span>
     </code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -244,15 +242,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Constructor function</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\PDO">PDO</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pdo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\PDO">PDO</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pdo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -260,14 +260,15 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\PDO">PDO</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">static</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -286,15 +287,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Add a task</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">addTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html"><abbr title="\TodoWeb\Features\CreateTask\CreateTaskRequest">CreateTaskRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -302,7 +305,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/TodoWeb-Features-CreateTask-CreateTaskRequest.html"><abbr title="\TodoWeb\Features\CreateTask\CreateTaskRequest">CreateTaskRequest</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -328,15 +332,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Add comment to task</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">addTaskComment</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/TodoWeb-Features-Comment-CommentRequest.html"><abbr title="\TodoWeb\Features\Comment\CommentRequest">CommentRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$comment</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/TodoWeb-Models-Comment.html"><abbr title="\TodoWeb\Models\Comment">Comment</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -344,7 +350,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/TodoWeb-Features-Comment-CommentRequest.html"><abbr title="\TodoWeb\Features\Comment\CommentRequest">CommentRequest</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -370,15 +377,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Get all tasks</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">getAll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
@@ -402,15 +411,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Get a task</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">getTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$taskId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/TodoWeb-Models-Task.html"><abbr title="\TodoWeb\Models\Task">Task</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -418,7 +429,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -444,15 +456,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Web/src/Repositories/PDO/PDOTaskRepository.php"><a href="files/web-src-repositories-pdo-pdotaskrepository.html"><abbr title="Web/src/Repositories/PDO/PDOTaskRepository.php">PDOTaskRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">Get task comments</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">getTaskComments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$taskId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -460,7 +474,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 

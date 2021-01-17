@@ -12,10 +12,30 @@ use Slim\Views\Twig;
 
 class CommentController
 {
+	/**
+	 * @var CommentService $service
+	 */
 	private CommentService $service;
+
+	/**
+	 * @var Twig $view
+	 */
 	private Twig $view;
+
+	/**
+	 * @var RouteParserInterface $router
+	 */
 	private RouteParserInterface $router;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @var CommentService $service
+	 * @var Twig $view
+	 * @var RouteParserInterface $router
+	 * 
+	 * @return static
+	 */
 	public function __construct(CommentService $service, Twig $view, RouteParserInterface $router)
 	{
 		$this->service = $service;
@@ -23,6 +43,14 @@ class CommentController
 		$this->router = $router;
 	}
 
+	/**
+	 * Invoke function handle request and send response
+	 * 
+	 * @param ServerRequestInterface $request
+	 * @param ResponseInterface $response
+	 * 
+	 * @return ResponseInterface
+	 */
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		try {

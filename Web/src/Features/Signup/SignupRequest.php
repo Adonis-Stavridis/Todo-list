@@ -8,10 +8,30 @@ use stdClass;
 
 class SignupRequest
 {
+	/**
+	 * @var string $username
+	 */
 	private string $username;
+
+	/**
+	 * @var string $password
+	 */
 	private string $password;
+
+	/**
+	 * @var string $passwordRepeat
+	 */
 	private string $passwordRepeat;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param string $username
+	 * @param string $password
+	 * @param string $passwordRepeat
+	 * 
+	 * @return static
+	 */
 	public function __construct(string $username, string $password, string $passwordRepeat)
 	{
 		$this->username = $username;
@@ -19,21 +39,43 @@ class SignupRequest
 		$this->passwordRepeat = $passwordRepeat;
 	}
 
-	public function getUsername()
+	/**
+	 * Username getter
+	 * 
+	 * @return string
+	 */
+	public function getUsername(): string
 	{
 		return $this->username;
 	}
 
-	public function getPassword()
+	/**
+	 * Password getter
+	 * 
+	 * @return string
+	 */
+	public function getPassword(): string
 	{
 		return $this->password;
 	}
 
-	public function getPasswordRepeat()
+	/**
+	 * PasswordRepeat getter
+	 * 
+	 * @return string
+	 */
+	public function getPasswordRepeat(): string
 	{
 		return $this->passwordRepeat;
 	}
 
+	/**
+	 * Call constructor with stdClass
+	 * 
+	 * @param stdClass $json
+	 * 
+	 * @return static
+	 */
 	public static function from(stdClass $json)
 	{
 		return new self($json->username, $json->password, $json->passwordRepeat);

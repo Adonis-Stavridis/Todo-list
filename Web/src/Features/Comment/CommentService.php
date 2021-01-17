@@ -8,13 +8,30 @@ use TodoWeb\Repositories\TaskRepository;
 
 class CommentService
 {
+	/**
+	 * @var TaskRepository $repository
+	 */
 	private TaskRepository $repository;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param TaskRepository $repository
+	 * 
+	 * @return static
+	 */
 	public function __construct(TaskRepository $repository)
 	{
 		$this->repository = $repository;
 	}
 
+	/**
+	 * Service handler
+	 * 
+	 * @param CommentRequest $request
+	 * 
+	 * @return CommentResponse
+	 */
 	public function handle(CommentRequest $request): CommentResponse
 	{
 		$newComment = $this->repository->addTaskComment($request);

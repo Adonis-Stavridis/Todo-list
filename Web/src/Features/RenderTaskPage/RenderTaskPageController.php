@@ -13,11 +13,36 @@ use TodoWeb\Repositories\TaskRepository;
 
 class RenderTaskPageController
 {
+	/**
+	 * @var TaskRepository $repository
+	 */
 	private TaskRepository $repository;
+
+	/**
+	 * @var ApiRepository $apiRepository
+	 */
 	private ApiRepository $apiRepository;
+
+	/**
+	 * @var Twig $view
+	 */
 	private Twig $view;
+
+	/**
+	 * @var RouteParserInterface $router
+	 */
 	private RouteParserInterface $router;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param TaskRepository $repository
+	 * @param ApiRepository $apiRepository
+	 * @param Twig $view
+	 * @param RouteParserInterface $router
+	 * 
+	 * @return static
+	 */
 	public function __construct(TaskRepository $repository, ApiRepository $apiRepository, Twig $view, RouteParserInterface $router)
 	{
 		$this->repository = $repository;
@@ -26,6 +51,15 @@ class RenderTaskPageController
 		$this->router = $router;
 	}
 
+	/**
+	 * Invoke function handle request and send response
+	 * 
+	 * @param ServerRequestInterface $request
+	 * @param ResponseInterface $response
+	 * @param array $args
+	 * 
+	 * @return ResponseInterface
+	 */
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{
 		if (!$_SESSION['user']) {

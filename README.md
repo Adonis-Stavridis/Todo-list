@@ -68,8 +68,10 @@ STAVRIDIS Adonis
 - Controllers
 - Ajax
 - Search/Filter feature
-- Tests
+- Tests (not for newer architecture)
 - Python script
+- Hexagonal architecture
+- API / Main domain server
 
 In general the work was well distributed, we didn't hesitate to comment or
 rectify each others work.

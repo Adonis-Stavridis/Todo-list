@@ -24,7 +24,7 @@ class Commands:
   npmInstall = 'cd Web/ && npm install'
   dockerComposeUp = 'docker-compose up --build'
   dockerComposeDown = 'docker-compose down'
-  phpUnitTest = './vendor/bin/phpunit ./test'
+  phpUnitTest = './Web/vendor/bin/phpunit ./Web/test && /Domain/vendor/bin/phpunit ./Domain/test'
 
 
 class App:
@@ -73,10 +73,12 @@ def main(argv):
     webbrowser.open('doc/index.html', new=0, autoraise=True)
 
   if (argv and argv[0] == '-test'):
+    # print('\n' + Colors.BOLD + Colors.WARNING +
+    #       "Launching tests" + Colors.ENDC)
+    # proc = subprocess.Popen(Commands.phpUnitTest, shell=True)
+    # proc.wait()
     print('\n' + Colors.BOLD + Colors.WARNING +
-          "Launching tests" + Colors.ENDC)
-    proc = subprocess.Popen(Commands.phpUnitTest, shell=True)
-    proc.wait()
+          "No tests for newer architecture" + Colors.ENDC)
 
 
 if __name__ == "__main__":

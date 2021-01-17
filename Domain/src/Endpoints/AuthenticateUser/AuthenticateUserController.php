@@ -20,8 +20,7 @@ class AuthenticateUserController
 	public function __invoke(RequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		try {
-			parse_str($request->getUri()->getQuery(), $query);
-			$body = json_decode(json_encode($query));
+			parse_str($request->getUri()->getQuery(), $body);
 			$businessRequest = AuthenticateUserRequest::from($body);
 			$businessResponse = $this->service->handle($businessRequest);
 

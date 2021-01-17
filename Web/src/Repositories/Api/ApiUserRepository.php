@@ -35,7 +35,7 @@ class ApiUserRepository implements UserRepository
 		$apiRequest->getBody()->write(json_encode($request->jsonSerialize()));
 
 		$apiResponse = $this->httpClient->sendRequest($apiRequest);
-
+		var_dump($apiResponse->getBody()->__toString());
 		if ($apiResponse->getStatusCode() !== 200) {
 			return null;
 		}

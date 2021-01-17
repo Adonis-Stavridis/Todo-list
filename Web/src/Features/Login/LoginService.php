@@ -18,11 +18,12 @@ class LoginService
 
 	public function handle(LoginRequest $request): LoginResponse
 	{
-		$user = $this->repository->getUser($request);
-		if (!$user) {
+		$userArray = $this->repository->getUser($request);
+
+		if (!$userArray || !password_verify($request->getPassword(), $userArray['password'])) {
 			throw new IncorrectUsernameOrPasswordException();
 		}
 
-		return new LoginResponse($user);
+		return new LoginResponse($userArray['user']);
 	}
 }

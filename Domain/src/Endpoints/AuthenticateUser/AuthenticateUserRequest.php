@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace TodoDomain\Endpoints\AuthenticateUser;
 
-use stdClass;
-
 class AuthenticateUserRequest
 {
 	private string $username;
@@ -27,8 +25,8 @@ class AuthenticateUserRequest
 		return $this->password;
 	}
 
-	public static function from(stdClass $json)
+	public static function from(array $json)
 	{
-		return new self($json->username, $json->password);
+		return new self($json['username'], $json['password']);
 	}
 }

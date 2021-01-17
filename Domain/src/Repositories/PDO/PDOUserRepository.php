@@ -18,12 +18,17 @@ class PDOUserRepository implements UserRepository
 		$this->pdo = $pdo;
 	}
 
-	public function getUser(string $username): array
+	public function getUser(string $username): ?array
 	{
 		$query = 'SELECT id, password FROM users WHERE username = ?';
 		$stmt = $this->pdo->prepare($query);
 		$stmt->execute([$username]);
 		$res = $stmt->fetch();
+
+		if (!$res)
+		{
+			return null;
+		}
 
 		return array(
 			'user' => new User((int)$res['id'], $username),

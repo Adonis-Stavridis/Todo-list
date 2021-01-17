@@ -4,14 +4,32 @@ declare(strict_types=1);
 
 namespace TodoWeb\Models;
 
-use JsonSerializable;
-
-class Comment implements JsonSerializable
+class Comment
 {
+	/**
+	 * @var string $createdBy
+	 */
 	private string $createdBy;
+
+	/**
+	 * @var string $createdAt
+	 */
 	private string $createdAt;
+
+	/**
+	 * @var string $comment
+	 */
 	private string $comment;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param string $createdBy
+	 * @param string $createdAt
+	 * @param string $comment
+	 * 
+	 * @return static
+	 */
 	public function __construct(string $createdBy, string $createdAt, string $comment)
 	{
 		$this->createdBy = $createdBy;
@@ -19,23 +37,33 @@ class Comment implements JsonSerializable
 		$this->comment = $comment;
 	}
 
-	public function getCreatedBy()
+	/**
+	 * CreatedBy getter
+	 * 
+	 * @return string
+	 */
+	public function getCreatedBy(): string
 	{
 		return $this->createdBy;
 	}
 
-	public function getCreatedAt()
+	/**
+	 * CreatedAt getter
+	 * 
+	 * @return string
+	 */
+	public function getCreatedAt(): string
 	{
 		return $this->createdAt;
 	}
 
-	public function getComment()
+	/**
+	 * Comment getter
+	 * 
+	 * @return string
+	 */
+	public function getComment(): string
 	{
 		return $this->comment;
-	}
-
-	public function jsonSerialize()
-	{
-		return get_object_vars($this);
 	}
 }

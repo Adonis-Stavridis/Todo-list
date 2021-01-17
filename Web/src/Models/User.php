@@ -4,31 +4,49 @@ declare(strict_types=1);
 
 namespace TodoWeb\Models;
 
-use stdClass;
-
 class User
 {
+	/**
+	 * @var int $id
+	 */
 	private int $id;
+
+	/**
+	 * @var string $username
+	 */
 	private string $username;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param int $id
+	 * @param string $username
+	 * 
+	 * @return static
+	 */
 	public function __construct(int $id, string $username)
 	{
 		$this->id = $id;
 		$this->username = $username;
 	}
 
-	public function getId()
+	/**
+	 * Id getter
+	 * 
+	 * @return int
+	 */
+	public function getId(): int
 	{
 		return $this->id;
 	}
 
-	public function getUsername()
+	/**
+	 * Username getter
+	 * 
+	 * @return string
+	 */
+	public function getUsername(): string
 	{
 		return $this->username;
-	}
-
-	public static function from(stdClass $json)
-	{
-		return new self($json->id, $json->username);
 	}
 }

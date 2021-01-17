@@ -16,7 +16,7 @@ use TodoWeb\Features\Signup\SignupController;
 use function DI\value;
 
 /**
- * Set a RouteParserInterface::class field inside the container.
+ * Set a 'RouteParserInterface' field inside the container.
  */
 $container->set(
 	RouteParserInterface::class,

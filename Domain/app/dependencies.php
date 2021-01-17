@@ -13,7 +13,7 @@ use function DI\get;
  * Builds a container with all dependencies.
  *
  * Set a 'PDO' field inside the container to access a PDO instance to connect to
- * a database. Sets all repositories. Returns the built 
+ * a database. Set all repositories. Returns the built 
  * container.
  *
  * @return Container

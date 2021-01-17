@@ -15,11 +15,36 @@ use TodoWeb\Repositories\UserRepository;
 
 class ApiUserRepository implements UserRepository
 {
+	/**
+	 * @var ClientInterface $httpClient
+	 */
 	private ClientInterface $httpClient;
+
+	/**
+	 * @var RequestFactoryInterface $requestFactory
+	 */
 	private RequestFactoryInterface $requestFactory;
+
+	/**
+	 * @var StreamFactoryInterface $streamFactory
+	 */
 	private StreamFactoryInterface $streamFactory;
+
+	/**
+	 * @var string $apiEndpoint
+	 */
 	private string $apiEndpoint;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param ClientInterface $httpClient
+	 * @param RequestFactoryInterface $requestFactory
+	 * @param StreamFactoryInterface $streamFactory
+	 * @param string $apiEndpoint
+	 * 
+	 * @return static
+	 */
 	public function __construct(ClientInterface $httpClient, RequestFactoryInterface $requestFactory, StreamFactoryInterface $streamFactory, string $apiEndpoint)
 	{
 		$this->httpClient = $httpClient;
@@ -28,6 +53,13 @@ class ApiUserRepository implements UserRepository
 		$this->apiEndpoint = $apiEndpoint;
 	}
 
+	/**
+	 * Get user
+	 * 
+	 * @param LoginRequest $request
+	 * 
+	 * @return mixed
+	 */
 	public function getUser(LoginRequest $request): ?array
 	{
 
@@ -45,6 +77,11 @@ class ApiUserRepository implements UserRepository
 		return $jsonResponse;
 	}
 
+	/**
+	 * Get all users
+	 * 
+	 * @return array
+	 */
 	public function getAll(): array
 	{
 		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/users');
@@ -65,6 +102,34 @@ class ApiUserRepository implements UserRepository
 		return $users;
 	}
 
+	/**
+	 * Check if user exists
+	 * 
+	 * @param string $username
+	 * 
+	 * @return bool
+	 */
+	public function userExists(string $username): bool
+	{
+		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/users/' . $username);
+
+		$apiResponse = $this->httpClient->sendRequest($apiRequest);
+
+		if ($apiResponse->getStatusCode() !== 200) {
+			return false;
+		}
+
+		return true;
+	}
+
+
+	/**
+	 * Add user
+	 * 
+	 * @param SignupRequest $signup
+	 * 
+	 * @return bool
+	 */
 	public function addUser(SignupRequest $signup): bool
 	{
 		$apiRequest = $this->requestFactory->createRequest('POST', $this->apiEndpoint . '/users');
@@ -79,18 +144,5 @@ class ApiUserRepository implements UserRepository
 		$jsonResponse = json_decode($apiResponse->getBody()->__toString());
 
 		return $jsonResponse->inserted;
-	}
-
-	public function userExists(string $username): bool
-	{
-		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/users/' . $username);
-
-		$apiResponse = $this->httpClient->sendRequest($apiRequest);
-
-		if ($apiResponse->getStatusCode() !== 200) {
-			return false;
-		}
-
-		return true;
 	}
 }

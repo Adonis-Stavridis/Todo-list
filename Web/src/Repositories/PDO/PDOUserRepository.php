@@ -12,13 +12,30 @@ use TodoWeb\Repositories\UserRepository;
 
 class PDOUserRepository implements UserRepository
 {
+	/**
+	 * @var PDO $pdo
+	 */
 	private PDO $pdo;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param PDO $pdo
+	 * 
+	 * @return static
+	 */
 	public function __construct(PDO $pdo)
 	{
 		$this->pdo = $pdo;
 	}
 
+	/**
+	 * Get user
+	 * 
+	 * @param LoginRequest $request
+	 * 
+	 * @return mixed
+	 */
 	public function getUser(LoginRequest $request): ?array
 	{
 		$query = 'SELECT id, password FROM users WHERE username = ?';
@@ -36,6 +53,11 @@ class PDOUserRepository implements UserRepository
 		);
 	}
 
+	/**
+	 * Get all users
+	 * 
+	 * @return array
+	 */
 	public function getAll(): array
 	{
 		$query = 'SELECT id,username FROM users';
@@ -51,6 +73,13 @@ class PDOUserRepository implements UserRepository
 		return $users;
 	}
 
+	/**
+	 * Check if user exists
+	 * 
+	 * @param string $username
+	 * 
+	 * @return bool
+	 */
 	public function userExists(string $username): bool
 	{
 		$query = 'SELECT 1 FROM users WHERE username = ?';
@@ -61,6 +90,13 @@ class PDOUserRepository implements UserRepository
 		return $res ? true : false;
 	}
 
+	/**
+	 * Add user
+	 * 
+	 * @param SignupRequest $signup
+	 * 
+	 * @return bool
+	 */
 	public function addUser(SignupRequest $signup): bool
 	{
 		$query = 'INSERT INTO users (username, password) VALUES ( ? , ? )';

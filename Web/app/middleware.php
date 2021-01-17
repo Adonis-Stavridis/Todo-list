@@ -12,7 +12,7 @@ use TodoWeb\Features\Render404Page\Render404PageController;
 /**
  * Creates middleware to handle errors.
  * 
- * Handle proper display of erros and 404 response status.
+ * Handle proper display of errors and 404 response status.
  * 
  * @param App $app
  *

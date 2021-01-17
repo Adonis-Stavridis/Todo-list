@@ -15,11 +15,36 @@ use TodoWeb\Repositories\ApiRepository;
 
 class ApiTaskRepository implements ApiRepository
 {
+	/**
+	 * @var ClientInterface $httpClient
+	 */
 	private ClientInterface $httpClient;
+
+	/**
+	 * @var RequestFactoryInterface $requestFactory
+	 */
 	private RequestFactoryInterface $requestFactory;
+
+	/**
+	 * @var StreamFactoryInterface $streamFactory
+	 */
 	private StreamFactoryInterface $streamFactory;
+
+	/**
+	 * @var string $apiEndpoint
+	 */
 	private string $apiEndpoint;
 
+	/**
+	 * Constructor function
+	 * 
+	 * @param ClientInterface $httpClient
+	 * @param RequestFactoryInterface $requestFactory
+	 * @param StreamFactoryInterface $streamFactory
+	 * @param string $apiEndpoint
+	 * 
+	 * @return static
+	 */
 	public function __construct(ClientInterface $httpClient, RequestFactoryInterface $requestFactory, StreamFactoryInterface $streamFactory, string $apiEndpoint)
 	{
 		$this->httpClient = $httpClient;
@@ -28,6 +53,13 @@ class ApiTaskRepository implements ApiRepository
 		$this->apiEndpoint = $apiEndpoint;
 	}
 
+	/**
+	 * Get a task
+	 * 
+	 * @param int $taskId
+	 * 
+	 * @return Task
+	 */
 	public function getTask(int $taskId): Task
 	{
 		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/tasks/' . $taskId);
@@ -51,6 +83,11 @@ class ApiTaskRepository implements ApiRepository
 		);
 	}
 
+	/**
+	 * Get all tasks
+	 * 
+	 * @return array
+	 */
 	public function getAll(): array
 	{
 		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/tasks');
@@ -76,6 +113,13 @@ class ApiTaskRepository implements ApiRepository
 		return $tasks;
 	}
 
+	/**
+	 * Add a task
+	 * 
+	 * @param CreateTaskRequest $task
+	 * 
+	 * @return int
+	 */
 	public function addTask(CreateTaskRequest $task): int
 	{
 		$apiRequest = $this->requestFactory->createRequest('POST', $this->apiEndpoint . '/tasks');
@@ -92,6 +136,13 @@ class ApiTaskRepository implements ApiRepository
 		return $jsonResponse->taskId;
 	}
 
+	/**
+	 * Get task comments
+	 * 
+	 * @param int $taskId
+	 * 
+	 * @return array
+	 */
 	public function getTaskComments(int $taskId): array
 	{
 		$apiRequest = $this->requestFactory->createRequest('GET', $this->apiEndpoint . '/tasks/' . $taskId . '/comments');
@@ -116,6 +167,13 @@ class ApiTaskRepository implements ApiRepository
 		return $comments;
 	}
 
+	/**
+	 * Add comment to task
+	 * 
+	 * @param CommentRequest $comment
+	 * 
+	 * @return Comment
+	 */
 	public function addTaskComment(CommentRequest $comment): Comment
 	{
 		$apiRequest = $this->requestFactory->createRequest('POST', $this->apiEndpoint . '/tasks/' . $comment->getTaskId() . '/comments');
